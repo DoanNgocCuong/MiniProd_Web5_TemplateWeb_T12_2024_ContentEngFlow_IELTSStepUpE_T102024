@@ -11,4 +11,4 @@ app.register_blueprint(scripts_bp, url_prefix='/api/scripts')
 app.register_blueprint(files_bp, url_prefix='/api/files')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(debug=True)

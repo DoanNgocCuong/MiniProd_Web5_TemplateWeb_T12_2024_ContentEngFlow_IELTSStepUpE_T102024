@@ -7,10 +7,8 @@ bp = Blueprint('files', __name__)
 
 UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '../../uploads')
 OUTPUT_FOLDER = os.path.join(os.path.dirname(__file__), '../../output')
-EXAMPLE_FOLDER = os.path.join(os.path.dirname(__file__), '../../example')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
-os.makedirs(EXAMPLE_FOLDER, exist_ok=True)
 
 @bp.route('/upload', methods=['POST'])
 def upload_file():
@@ -47,12 +45,10 @@ def upload_file():
 @bp.route('/list/<folder>', methods=['GET'])
 def list_files(folder):
     try:
-        if folder not in ['uploads', 'output', 'example']:
+        if folder not in ['uploads', 'output']:
             return jsonify({'error': 'Invalid folder'}), 400
             
-        folder_path = UPLOAD_FOLDER if folder == 'uploads' else (
-            OUTPUT_FOLDER if folder == 'output' else EXAMPLE_FOLDER
-        )
+        folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER
         items = []
         
         for item_name in os.listdir(folder_path):
@@ -86,7 +82,7 @@ def list_files(folder):
 @bp.route('/download/<folder>/<path:filename>', methods=['GET'])
 def download_folder_file(folder, filename):
     try:
-        if folder not in ['uploads', 'output', 'example']:
+        if folder not in ['uploads', 'output']:
             return jsonify({'error': 'Invalid folder'}), 400
             
         folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER
@@ -130,7 +126,7 @@ def download_folder_file(folder, filename):
 @bp.route('/download/<folder>/all', methods=['GET'])
 def download_all(folder):
     try:
-        if folder not in ['uploads', 'output', 'example']:
+        if folder not in ['uploads', 'output']:
             return jsonify({'error': 'Invalid folder'}), 400
             
         folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER
