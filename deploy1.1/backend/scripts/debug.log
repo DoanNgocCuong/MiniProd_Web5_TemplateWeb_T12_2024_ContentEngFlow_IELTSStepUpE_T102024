@@ -1285,3 +1285,300 @@ Situation: Aubrey and Isaac, engineers, at a construction site', Response receiv
 2024-11-14 16:57:51,131 - __main__ - INFO - Processing complete. Final output saved to: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_story.xlsx
 2024-11-14 16:57:51,256 - httpcore.connection - DEBUG - close.started
 2024-11-14 16:57:51,257 - httpcore.connection - DEBUG - close.complete
+2024-11-14 17:14:32,409 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-11-14 17:14:32,410 - __main__ - DEBUG - Upload folder path: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\uploads
+2024-11-14 17:14:32,410 - __main__ - DEBUG - Output folder path: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output
+2024-11-14 17:14:32,410 - __main__ - INFO - Starting main process
+2024-11-14 17:14:32,410 - __main__ - INFO - Starting initial data processing
+2024-11-14 17:14:32,900 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-14 17:14:32,901 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\certifi\\cacert.pem'
+2024-11-14 17:14:33,823 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-14 17:14:33,823 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-11-14 17:14:33,939 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001CFEFD93AD0>
+2024-11-14 17:14:33,939 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001CFF003CC50> server_hostname='api.openai.com' timeout=5.0
+2024-11-14 17:14:34,006 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001CFF00A4EF0>
+2024-11-14 17:14:34,007 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-14 17:14:34,008 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-14 17:14:34,008 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-14 17:14:34,008 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-14 17:14:34,008 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-14 17:14:45,248 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 14 Nov 2024 10:14:41 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'10891'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'448148'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'246ms'), (b'x-request-id', b'req_c4dbcf915b8def88e4cebfe156f78f32'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=q0EWnFqWXduahm1JP.dJ2bbB4YNHLJZF8I2XFA8yGs0-1731579281-1.0.1.1-q3DMB4EFfWDnoqwTYH_mKqEUmVYCI4KuZcyKet0fPdVGnojfS5jJdwsi7J1gQ8LWQCjC2tg764j.dIR.QPq_5Q; path=/; expires=Thu, 14-Nov-24 10:44:41 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=DtUtxR72QxD0_ekY_y5RIAS6zyo.Yycee7iH6wW7AGo-1731579281318-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8e263c265bfe821f-SIN'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-14 17:14:45,250 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-14 17:14:45,250 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-14 17:14:45,251 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-14 17:14:45,251 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-14 17:14:45,251 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-14 17:14:45,252 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Thu, 14 Nov 2024 10:14:41 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'step-up-ognepk'), ('openai-processing-ms', '10891'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '450000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '448148'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '246ms'), ('x-request-id', 'req_c4dbcf915b8def88e4cebfe156f78f32'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=q0EWnFqWXduahm1JP.dJ2bbB4YNHLJZF8I2XFA8yGs0-1731579281-1.0.1.1-q3DMB4EFfWDnoqwTYH_mKqEUmVYCI4KuZcyKet0fPdVGnojfS5jJdwsi7J1gQ8LWQCjC2tg764j.dIR.QPq_5Q; path=/; expires=Thu, 14-Nov-24 10:44:41 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=DtUtxR72QxD0_ekY_y5RIAS6zyo.Yycee7iH6wW7AGo-1731579281318-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8e263c265bfe821f-SIN'), ('content-encoding', 'br'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-11-14 17:14:45,252 - openai._base_client - DEBUG - request_id: req_c4dbcf915b8def88e4cebfe156f78f32
+2024-11-14 17:14:45,264 - __main__ - DEBUG - Order 1, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response received in 12.36s
+2024-11-14 17:14:45,264 - __main__ - DEBUG - Processed row - Order: 1
+2024-11-14 17:14:45,278 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-14 17:14:45,279 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-14 17:14:45,280 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-14 17:14:45,281 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-14 17:14:45,281 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-14 17:14:45,281 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-14 17:14:57,364 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 14 Nov 2024 10:14:53 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'11612'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'448146'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'247ms'), (b'x-request-id', b'req_a580cfee7d11f0f0843e2306e0ab07f7'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8e263c6cdd70821f-SIN'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-14 17:14:57,365 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-14 17:14:57,365 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-14 17:14:57,366 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-14 17:14:57,366 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-14 17:14:57,366 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-14 17:14:57,366 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Thu, 14 Nov 2024 10:14:53 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'step-up-ognepk', 'openai-processing-ms': '11612', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '500', 'x-ratelimit-limit-tokens': '450000', 'x-ratelimit-remaining-requests': '499', 'x-ratelimit-remaining-tokens': '448146', 'x-ratelimit-reset-requests': '120ms', 'x-ratelimit-reset-tokens': '247ms', 'x-request-id': 'req_a580cfee7d11f0f0843e2306e0ab07f7', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8e263c6cdd70821f-SIN', 'content-encoding': 'br', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-14 17:14:57,368 - openai._base_client - DEBUG - request_id: req_a580cfee7d11f0f0843e2306e0ab07f7
+2024-11-14 17:14:57,369 - __main__ - DEBUG - Order 2, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response received in 12.10s
+2024-11-14 17:14:57,369 - __main__ - DEBUG - Processed row - Order: 2
+2024-11-14 17:14:57,554 - __main__ - INFO - Output saved to D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_draft.xlsx
+2024-11-14 17:14:57,555 - __main__ - INFO - Starting story data processing
+2024-11-14 17:14:57,584 - __main__ - DEBUG - Processing story data for order 1
+2024-11-14 17:14:57,585 - __main__ - DEBUG - Processing story data for order 2
+2024-11-14 17:14:57,668 - __main__ - INFO - Story data processing complete, saved to D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_story.xlsx
+2024-11-14 17:14:57,668 - __main__ - INFO - Starting audio generation
+2024-11-14 17:14:57,687 - __main__ - DEBUG - Generating audio for order 1
+2024-11-14 17:14:57,688 - __main__ - DEBUG - Sending TTS request for order 1, role female_1
+2024-11-14 17:14:57,694 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:14:57,879 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:14:58,798 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 133710
+2024-11-14 17:14:58,892 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\female_1.wav
+2024-11-14 17:14:58,893 - __main__ - DEBUG - Sending TTS request for order 1, role male_1
+2024-11-14 17:14:58,895 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:14:58,911 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:14:59,612 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-11-14 17:14:59,613 - __main__ - DEBUG - Upload folder path: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\uploads
+2024-11-14 17:14:59,613 - __main__ - DEBUG - Output folder path: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output
+2024-11-14 17:14:59,613 - __main__ - INFO - Starting main process
+2024-11-14 17:14:59,613 - __main__ - INFO - Starting initial data processing
+2024-11-14 17:15:00,240 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 216142
+2024-11-14 17:15:00,293 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-14 17:15:00,295 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\certifi\\cacert.pem'
+2024-11-14 17:15:00,295 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\male_1.wav
+2024-11-14 17:15:00,296 - __main__ - DEBUG - Sending TTS request for order 1, role female_2
+2024-11-14 17:15:00,298 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:00,313 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:01,268 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-14 17:15:01,268 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-11-14 17:15:01,795 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 229454
+2024-11-14 17:15:01,834 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\female_2.wav
+2024-11-14 17:15:01,835 - __main__ - DEBUG - Sending TTS request for order 1, role male_2
+2024-11-14 17:15:01,837 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:01,849 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:02,342 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000016A56893A40>
+2024-11-14 17:15:02,343 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000016A56B40C50> server_hostname='api.openai.com' timeout=5.0
+2024-11-14 17:15:02,419 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000016A56AEB7D0>
+2024-11-14 17:15:02,420 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-14 17:15:02,421 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-14 17:15:02,421 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-14 17:15:02,421 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-14 17:15:02,422 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-14 17:15:03,746 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 313934
+2024-11-14 17:15:03,799 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\male_2.wav
+2024-11-14 17:15:03,800 - __main__ - DEBUG - Generating audio for order 2
+2024-11-14 17:15:03,801 - __main__ - DEBUG - Sending TTS request for order 2, role female_1
+2024-11-14 17:15:03,804 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:03,819 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:05,152 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 204878
+2024-11-14 17:15:05,187 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\female_1.wav
+2024-11-14 17:15:05,188 - __main__ - DEBUG - Sending TTS request for order 2, role male_1
+2024-11-14 17:15:05,190 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:05,203 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:06,816 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 202830
+2024-11-14 17:15:06,844 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\male_1.wav
+2024-11-14 17:15:06,844 - __main__ - DEBUG - Sending TTS request for order 2, role female_2
+2024-11-14 17:15:06,847 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:06,863 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:08,477 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 258638
+2024-11-14 17:15:08,512 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\female_2.wav
+2024-11-14 17:15:08,513 - __main__ - DEBUG - Sending TTS request for order 2, role male_2
+2024-11-14 17:15:08,515 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:08,529 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:10,482 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 313934
+2024-11-14 17:15:10,530 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\male_2.wav
+2024-11-14 17:15:10,530 - __main__ - INFO - Audio generation complete
+2024-11-14 17:15:10,530 - __main__ - INFO - Processing complete. Final output saved to: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_story.xlsx
+2024-11-14 17:15:10,638 - httpcore.connection - DEBUG - close.started
+2024-11-14 17:15:10,639 - httpcore.connection - DEBUG - close.complete
+2024-11-14 17:15:12,530 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 14 Nov 2024 10:15:08 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'9729'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'448148'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'246ms'), (b'x-request-id', b'req_441a0898c77df1d685c0f3460da66801'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=DVkrCDNN5_fTiwKhl4FxChu3D9BvJ4Rllz4ybZBKtds-1731579308-1.0.1.1-tChB99ab.Z4sbaMyjr6IkII8oDZSBxF6DwXGqK7zp6Pn0v.CMuD_PMsfqieRbD4mmFNrcFgJGT.mzKyJF5NhtA; path=/; expires=Thu, 14-Nov-24 10:45:08 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=FxhYFzMZvmYFToGJdZXHleK9JRN737NhGEWPO4Rg0fY-1731579308562-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8e263cd7ff3c9c35-SIN'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-14 17:15:12,531 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-14 17:15:12,531 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-14 17:15:12,532 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-14 17:15:12,532 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-14 17:15:12,533 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-14 17:15:12,533 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Thu, 14 Nov 2024 10:15:08 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'step-up-ognepk'), ('openai-processing-ms', '9729'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '450000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '448148'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '246ms'), ('x-request-id', 'req_441a0898c77df1d685c0f3460da66801'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=DVkrCDNN5_fTiwKhl4FxChu3D9BvJ4Rllz4ybZBKtds-1731579308-1.0.1.1-tChB99ab.Z4sbaMyjr6IkII8oDZSBxF6DwXGqK7zp6Pn0v.CMuD_PMsfqieRbD4mmFNrcFgJGT.mzKyJF5NhtA; path=/; expires=Thu, 14-Nov-24 10:45:08 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=FxhYFzMZvmYFToGJdZXHleK9JRN737NhGEWPO4Rg0fY-1731579308562-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8e263cd7ff3c9c35-SIN'), ('content-encoding', 'br'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-11-14 17:15:12,533 - openai._base_client - DEBUG - request_id: req_441a0898c77df1d685c0f3460da66801
+2024-11-14 17:15:12,540 - __main__ - DEBUG - Order 1, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response received in 12.25s
+2024-11-14 17:15:12,541 - __main__ - DEBUG - Processed row - Order: 1
+2024-11-14 17:15:12,553 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-14 17:15:12,554 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-14 17:15:12,555 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-14 17:15:12,556 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-14 17:15:12,556 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-14 17:15:12,556 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-14 17:15:23,805 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 14 Nov 2024 10:15:19 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'10860'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'448146'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'247ms'), (b'x-request-id', b'req_8fea4fa66fac8d870aade1339bc1678b'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8e263d174ac89c35-SIN'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-14 17:15:23,805 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-14 17:15:23,806 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-14 17:15:23,806 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-14 17:15:23,807 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-14 17:15:23,807 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-14 17:15:23,807 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Thu, 14 Nov 2024 10:15:19 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'step-up-ognepk', 'openai-processing-ms': '10860', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '500', 'x-ratelimit-limit-tokens': '450000', 'x-ratelimit-remaining-requests': '499', 'x-ratelimit-remaining-tokens': '448146', 'x-ratelimit-reset-requests': '120ms', 'x-ratelimit-reset-tokens': '247ms', 'x-request-id': 'req_8fea4fa66fac8d870aade1339bc1678b', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8e263d174ac89c35-SIN', 'content-encoding': 'br', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-14 17:15:23,807 - openai._base_client - DEBUG - request_id: req_8fea4fa66fac8d870aade1339bc1678b
+2024-11-14 17:15:23,808 - __main__ - DEBUG - Order 2, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response received in 11.27s
+2024-11-14 17:15:23,808 - __main__ - DEBUG - Processed row - Order: 2
+2024-11-14 17:15:23,890 - __main__ - INFO - Output saved to D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_draft.xlsx
+2024-11-14 17:15:23,891 - __main__ - INFO - Starting story data processing
+2024-11-14 17:15:23,909 - __main__ - DEBUG - Processing story data for order 1
+2024-11-14 17:15:23,909 - __main__ - DEBUG - Processing story data for order 2
+2024-11-14 17:15:23,945 - __main__ - INFO - Story data processing complete, saved to D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_story.xlsx
+2024-11-14 17:15:23,945 - __main__ - INFO - Starting audio generation
+2024-11-14 17:15:23,954 - __main__ - DEBUG - Generating audio for order 1
+2024-11-14 17:15:23,954 - __main__ - DEBUG - Sending TTS request for order 1, role female_1
+2024-11-14 17:15:23,957 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:23,969 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:25,048 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 166990
+2024-11-14 17:15:25,072 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\female_1.wav
+2024-11-14 17:15:25,073 - __main__ - DEBUG - Sending TTS request for order 1, role male_1
+2024-11-14 17:15:25,075 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:25,088 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:26,560 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 220750
+2024-11-14 17:15:26,602 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\male_1.wav
+2024-11-14 17:15:26,602 - __main__ - DEBUG - Sending TTS request for order 1, role female_2
+2024-11-14 17:15:26,604 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:26,616 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:28,504 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 298574
+2024-11-14 17:15:28,555 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\female_2.wav
+2024-11-14 17:15:28,556 - __main__ - DEBUG - Sending TTS request for order 1, role male_2
+2024-11-14 17:15:28,557 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:28,572 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:30,373 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 300622
+2024-11-14 17:15:30,417 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\male_2.wav
+2024-11-14 17:15:30,418 - __main__ - DEBUG - Generating audio for order 2
+2024-11-14 17:15:30,418 - __main__ - DEBUG - Sending TTS request for order 2, role female_1
+2024-11-14 17:15:30,420 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:30,433 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:31,704 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 162382
+2024-11-14 17:15:31,729 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\female_1.wav
+2024-11-14 17:15:31,729 - __main__ - DEBUG - Sending TTS request for order 2, role male_1
+2024-11-14 17:15:31,730 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:31,746 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:33,046 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 200270
+2024-11-14 17:15:33,136 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\male_1.wav
+2024-11-14 17:15:33,137 - __main__ - DEBUG - Sending TTS request for order 2, role female_2
+2024-11-14 17:15:33,139 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:33,160 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:35,230 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 293966
+2024-11-14 17:15:35,275 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\female_2.wav
+2024-11-14 17:15:35,275 - __main__ - DEBUG - Sending TTS request for order 2, role male_2
+2024-11-14 17:15:35,277 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:15:35,289 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:15:37,217 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 327758
+2024-11-14 17:15:37,274 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\male_2.wav
+2024-11-14 17:15:37,275 - __main__ - INFO - Audio generation complete
+2024-11-14 17:15:37,275 - __main__ - INFO - Processing complete. Final output saved to: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_story.xlsx
+2024-11-14 17:15:37,387 - httpcore.connection - DEBUG - close.started
+2024-11-14 17:15:37,388 - httpcore.connection - DEBUG - close.complete
+2024-11-14 17:28:16,040 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-11-14 17:28:16,040 - __main__ - DEBUG - Upload folder path: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\uploads
+2024-11-14 17:28:16,040 - __main__ - DEBUG - Output folder path: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output
+2024-11-14 17:28:16,040 - __main__ - INFO - Starting main process
+2024-11-14 17:28:16,041 - __main__ - INFO - Starting initial data processing
+2024-11-14 17:28:16,562 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-14 17:28:16,564 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\certifi\\cacert.pem'
+2024-11-14 17:28:17,533 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-14 17:28:17,533 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-11-14 17:28:17,847 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000251BF5D6270>
+2024-11-14 17:28:17,847 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000251BF648C50> server_hostname='api.openai.com' timeout=5.0
+2024-11-14 17:28:18,216 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000251BF3A4350>
+2024-11-14 17:28:18,217 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-14 17:28:18,217 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-14 17:28:18,217 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-14 17:28:18,217 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-14 17:28:18,218 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-14 17:28:28,848 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 14 Nov 2024 10:28:24 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'10270'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'448148'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'246ms'), (b'x-request-id', b'req_6a5515e4e08220a14129e2d066c7054a'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=hDVGR0YuT8k1hzRu3lzjA7QXafLX6YTxqQHXgMGM9Aw-1731580104-1.0.1.1-I.k2YTVnJP2oryjROmUZ81gwhcaTcVpDWyAD0tE36zdgW5nOL6ViquJAYSuI0RLtaEyr2MnF7jtZSnLQkiKtdg; path=/; expires=Thu, 14-Nov-24 10:58:24 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=VdwpdrRBJDsojtguATHfn1x1p_0HYL3gIGCnLnHEG.E-1731580104928-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8e265045bc7f6004-SIN'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-14 17:28:28,850 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-14 17:28:28,850 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-14 17:28:28,851 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-14 17:28:28,851 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-14 17:28:28,851 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-14 17:28:28,851 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Thu, 14 Nov 2024 10:28:24 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'step-up-ognepk'), ('openai-processing-ms', '10270'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '450000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '448148'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '246ms'), ('x-request-id', 'req_6a5515e4e08220a14129e2d066c7054a'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=hDVGR0YuT8k1hzRu3lzjA7QXafLX6YTxqQHXgMGM9Aw-1731580104-1.0.1.1-I.k2YTVnJP2oryjROmUZ81gwhcaTcVpDWyAD0tE36zdgW5nOL6ViquJAYSuI0RLtaEyr2MnF7jtZSnLQkiKtdg; path=/; expires=Thu, 14-Nov-24 10:58:24 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=VdwpdrRBJDsojtguATHfn1x1p_0HYL3gIGCnLnHEG.E-1731580104928-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8e265045bc7f6004-SIN'), ('content-encoding', 'br'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-11-14 17:28:28,852 - openai._base_client - DEBUG - request_id: req_6a5515e4e08220a14129e2d066c7054a
+2024-11-14 17:28:28,858 - __main__ - DEBUG - Order 1, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response received in 12.30s
+2024-11-14 17:28:28,858 - __main__ - DEBUG - Processed row - Order: 1
+2024-11-14 17:28:28,867 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-14 17:28:28,867 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-14 17:28:28,868 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-14 17:28:28,868 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-14 17:28:28,868 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-14 17:28:28,868 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-14 17:28:39,246 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 14 Nov 2024 10:28:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'9951'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'448146'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'247ms'), (b'x-request-id', b'req_d0c2b6108bb766e5436acd4368d778b5'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8e2650884e8a6004-SIN'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-14 17:28:39,246 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-14 17:28:39,247 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-14 17:28:39,247 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-14 17:28:39,247 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-14 17:28:39,247 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-14 17:28:39,247 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Thu, 14 Nov 2024 10:28:35 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'step-up-ognepk', 'openai-processing-ms': '9951', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '500', 'x-ratelimit-limit-tokens': '450000', 'x-ratelimit-remaining-requests': '499', 'x-ratelimit-remaining-tokens': '448146', 'x-ratelimit-reset-requests': '120ms', 'x-ratelimit-reset-tokens': '247ms', 'x-request-id': 'req_d0c2b6108bb766e5436acd4368d778b5', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8e2650884e8a6004-SIN', 'content-encoding': 'br', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-14 17:28:39,248 - openai._base_client - DEBUG - request_id: req_d0c2b6108bb766e5436acd4368d778b5
+2024-11-14 17:28:39,248 - __main__ - DEBUG - Order 2, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response received in 10.39s
+2024-11-14 17:28:39,249 - __main__ - DEBUG - Processed row - Order: 2
+2024-11-14 17:28:39,338 - __main__ - INFO - Output saved to D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_draft.xlsx
+2024-11-14 17:28:39,338 - __main__ - INFO - Starting story data processing
+2024-11-14 17:28:39,356 - __main__ - DEBUG - Processing story data for order 1
+2024-11-14 17:28:39,357 - __main__ - DEBUG - Processing story data for order 2
+2024-11-14 17:28:39,398 - __main__ - INFO - Story data processing complete, saved to D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_story.xlsx
+2024-11-14 17:28:39,399 - __main__ - INFO - Starting audio generation
+2024-11-14 17:28:39,407 - __main__ - DEBUG - Generating audio for order 1
+2024-11-14 17:28:39,408 - __main__ - DEBUG - Sending TTS request for order 1, role female_1
+2024-11-14 17:28:39,411 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:28:39,426 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:28:40,413 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 147022
+2024-11-14 17:28:40,441 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\female_1.wav
+2024-11-14 17:28:40,441 - __main__ - DEBUG - Sending TTS request for order 1, role male_1
+2024-11-14 17:28:40,444 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:28:40,456 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:28:41,912 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 224846
+2024-11-14 17:28:41,954 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\male_1.wav
+2024-11-14 17:28:41,954 - __main__ - DEBUG - Sending TTS request for order 1, role female_2
+2024-11-14 17:28:41,958 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:28:41,971 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:28:43,760 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 242766
+2024-11-14 17:28:43,808 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\female_2.wav
+2024-11-14 17:28:43,808 - __main__ - DEBUG - Sending TTS request for order 1, role male_2
+2024-11-14 17:28:43,811 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:28:43,826 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:28:45,488 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 265294
+2024-11-14 17:28:45,579 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\1\male_2.wav
+2024-11-14 17:28:45,580 - __main__ - DEBUG - Generating audio for order 2
+2024-11-14 17:28:45,580 - __main__ - DEBUG - Sending TTS request for order 2, role female_1
+2024-11-14 17:28:45,583 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:28:45,601 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:28:47,118 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 160334
+2024-11-14 17:28:47,187 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\female_1.wav
+2024-11-14 17:28:47,188 - __main__ - DEBUG - Sending TTS request for order 2, role male_1
+2024-11-14 17:28:47,189 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:28:47,201 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:28:48,675 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 227406
+2024-11-14 17:28:48,718 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\male_1.wav
+2024-11-14 17:28:48,718 - __main__ - DEBUG - Sending TTS request for order 2, role female_2
+2024-11-14 17:28:48,719 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:28:48,738 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:28:50,635 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 309838
+2024-11-14 17:28:50,683 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\female_2.wav
+2024-11-14 17:28:50,684 - __main__ - DEBUG - Sending TTS request for order 2, role male_2
+2024-11-14 17:28:50,685 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-11-14 17:28:50,700 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/1.1" 307 0
+2024-11-14 17:28:52,245 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/1.1" 200 240718
+2024-11-14 17:28:52,621 - __main__ - DEBUG - Audio file saved: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_audio\2\male_2.wav
+2024-11-14 17:28:52,621 - __main__ - INFO - Audio generation complete
+2024-11-14 17:28:52,622 - __main__ - INFO - Processing complete. Final output saved to: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output\output_story.xlsx
+2024-11-14 17:28:52,734 - httpcore.connection - DEBUG - close.started
+2024-11-14 17:28:52,734 - httpcore.connection - DEBUG - close.complete

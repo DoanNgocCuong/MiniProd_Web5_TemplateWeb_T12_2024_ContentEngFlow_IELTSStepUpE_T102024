@@ -2177,12 +2177,14 @@
           "kv_store": {
             "file_paths": [
               "frontend/Dockerfile",
-              "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb"
+              "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
+              "docker-compose.yml"
             ],
             "file_path_dict": {
               "0": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
               "1": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
               "2": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
+              "3": "docker-compose.yml",
               "4": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
               "5": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
               "6": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb"
@@ -2379,6 +2381,154 @@
             "file_path_dict": {
               "0": "backend/scripts/generate_meaning.py"
             }
+          }
+        }
+      ],
+      "kv_store": {}
+    },
+    {
+      "ai_editor": "cursor",
+      "customTitle": "Adding a Run All Button to Content Generator",
+      "id": "7fb14b78-9003-4a01-941b-d1db3f882adc",
+      "parent_id": null,
+      "created_on": "2024-11-14T10:11:51.343Z",
+      "messages": [
+        {
+          "id": "35e798cb-e2b6-4aa3-b898-74a58ac4635b",
+          "messageText": "@ContentGenerator.js @ContentGenerator.css \n\nThêm 1 nút Run All (chạy cả toàn bộ các phần gen trong @ContentGenerator  theo thứ tự)",
+          "responseText": "I'll help you add a \"Run All\" button to execute all scripts sequentially. Here are the necessary changes:\n\n1. First, modify the ContentGenerator.js file to add the runAll function and button:\n\n```javascript:frontend/src/features/ContentGenerator/ContentGenerator.js\nfunction ContentGenerator() {\n    const [loading, setLoading] = useState(false);\n    const [error, setError] = useState(null);\n    const [scriptStatus, setScriptStatus] = useState({});\n\n    const scripts = ['generate_story', 'generate_ipa', 'generate_meaning', 'gen_answer_pic'];\n\n    const runScript = async (scriptName) => {\n        try {\n            console.log(`Starting script: ${scriptName}`);\n            setLoading(true);\n            setError(null);\n            setScriptStatus(prev => ({ ...prev, [scriptName]: 'running' }));\n            \n            const response = await runScriptApi(scriptName);\n            console.log(`Script ${scriptName} response:`, response);\n            \n            setScriptStatus(prev => ({ ...prev, [scriptName]: 'completed' }));\n            alert(`${scriptName} executed successfully!`);\n        } catch (error) {\n            console.error(`Script ${scriptName} error:`, error);\n            setScriptStatus(prev => ({ ...prev, [scriptName]: 'error' }));\n            setError(`Error running ${scriptName}: ${error.message}`);\n            throw error; // Re-throw to handle in runAll\n        } finally {\n            setLoading(false);\n        }\n    };\n\n    const runAll = async () => {\n        setError(null);\n        for (const script of scripts) {\n            try {\n                await runScript(script);\n            } catch (error) {\n                // Stop execution if any script fails\n                break;\n            }\n        }\n    };\n\n    return (\n        <div className=\"generator-container\">\n            <h3>Generate Content</h3>\n            <div className=\"script-buttons\">\n                <button\n                    onClick={runAll}\n                    disabled={loading}\n                    className=\"run-all-button\"\n                >\n                    RUN ALL\n                    {loading && <span className=\"loading\">...</span>}\n                </button>\n                {scripts.map(script => (\n                    <button\n                        key={script}\n                        onClick={() => runScript(script)}\n                        disabled={loading}\n                        className={`script-button ${scriptStatus[script] || ''}`}\n                    >\n                        {script.replace(/_/g, ' ').toUpperCase()}\n                        {scriptStatus[script] === 'running' && \n                            <span className=\"loading\">...</span>}\n                    </button>\n                ))}\n            </div>\n            {error && <div className=\"error-message\">{error}</div>}\n        </div>\n    );\n}\n```\n\n2. Add styles for the new Run All button in ContentGenerator.css:\n\n```css:frontend/src/features/ContentGenerator/ContentGenerator.css\n.run-all-button {\n    margin: 5px;\n    padding: 8px 15px;\n    background-color: #2196F3;\n    color: white;\n    border: none;\n    border-radius: 4px;\n    cursor: pointer;\n    font-weight: bold;\n    width: 100%;\n    margin-bottom: 15px;\n}\n\n.run-all-button:hover {\n    background-color: #1976D2;\n}\n\n.run-all-button:disabled {\n    background-color: #cccccc;\n    cursor: not-allowed;\n}\n```\n\nKey changes made:\n1. Added a `scripts` array constant to store all script names\n2. Created a new `runAll` function that executes scripts sequentially\n3. Added a \"RUN ALL\" button at the top of the script buttons\n4. Added new CSS styles for the Run All button with a different color to distinguish it\n5. The Run All button will be disabled while any script is running\n6. If any script fails during the Run All sequence, it will stop the execution\n\nThe Run All button will execute all scripts in the order they are defined in the array: generate_story → generate_ipa → generate_meaning → gen_answer_pic.",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T10:11:51.343Z",
+          "context": [
+            {
+              "context_type": "file",
+              "key": "93a3c67f-8033-490e-9a1c-728541e6ad8b",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ContentGenerator\\ContentGenerator.js",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ContentGenerator\\ContentGenerator.js",
+                "isCurrentFile": false
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "476b2146-4068-4212-8891-fbf02f5c7698",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ContentGenerator\\ContentGenerator.css",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ContentGenerator\\ContentGenerator.css",
+                "isCurrentFile": false
+              }
+            },
+            {
+              "context_type": "folder",
+              "key": "84f3cd58-aa61-47ec-acff-017fdec18c57",
+              "value": {
+                "human_readable": "/frontend/src/features/ContentGenerator",
+                "relativePath": "/frontend/src/features/ContentGenerator"
+              }
+            }
+          ],
+          "kv_store": {
+            "file_paths": [
+              "frontend/src/features/ContentGenerator/ContentGenerator.js",
+              "frontend/src/features/ContentGenerator/ContentGenerator.css"
+            ],
+            "file_path_dict": {
+              "1": "frontend/src/features/ContentGenerator/ContentGenerator.css"
+            }
+          }
+        }
+      ],
+      "kv_store": {}
+    },
+    {
+      "ai_editor": "cursor",
+      "customTitle": "Sửa lỗi download file trong Example Data",
+      "id": "22cc50db-462d-4dbb-bd87-efec7c8bc55c",
+      "parent_id": null,
+      "created_on": "2024-11-14T10:34:11.039Z",
+      "messages": [
+        {
+          "id": "d6f32873-8a00-44e3-8d40-b76c6a7819ba",
+          "messageText": "Check xem việc download các file của phần Example này đang bug\n------\ntham khảo @ShowOutput.js",
+          "responseText": "Tôi thấy sự khác biệt chính giữa `ShowExampleData.js` và `ShowOutput.js` là cách xử lý lỗi và thông báo cho người dùng. `ShowExampleData.js` hiện tại chỉ ghi log lỗi vào console mà không hiển thị thông báo gì cho người dùng. Đây là những thay đổi cần thiết:\n\n```javascript:frontend/src/features/ShowInputOutput/ShowExampleData.js\nfunction ShowExampleData() {\n    const [files, setFiles] = useState([]);\n    const [loading, setLoading] = useState(false);\n    // Thêm state để xử lý lỗi\n    const [error, setError] = useState(null);\n\n    // ... existing code ...\n\n    const fetchExampleFiles = async () => {\n        try {\n            setLoading(true);\n            setError(null); // Reset error khi bắt đầu fetch\n            const exampleFiles = await getExampleFiles();\n            setFiles(exampleFiles);\n        } catch (err) {\n            setError('Failed to load example files: ' + err.message);\n            console.error('Error fetching example files:', err);\n        } finally {\n            setLoading(false);\n        }\n    };\n\n    const handleDownload = (filename) => {\n        try {\n            downloadExampleFile(filename);\n        } catch (err) {\n            setError('Failed to download file: ' + err.message);\n            console.error('Error downloading file:', err);\n        }\n    };\n\n    return (\n        <div className=\"example-corner\">\n            <div className=\"example-header\">\n                <h4>Example Files</h4>\n                <button \n                    onClick={fetchExampleFiles}\n                    className=\"example-download\"\n                    style={{ fontSize: '0.7rem' }}\n                    disabled={loading}\n                >\n                    {loading ? '...' : '↻'}\n                </button>\n            </div>\n            \n            {/* Thêm hiển thị thông báo lỗi */}\n            {error && <div className=\"error-message\">{error}</div>}\n\n            {/* ... rest of the existing code ... */}\n        </div>\n    );\n}\n```\n\nNhững thay đổi chính:\n1. Thêm state `error` để quản lý và hiển thị lỗi\n2. Cập nhật `fetchExampleFiles` để reset error và hiển thị thông báo lỗi\n3. Cập nhật `handleDownload` để hiển thị lỗi khi download thất bại\n4. Thêm disabled state cho nút refresh khi đang loading\n5. Thêm hiển thị thông báo lỗi trong UI\n\nBạn cũng nên thêm CSS tương ứng cho class `error-message` để hiển thị lỗi đẹp hơn, tương tự như trong `ShowOutput.css`.",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T10:34:11.039Z",
+          "context": [
+            {
+              "context_type": "selection",
+              "key": "144f1ce1-84b6-48d0-bb5b-a95dd5f2b76d",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ShowInputOutput\\ShowExampleData.js",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ShowInputOutput\\ShowExampleData.js",
+                "range": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 72,
+                  "endColumn": 1
+                },
+                "text": "import React, { useState, useEffect } from 'react';\r\nimport { getExampleFiles, downloadExampleFile } from '../../services/api';\r\n\r\nfunction ShowExampleData() {\r\n    const [files, setFiles] = useState([]);\r\n    const [loading, setLoading] = useState(false);\r\n\r\n    useEffect(() => {\r\n        fetchExampleFiles();\r\n    }, []);\r\n\r\n    const fetchExampleFiles = async () => {\r\n        try {\r\n            setLoading(true);\r\n            const exampleFiles = await getExampleFiles();\r\n            setFiles(exampleFiles);\r\n        } catch (err) {\r\n            console.error('Error fetching example files:', err);\r\n        } finally {\r\n            setLoading(false);\r\n        }\r\n    };\r\n\r\n    const handleDownload = (filename) => {\r\n        try {\r\n            downloadExampleFile(filename);\r\n        } catch (err) {\r\n            console.error('Error downloading file:', err);\r\n        }\r\n    };\r\n\r\n    if (loading) {\r\n        return <div className=\"example-corner\">Loading...</div>;\r\n    }\r\n\r\n    return (\r\n        <div className=\"example-corner\">\r\n            <div className=\"example-header\">\r\n                <h4>Example Files</h4>\r\n                <button \r\n                    onClick={fetchExampleFiles}\r\n                    className=\"example-download\"\r\n                    style={{ fontSize: '0.7rem' }}\r\n                >\r\n                    ↻\r\n                </button>\r\n            </div>\r\n            <div className=\"example-list\">\r\n                {files.length === 0 ? (\r\n                    <div style={{ fontSize: '0.8rem', textAlign: 'center' }}>\r\n                        No examples available\r\n                    </div>\r\n                ) : (\r\n                    files.map((file) => (\r\n                        <div key={file.name} className=\"example-item\">\r\n                            <span className=\"example-name\">{file.name}</span>\r\n                            <button\r\n                                onClick={() => handleDownload(file.name)}\r\n                                className=\"example-download\"\r\n                            >\r\n                                ↓\r\n                            </button>\r\n                        </div>\r\n                    ))\r\n                )}\r\n            </div>\r\n        </div>\r\n    );\r\n}\r\n\r\nexport default ShowExampleData;\r\n"
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "63f515b6-3108-4f08-90fa-e41f1d92f053",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ShowInputOutput\\ShowExampleData.js",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ShowInputOutput\\ShowExampleData.js",
+                "isCurrentFile": true
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "5afc4adf-b17b-4669-8fb4-ba55998194cd",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ShowInputOutput\\ShowOutput.js",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\features\\ShowInputOutput\\ShowOutput.js",
+                "isCurrentFile": false
+              }
+            }
+          ],
+          "kv_store": {}
+        },
+        {
+          "id": "0ef4ef46-021e-46ec-8efa-7fd4b5af0424",
+          "messageText": "Cho crul download file example",
+          "responseText": "Đây là ví dụ về cURL request để download file example:\n\n```bash\ncurl -X GET \"http://your-api-domain/api/example-files/download/{filename}\" \\\n     -H \"Accept: application/json\" \\\n     -H \"Content-Type: application/json\" \\\n     --output \"{filename}\"\n```\n\nĐể kiểm tra API download file example, bạn có thể sử dụng các phương thức sau:\n\n1. Kiểm tra response headers:\n```bash\ncurl -I -X GET \"http://your-api-domain/api/example-files/download/{filename}\" \\\n     -H \"Accept: application/json\"\n```\n\n2. Xem full response với verbose mode:\n```bash\ncurl -v -X GET \"http://your-api-domain/api/example-files/download/{filename}\" \\\n     -H \"Accept: application/json\"\n```\n\n3. Kiểm tra với specific file:\n```bash\ncurl -X GET \"http://your-api-domain/api/example-files/download/example1.txt\" \\\n     -H \"Accept: application/json\" \\\n     --output \"example1.txt\"\n```\n\nLưu ý:\n- Thay `your-api-domain` bằng domain thực tế của API\n- Thay `{filename}` bằng tên file cụ thể bạn muốn download\n- Nếu API yêu cầu authentication, bạn cần thêm header authorization tương ứng\n\nBạn có thể so sánh response của API này với API download file thông thường trong `ShowOutput.js` để tìm ra sự khác biệt và debug vấn đề.",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T10:34:11.039Z",
+          "context": [],
+          "kv_store": {}
+        },
+        {
+          "id": "9fdfed9f-49d8-4dd9-a180-3e1d0a509c5b",
+          "messageText": "Check đúng api chưa @routes.py @api.js",
+          "responseText": "Tôi đã kiểm tra cả 2 file và thấy một số vấn đề cần điều chỉnh:\n\n1. Trong `routes.py`, khi download file từ example folder, có một lỗi ở hàm `download_folder_file`:\n\n```python:backend/api/files/routes.py\n@bp.route('/download/<folder>/<path:filename>', methods=['GET'])\ndef download_folder_file(folder, filename):\n    try:\n        if folder not in ['uploads', 'output', 'example']:\n            return jsonify({'error': 'Invalid folder'}), 400\n            \n        # Sửa lại phần này để include EXAMPLE_FOLDER\n        folder_path = UPLOAD_FOLDER if folder == 'uploads' else (\n            OUTPUT_FOLDER if folder == 'output' else EXAMPLE_FOLDER\n        )\n        # ... rest of the code ...\n```\n\n2. Trong `api.js`, các hàm xử lý API đã đúng, nhưng nên thêm xử lý lỗi và timeout cho đồng nhất:\n\n```javascript:frontend/src/services/api.js\n// API cho Example\nexport const getExampleFiles = async () => {\n    const response = await axios.get(`${API_BASE_URL}/api/files/list/example`, {\n        timeout: 5000\n    });\n    if (!response.data.success) throw new Error(response.data.error);\n    return response.data.files;\n};\n\n// Download example file\nexport const downloadExampleFile",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T10:34:11.039Z",
+          "context": [
+            {
+              "context_type": "file",
+              "key": "85cbf402-0ac8-4c6b-9dc8-b3b9093a3b06",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\api\\files\\routes.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\api\\files\\routes.py",
+                "isCurrentFile": false
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "f4e3e363-ff28-485d-9201-a16392c69171",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\services\\api.js",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\frontend\\src\\services\\api.js",
+                "isCurrentFile": false
+              }
+            }
+          ],
+          "kv_store": {
+            "file_paths": [
+              "backend/api/files/routes.py"
+            ]
           }
         }
       ],
@@ -3089,8 +3239,8 @@
     "deletedPanelChatIDs": []
   },
   "kv_store": {
-    "unique_matched_lines_count": 516,
-    "total_repo_line_count": 5910,
+    "unique_matched_lines_count": 543,
+    "total_repo_line_count": 6394,
     "best_prompt_response": {
       "prompt": "Cho full file đi",
       "response": "Đây là phiên bản đầy đủ của file `generate_meaning.py` với cấu trúc thư mục đã được cập nhật:\n\n```python:backend/scripts/generate_meaning.py\nimport subprocess\nimport os\nimport re\nimport json\nimport time\nimport pandas as pd\nfrom openai import OpenAI\nfrom pathlib import Path\nfrom dotenv import load_dotenv\nimport sys\n\n# Set console output encoding to UTF-8\nsys.stdout.reconfigure(encoding='utf-8')\n\n# Load environment variables from .env file\nload_dotenv()\n\n# Initialize OpenAI client\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n\nUPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'\nOUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder\nOUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_meaning'  # Define output subfolder for meaning exercises\ndata = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')\n\n# Create an empty list to store the output data\noutput_data = []\n\ndef save_audio_file(text, order):\n    try:\n        # Create numbered folder inside output_meaning\n        order_folder = OUTPUT_MEANING_FOLDER / str(order)\n        order_folder.mkdir(parents=True, exist_ok=True)\n        \n        # Define output file path\n        output_file = order_folder / 'choose_answer.mp3'\n        \n        # Execute curl command with updated output path\n        curl_command = [\n            \"curl\", \"-L\", \"-X\", \"POST\", \n            \"http://103.253.20.13:25010/api/text-to-speech\",\n            \"-H\", \"Content-Type: application/json\",\n            \"-d\", json.dumps({\n                \"text\": text, \n                \"voice\": \"en-CA-ClaraNeural\", \n                \"speed\": 1\n            }),\n            \"--output\", str(output_file)\n        ]\n        result = subprocess.run(curl_command, capture_output=True)\n        \n        # Check for errors in the output\n        if result.returncode != 0:\n            print(f\"Error executing curl command: {result.stderr.decode('utf-8', errors='replace')}\")\n        else:\n            print(f\"Audio file saved successfully: {output_file}\")\n            \n    except Exception as e:\n        print(f\"Error saving audio file for order {order}: {e}\")\n\n# Loop through each row in the Excel file\nfor index, row in data.iterrows():\n    prompt = row['prompt_meaning']\n    message = row['vocabulary']\n    order = row['order']\n    start_time = time.time()    \n    try:\n        response = client.chat.completions.create(\n            model=\"gpt-4o-mini\",\n            temperature=0,\n            max_tokens=2500,\n            top_p=1,\n            frequency_penalty=0.0,\n            presence_penalty=1,\n            messages=[\n                {\"role\": \"system\", \"content\": prompt},\n                {\"role\": \"user\", \"content\": message}\n            ]\n        )\n        \n        response_content = response.choices[0].message.content\n        end_time = time.time()\n        print(response_content)\n        \n        # Parse the JSON response content\n        response_json = json.loads(response_content)\n        \n        # Extract the 'question', 'answer', and 'explain' fields\n        question = response_json.get(\"question\", \"\").strip()\n        answer = response_json.get(\"answer\", \"\").strip()\n        explain = response_json.get(\"explain\", \"\").strip()\n        \n        # Generate the audio URL using the order value\n        audio_url = f\"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/choose_answer.mp3\"\n        \n        # Append the output to the list\n        output_data.append({\n            \"id\": f\"vs_choose_answer_question_{order}\",\n            \"vocabulary_id\": f\"vocab_{order}\",\n            \"title\": \"CHỌN ĐÁP ÁN\",\n            \"order\": \"4\",\n            \"progress\": \"TRẮC NGHIỆM\",\n            \"question\": question,\n            \"answer\": answer,\n            \"audio\": audio_url,\n            \"feedback_1\": explain\n        })\n\n        # Create output directory if it doesn't exist\n        if not os.path.exists(OUTPUT_MEANING_FOLDER):\n            os.makedirs(OUTPUT_MEANING_FOLDER)\n\n        # Save audio file using the new function\n        save_audio_file(question, order)\n\n    except Exception as e:\n        print(f\"Error processing row {index}: {e}\")\n\n# Convert the output list to a DataFrame and save it to an Excel file\noutput_df = pd.DataFrame(output_data)\noutput_df.to_excel(f'{OUTPUT_FOLDER}/output_meaning.xlsx', index=False)\n```\n\nNhững thay đổi chính so với phiên bản trước:\n1. Thêm hàm `save_audio_file()` để xử lý việc lưu file audio theo cấu trúc thư mục mới\n2. Loại bỏ phần curl command cũ\n3. Thêm kiểm tra lỗi và thông báo khi lưu file audio\n4. Cập nhật đường dẫn lưu file để phù hợp với cấu trúc thư mục mới: `output_meaning/{order}/choose_answer.mp3`",
@@ -3232,7 +3382,7 @@
       },
       {
         "file": "backend/scripts/debug.log",
-        "total_lines": 1288,
+        "total_lines": 1585,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
       },
@@ -3256,7 +3406,7 @@
       },
       {
         "file": "backend/uploads/data.xlsx",
-        "total_lines": 41,
+        "total_lines": 31,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
       },
@@ -3268,7 +3418,7 @@
       },
       {
         "file": "deploy1.1_Note7_Docker.ipynb",
-        "total_lines": 324,
+        "total_lines": 514,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
       },
@@ -3281,14 +3431,14 @@
       {
         "file": "docker-compose.prod.yml",
         "total_lines": 31,
-        "ai_generated_lines": 17,
-        "ai_generated_percentage": 54.83870967741935
+        "ai_generated_lines": 28,
+        "ai_generated_percentage": 90.32258064516128
       },
       {
         "file": "docker-compose.yml",
-        "total_lines": 33,
-        "ai_generated_lines": 21,
-        "ai_generated_percentage": 63.63636363636363
+        "total_lines": 40,
+        "ai_generated_lines": 37,
+        "ai_generated_percentage": 92.5
       }
     ]
   }

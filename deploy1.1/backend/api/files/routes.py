@@ -89,7 +89,9 @@ def download_folder_file(folder, filename):
         if folder not in ['uploads', 'output', 'example']:
             return jsonify({'error': 'Invalid folder'}), 400
             
-        folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER
+        folder_path = UPLOAD_FOLDER if folder == 'uploads' else (
+            OUTPUT_FOLDER if folder == 'output' else EXAMPLE_FOLDER
+        )
         item_path = os.path.join(folder_path, secure_filename(filename))
         
         if not os.path.exists(item_path):
