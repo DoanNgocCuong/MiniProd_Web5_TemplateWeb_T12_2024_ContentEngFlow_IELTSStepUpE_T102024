@@ -170,7 +170,13 @@ curl -X GET \
 5. **Test Download File from Upload Folder**
 ```bash
 curl -X GET \
-  http://localhost:5000/api/files/download/uploads/example.xlsx \
+  http://localhost:5000/api/files/download/output/example.xlsx \
+  -O -J
+```
+hoặc 
+```bash
+curl -X GET \
+  http://localhost:5000/api/files/download/output/example_folder \
   -O -J
 ```
 
@@ -202,4 +208,12 @@ Expected responses:
         }
     ]
 }
+```
+
+
+6. Down All Files as Zip from Output Folder
+```bash
+curl -X GET "http://localhost:5000/api/files/download/output/all" \
+  -H "Accept: application/zip" \
+  --output output_all.zip
 ```

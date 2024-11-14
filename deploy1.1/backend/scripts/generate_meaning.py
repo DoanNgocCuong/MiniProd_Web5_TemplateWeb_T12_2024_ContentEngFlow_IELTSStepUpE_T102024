@@ -20,7 +20,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 UPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'
 OUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder
-OUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_meaning_exercise'  # Define output subfolder for meaning exercises
+OUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_meaning'  # Define output subfolder for meaning exercises
 data = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')
 
 # Create an empty list to store the output data
@@ -83,7 +83,7 @@ for index, row in data.iterrows():
             "curl", "-L", "-X", "POST", "http://103.253.20.13:25010/api/text-to-speech",
             "-H", "Content-Type: application/json",
             "-d", json.dumps({"text": question, "voice": "en-CA-ClaraNeural", "speed": 1}),
-            "--output", f"{OUTPUT_MEANING_FOLDER}/choose_answer_{order}.mp3"  # Save audio files in the meaning exercise subfolder
+            "--output", f"{OUTPUT_MEANING_FOLDER}/choose_answer.mp3"  # Save audio files in the meaning exercise subfolder
         ]
 
         # Run the curl command and capture output

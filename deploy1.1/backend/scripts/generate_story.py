@@ -45,7 +45,6 @@ logger.debug(f"OpenAI API key loaded: {'*' * len(str(openai.api_key))}")
 # Define upload and output folders
 UPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'
 OUTPUT_FOLDER = Path(__file__).parent.parent / 'output'
-OUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder
 OUTPUT_AUDIO_FOLDER = OUTPUT_FOLDER / 'output_story_audio'  # Define audio output subfolder
 
 logger.debug(f"Upload folder path: {UPLOAD_FOLDER}")
@@ -135,7 +134,7 @@ def process_initial_data():
         OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
         
         # Save to Excel
-        output_path = OUTPUT_FOLDER / 'output.xlsx'
+        output_path = OUTPUT_FOLDER / 'output_draft.xlsx'
         df_output.to_excel(output_path, index=False)
         
         logger.info(f"Output saved to {output_path}")
@@ -148,7 +147,7 @@ def process_initial_data():
 def process_story_data():
     try:
         logger.info("Starting story data processing")
-        input_path = OUTPUT_FOLDER / 'output.xlsx'
+        input_path = OUTPUT_FOLDER / 'output_draft.xlsx'
         df_input = pd.read_excel(input_path)
         story_output_rows = []
 
@@ -212,12 +211,14 @@ def send_request(text, voice, order, role):
         }
         response = requests.post(url, headers=headers, json=data)
         
-        audio_dir = OUTPUT_FOLDER / str(order)
+        # Save to output_story_audio folder only
+        audio_dir = OUTPUT_AUDIO_FOLDER / str(order)
         audio_dir.mkdir(parents=True, exist_ok=True)
-        
         output_file = audio_dir / f'{role}.wav'
+        
         with open(output_file, 'wb') as f:
             f.write(response.content)
+            
         logger.debug(f"Audio file saved: {output_file}")
     except Exception as e:
         logger.error(f"Error in send_request: {str(e)}", exc_info=True)
@@ -226,7 +227,7 @@ def send_request(text, voice, order, role):
 def generate_audio():
     try:
         logger.info("Starting audio generation")
-        df_input = pd.read_excel(OUTPUT_FOLDER / 'output.xlsx')
+        df_input = pd.read_excel(OUTPUT_FOLDER / 'output_draft.xlsx')
         
         for index, row in df_input.iterrows():
             order = row['order']

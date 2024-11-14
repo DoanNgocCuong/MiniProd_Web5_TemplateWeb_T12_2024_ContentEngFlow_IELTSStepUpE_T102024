@@ -49,21 +49,28 @@ def list_files(folder):
             return jsonify({'error': 'Invalid folder'}), 400
             
         folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER
-        files = []
+        items = []
         
-        for filename in os.listdir(folder_path):
-            file_path = os.path.join(folder_path, filename)
-            if os.path.isfile(file_path):
-                file_stats = os.stat(file_path)
-                files.append({
-                    'name': filename,
-                    'size': file_stats.st_size,
-                    'modified': file_stats.st_mtime
-                })
+        for item_name in os.listdir(folder_path):
+            item_path = os.path.join(folder_path, item_name)
+            stats = os.stat(item_path)
+            
+            item_info = {
+                'name': item_name,
+                'size': stats.st_size,
+                'modified': stats.st_mtime,
+                'type': 'directory' if os.path.isdir(item_path) else 'file'
+            }
+            
+            # Add extension info for files
+            if os.path.isfile(item_path):
+                item_info['extension'] = os.path.splitext(item_name)[1].lower()
+            
+            items.append(item_info)
                 
         return jsonify({
             'success': True,
-            'files': files
+            'files': items
         })
         
     except Exception as e:
@@ -72,20 +79,78 @@ def list_files(folder):
             'error': str(e)
         }), 500
 
-@bp.route('/download/<folder>/<filename>', methods=['GET'])
+@bp.route('/download/<folder>/<path:filename>', methods=['GET'])
 def download_folder_file(folder, filename):
     try:
         if folder not in ['uploads', 'output']:
             return jsonify({'error': 'Invalid folder'}), 400
             
         folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER
-        file_path = os.path.join(folder_path, secure_filename(filename))
+        item_path = os.path.join(folder_path, secure_filename(filename))
         
-        if not os.path.exists(file_path):
-            return jsonify({'error': 'File not found'}), 404
+        if not os.path.exists(item_path):
+            return jsonify({'error': 'File or folder not found'}), 404
             
-        return send_file(file_path, as_attachment=True)
+        # If it's a file, send it directly
+        if os.path.isfile(item_path):
+            return send_file(item_path, as_attachment=True)
+            
+        # If it's a directory, create a zip file
+        if os.path.isdir(item_path):
+            import tempfile
+            import zipfile
+            
+            # Create temporary zip file
+            temp_zip = tempfile.NamedTemporaryFile(delete=False, suffix='.zip')
+            
+            with zipfile.ZipFile(temp_zip.name, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                for root, dirs, files in os.walk(item_path):
+                    for file in files:
+                        file_path = os.path.join(root, file)
+                        arc_name = os.path.relpath(file_path, item_path)
+                        zipf.write(file_path, arc_name)
+            
+            return send_file(
+                temp_zip.name,
+                mimetype='application/zip',
+                as_attachment=True,
+                download_name=f"{os.path.basename(item_path)}.zip"
+            )
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+@bp.route('/download/<folder>/all', methods=['GET'])
+def download_all(folder):
+    try:
+        if folder not in ['uploads', 'output']:
+            return jsonify({'error': 'Invalid folder'}), 400
+            
+        folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER
         
+        # Create temporary zip file
+        import tempfile
+        import zipfile
+        
+        temp_zip = tempfile.NamedTemporaryFile(delete=False, suffix='.zip')
+        
+        with zipfile.ZipFile(temp_zip.name, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            for root, dirs, files in os.walk(folder_path):
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    arc_name = os.path.relpath(file_path, folder_path)
+                    zipf.write(file_path, arc_name)
+        
+        return send_file(
+            temp_zip.name,
+            mimetype='application/zip',
+            as_attachment=True,
+            download_name=f"{folder}_all.zip"
+        )
+            
     except Exception as e:
         return jsonify({
             'success': False,

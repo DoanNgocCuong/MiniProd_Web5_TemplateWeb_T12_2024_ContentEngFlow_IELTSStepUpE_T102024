@@ -8,6 +8,8 @@ from openai import OpenAI
 from pathlib import Path
 from dotenv import load_dotenv
 import sys
+import requests
+import logging
 
 # Set console output encoding to UTF-8
 sys.stdout.reconfigure(encoding='utf-8')
@@ -25,6 +27,33 @@ data = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')
 
 # Create an empty list to store the output data
 output_data = []
+
+# Update the audio file saving part
+def save_audio_file(text, order):
+    try:
+        # Create numbered folder inside output_ipa_audio
+        order_folder = OUTPUT_AUDIO_FOLDER / str(order)
+        order_folder.mkdir(parents=True, exist_ok=True)
+        
+        # Define output file path
+        output_file = order_folder / f'ipa.mp3'
+        
+        # Execute curl command with updated output path
+        curl_command = [
+            "curl", "-L", "-X", "POST", 
+            "http://103.253.20.13:25010/api/text-to-speech",
+            "-H", "Content-Type: application/json",
+            "-d", json.dumps({
+                "text": text, 
+                "voice": "en-CA-ClaraNeural", 
+                "speed": 1
+            }),
+            "--output", str(output_file)
+        ]
+        subprocess.run(curl_command)
+        
+    except Exception as e:
+        print(f"Error saving audio file for order {order}: {e}")
 
 # Loop through each row in the Excel file
 for index, row in data.iterrows():
@@ -57,7 +86,10 @@ for index, row in data.iterrows():
         vi_meaning = response_json.get("meaning", "").strip()
         ipa = response_json.get("ipa", "").strip()
         
-        # Generate the audio URL using the order value
+        # Update audio file saving
+        save_audio_file(message, order)
+        
+        # Update audio URL to match new structure
         audio_url = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/ipa.mp3"
         
         # Append the output to the list
@@ -72,19 +104,6 @@ for index, row in data.iterrows():
             "ipa": ipa,
             "audio": audio_url,
         })
-
-        # Prepare the output directory for saving the audio file
-        if not os.path.exists(OUTPUT_AUDIO_FOLDER):
-            os.makedirs(OUTPUT_AUDIO_FOLDER)
-
-        # Execute the curl command to send the request and save the audio file
-        curl_command = [
-            "curl", "-L", "-X", "POST", "http://103.253.20.13:25010/api/text-to-speech",
-            "-H", "Content-Type: application/json",
-            "-d", json.dumps({"text": message, "voice": "en-CA-ClaraNeural", "speed": 1}),
-            "--output", f"{OUTPUT_AUDIO_FOLDER}/ipa_{order}.mp3"  # Save audio files in the audio subfolder
-        ]
-        subprocess.run(curl_command)
     except Exception as e:
         print(f"Error processing row {index}: {e}")
 
