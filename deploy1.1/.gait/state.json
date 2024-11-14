@@ -1645,9 +1645,11 @@
           "kv_store": {
             "file_paths": [
               "backend/scripts/generate_ipa.py",
-              "frontend/src/services/api.js"
+              "frontend/src/services/api.js",
+              "backend/scripts/generate_meaning.py"
             ],
             "file_path_dict": {
+              "0": "backend/scripts/generate_meaning.py",
               "2": "frontend/src/services/api.js"
             }
           }
@@ -2152,6 +2154,230 @@
               "3": "docker-compose.yml",
               "5": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
               "8": "docker-compose.yml"
+            }
+          }
+        },
+        {
+          "id": "5a93495a-585a-4064-b086-b6521e0f7633",
+          "messageText": "docker-compose development có đang tự động update khi ta update code ko",
+          "responseText": "Looking at your docker-compose configuration, currently it doesn't have hot-reload capability set up. Let's modify the docker-compose.yml for development to enable automatic updates when code changes.\n\nHere's the updated development docker-compose configuration:\n\n```yaml:docker-compose.yml\nversion: '3.8'\n\nservices:\n  backend:\n    build: ./backend\n    ports:\n      - \"25037:5000\"\n    environment:\n      - FLASK_APP=app.py\n      - FLASK_ENV=development\n      - FLASK_DEBUG=1\n      - FLASK_RUN_HOST=0.0.0.0\n    volumes:\n      - ./backend:/app\n      - /app/__pycache__\n    command: flask run --host=0.0.0.0\n    networks:\n      - app-network\n\n  frontend:\n    build: \n      context: ./frontend\n      target: development\n    ports:\n      - \"25038:3000\"\n    environment:\n      - NODE_ENV=development\n      - CHOKIDAR_USEPOLLING=true\n    volumes:\n      - ./frontend:/app\n      - /app/node_modules\n    command: npm start\n    depends_on:\n      - backend\n    networks:\n      - app-network\n\nnetworks:\n  app-network:\n    driver: bridge\n```\n\nAnd update the frontend Dockerfile to use multi-stage builds:\n\n```dockerfile:frontend/Dockerfile\n# Development stage\nFROM node:18-alpine as development\n\nWORKDIR /app\n\nCOPY package*.json ./\nRUN npm install\n\nCOPY . .\n\n# Create environment files\nRUN echo \"REACT_APP_API_URL=http://localhost:5000\" > .env.development\n\nEXPOSE 3000\n\nCMD [\"npm\", \"start\"]\n\n# Production stage\nFROM node:18-alpine as production\n\nWORKDIR /app\n\nCOPY package*.json ./\nRUN npm install --production\n\nCOPY . .\n\n# Create production env file\nRUN echo \"REACT_APP_API_URL=http://103.253.20.13:5000\" > .env.production\n\nRUN npm run build\n\nEXPOSE 3000\n\nCMD [\"npm\", \"start\"]\n```\n\nKey changes made:\n\n1. Added volumes for both services to enable code syncing:\n```yaml\nvolumes:\n  - ./backend:/app  # Syncs backend code\n  - ./frontend:/app # Syncs frontend code\n```\n\n2. Added development-specific environment variables:\n```yaml\nenvironment:\n  - FLASK_DEBUG=1\n  - CHOKIDAR_USEPOLLING=true\n```\n\n3. Used multi-stage Dockerfile for frontend to separate development and production builds\n\n4. Added specific commands for development mode:\n```yaml\ncommand: flask run --host=0.0.0.0  # For backend\ncommand: npm start                 # For frontend\n```\n\nNow when you run:\n```bash\ndocker-compose up --build\n```\n\nThe containers will:\n- Automatically reload Flask backend when Python files change\n- Hot reload React frontend when JavaScript/JSX files change\n- Keep node_modules isolated in container while syncing source code\n- Use development environment settings\n\nFor production, you would still use the production compose file:\n\n```1:31:docker-compose.prod.yml\nversion: '3.8'\r\n\r\nservices:\r\n  backend:\r\n    build: ./backend\r\n    ports:\r\n      - \"25037:5000\"\r\n    environment:\r\n      - FLASK_APP=app.py\r\n      - FLASK_ENV=production\r\n      - FLASK_RUN_HOST=0.0.0.0\r\n    networks:\r\n      - app-network\r\n\r\n  frontend:\r\n    build:\r\n      context: ./frontend\r\n      args:\r\n        - NODE_ENV=production\r\n    ports:\r\n      - \"25038:3000\"\r\n    environment:\r\n      - NODE_ENV=production\r\n    depends_on:\r\n      - backend\r\n    networks:\r\n      - app-network\r\n\r\nnetworks:\r\n  app-network:\r\n    driver: bridge \n```\n\n\nThis setup gives you the best of both worlds - fast development with hot reloading in development, and optimized builds for production.",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T10:03:31.164Z",
+          "context": [
+            {
+              "context_type": "file",
+              "key": "f0c37a11-d9f6-4087-b614-7981fff9f907",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\docker-compose.prod.yml",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\docker-compose.prod.yml",
+                "isCurrentFile": true
+              }
+            }
+          ],
+          "kv_store": {
+            "file_paths": [
+              "frontend/Dockerfile",
+              "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb"
+            ],
+            "file_path_dict": {
+              "0": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
+              "1": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
+              "2": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
+              "4": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
+              "5": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb",
+              "6": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\deploy1.1_Note7_Docker.ipynb"
+            }
+          }
+        }
+      ],
+      "kv_store": {}
+    },
+    {
+      "ai_editor": "cursor",
+      "customTitle": "",
+      "id": "9089287a-ed20-4a1a-af86-1afe0f4da4b3",
+      "parent_id": null,
+      "created_on": "2024-11-14T09:56:02.091Z",
+      "messages": [
+        {
+          "id": "88831a54-3cdd-4174-957e-c7b8f1f24cc1",
+          "messageText": "output meaning này chưa có 1/choose_answer.mp3 như @generate_ipa.py nhỉ",
+          "responseText": "Đúng rồi, tôi sẽ giúp chỉnh sửa file `generate_meaning.py` để tạo cấu trúc thư mục tương tự như `generate_ipa.py`. Đây là những thay đổi cần thiết:\n\n```python:backend/scripts/generate_meaning.py\n# ... existing code ...\n\n# Add new function to handle audio file saving\ndef save_audio_file(text, order):\n    try:\n        # Create numbered folder inside output_meaning\n        order_folder = OUTPUT_MEANING_FOLDER / str(order)\n        order_folder.mkdir(parents=True, exist_ok=True)\n        \n        # Define output file path\n        output_file = order_folder / 'choose_answer.mp3'\n        \n        # Execute curl command with updated output path\n        curl_command = [\n            \"curl\", \"-L\", \"-X\", \"POST\", \n            \"http://103.253.20.13:25010/api/text-to-speech\",\n            \"-H\", \"Content-Type: application/json\",\n            \"-d\", json.dumps({\n                \"text\": text, \n                \"voice\": \"en-CA-ClaraNeural\", \n                \"speed\": 1\n            }),\n            \"--output\", str(output_file)\n        ]\n        subprocess.run(curl_command, capture_output=True)\n        \n    except Exception as e:\n        print(f\"Error saving audio file for order {order}: {e}\")\n\n# ... in the main loop, replace the curl command section with:\n        # Create output directory if it doesn't exist\n        if not os.path.exists(OUTPUT_MEANING_FOLDER):\n            os.makedirs(OUTPUT_MEANING_FOLDER)\n\n        # Save audio file using the new function\n        save_audio_file(question, order)\n\n# ... rest of the code remains the same ...\n```",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T09:56:02.091Z",
+          "context": [
+            {
+              "context_type": "selection",
+              "key": "b5744470-ac88-4942-90ec-0ef438e883c4",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_meaning.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_meaning.py",
+                "range": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 102,
+                  "endColumn": 72
+                },
+                "text": "import subprocess\r\nimport os\r\nimport re\r\nimport json\r\nimport time\r\nimport pandas as pd\r\nfrom openai import OpenAI\r\nfrom pathlib import Path\r\nfrom dotenv import load_dotenv\r\nimport sys\r\n\r\n# Set console output encoding to UTF-8\r\nsys.stdout.reconfigure(encoding='utf-8')\r\n\r\n# Load environment variables from .env file\r\nload_dotenv()\r\n\r\n# Initialize OpenAI client\r\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\r\n\r\nUPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'\r\nOUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder\r\nOUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_meaning'  # Define output subfolder for meaning exercises\r\ndata = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')\r\n\r\n# Create an empty list to store the output data\r\noutput_data = []\r\n\r\n# Loop through each row in the Excel file\r\nfor index, row in data.iterrows():\r\n    prompt = row['prompt_meaning']\r\n    message = row['vocabulary']\r\n    order = row['order']\r\n    start_time = time.time()    \r\n    try:\r\n        response = client.chat.completions.create(\r\n            model=\"gpt-4o-mini\",\r\n            temperature=0,\r\n            max_tokens=2500,\r\n            top_p=1,\r\n            frequency_penalty=0.0,\r\n            presence_penalty=1,\r\n            messages=[\r\n                {\"role\": \"system\", \"content\": prompt},\r\n                {\"role\": \"user\", \"content\": message}\r\n            ]\r\n        )\r\n        \r\n        response_content = response.choices[0].message.content\r\n        end_time = time.time()\r\n        print(response_content)\r\n        \r\n        # Parse the JSON response content\r\n        response_json = json.loads(response_content)\r\n        \r\n        # Extract the 'question', 'answer', and 'explain' fields\r\n        question = response_json.get(\"question\", \"\").strip()\r\n        answer = response_json.get(\"answer\", \"\").strip()\r\n        explain = response_json.get(\"explain\", \"\").strip()\r\n        \r\n        # Generate the audio URL using the order value\r\n        audio_url = f\"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/choose_answer.mp3\"\r\n        \r\n        # Append the output to the list\r\n        output_data.append({\r\n            \"id\": f\"vs_choose_answer_question_{order}\",\r\n            \"vocabulary_id\": f\"vocab_{order}\",\r\n            \"title\": \"CHỌN ĐÁP ÁN\",\r\n            \"order\": \"4\",\r\n            \"progress\": \"TRẮC NGHIỆM\",\r\n            \"question\": question,\r\n            \"answer\": answer,\r\n            \"audio\": audio_url,\r\n            \"feedback_1\": explain\r\n        })\r\n\r\n        # Prepare the output directory for saving the audio file\r\n        if not os.path.exists(OUTPUT_MEANING_FOLDER):\r\n            os.makedirs(OUTPUT_MEANING_FOLDER)\r\n\r\n        # Execute the curl command to send the request and save the audio file\r\n        curl_command = [\r\n            \"curl\", \"-L\", \"-X\", \"POST\", \"http://103.253.20.13:25010/api/text-to-speech\",\r\n            \"-H\", \"Content-Type: application/json\",\r\n            \"-d\", json.dumps({\"text\": question, \"voice\": \"en-CA-ClaraNeural\", \"speed\": 1}),\r\n            \"--output\", f\"{OUTPUT_MEANING_FOLDER}/choose_answer.mp3\"  # Save audio files in the meaning exercise subfolder\r\n        ]\r\n\r\n        # Run the curl command and capture output\r\n        result = subprocess.run(curl_command, capture_output=True)\r\n\r\n        # Check for errors in the output\r\n        if result.returncode != 0:\r\n            print(f\"Error executing curl command: {result.stderr.decode('utf-8', errors='replace')}\")\r\n        else:\r\n            print(f\"Audio file saved successfully: {OUTPUT_MEANING_FOLDER}/choose_answer_{order}.mp3\")\r\n    except Exception as e:\r\n        print(f\"Error processing row {index}: {e}\")\r\n\r\n# Convert the output list to a DataFrame and save it to an Excel file\r\noutput_df = pd.DataFrame(output_data)\r\noutput_df.to_excel(f'{OUTPUT_FOLDER}/output_meaning.xlsx', index=False)"
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "bede3f1b-bdee-4448-bcd5-8d276fffdad6",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_meaning.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_meaning.py",
+                "isCurrentFile": true
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "5c234313-6cc0-48d4-afe8-187a384fdac5",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_ipa.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_ipa.py",
+                "isCurrentFile": false
+              }
+            }
+          ],
+          "kv_store": {
+            "file_paths": [
+              "backend/scripts/generate_meaning.py",
+              "backend/scripts/generate_ipa.py"
+            ],
+            "file_path_dict": {
+              "0": "backend/scripts/generate_ipa.py"
+            }
+          }
+        },
+        {
+          "id": "6c537d46-33b9-49fb-b001-2d6f31ea1588",
+          "messageText": "Cho full file đi",
+          "responseText": "Đây là phiên bản đầy đủ của file `generate_meaning.py` với cấu trúc thư mục đã được cập nhật:\n\n```python:backend/scripts/generate_meaning.py\nimport subprocess\nimport os\nimport re\nimport json\nimport time\nimport pandas as pd\nfrom openai import OpenAI\nfrom pathlib import Path\nfrom dotenv import load_dotenv\nimport sys\n\n# Set console output encoding to UTF-8\nsys.stdout.reconfigure(encoding='utf-8')\n\n# Load environment variables from .env file\nload_dotenv()\n\n# Initialize OpenAI client\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n\nUPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'\nOUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder\nOUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_meaning'  # Define output subfolder for meaning exercises\ndata = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')\n\n# Create an empty list to store the output data\noutput_data = []\n\ndef save_audio_file(text, order):\n    try:\n        # Create numbered folder inside output_meaning\n        order_folder = OUTPUT_MEANING_FOLDER / str(order)\n        order_folder.mkdir(parents=True, exist_ok=True)\n        \n        # Define output file path\n        output_file = order_folder / 'choose_answer.mp3'\n        \n        # Execute curl command with updated output path\n        curl_command = [\n            \"curl\", \"-L\", \"-X\", \"POST\", \n            \"http://103.253.20.13:25010/api/text-to-speech\",\n            \"-H\", \"Content-Type: application/json\",\n            \"-d\", json.dumps({\n                \"text\": text, \n                \"voice\": \"en-CA-ClaraNeural\", \n                \"speed\": 1\n            }),\n            \"--output\", str(output_file)\n        ]\n        result = subprocess.run(curl_command, capture_output=True)\n        \n        # Check for errors in the output\n        if result.returncode != 0:\n            print(f\"Error executing curl command: {result.stderr.decode('utf-8', errors='replace')}\")\n        else:\n            print(f\"Audio file saved successfully: {output_file}\")\n            \n    except Exception as e:\n        print(f\"Error saving audio file for order {order}: {e}\")\n\n# Loop through each row in the Excel file\nfor index, row in data.iterrows():\n    prompt = row['prompt_meaning']\n    message = row['vocabulary']\n    order = row['order']\n    start_time = time.time()    \n    try:\n        response = client.chat.completions.create(\n            model=\"gpt-4o-mini\",\n            temperature=0,\n            max_tokens=2500,\n            top_p=1,\n            frequency_penalty=0.0,\n            presence_penalty=1,\n            messages=[\n                {\"role\": \"system\", \"content\": prompt},\n                {\"role\": \"user\", \"content\": message}\n            ]\n        )\n        \n        response_content = response.choices[0].message.content\n        end_time = time.time()\n        print(response_content)\n        \n        # Parse the JSON response content\n        response_json = json.loads(response_content)\n        \n        # Extract the 'question', 'answer', and 'explain' fields\n        question = response_json.get(\"question\", \"\").strip()\n        answer = response_json.get(\"answer\", \"\").strip()\n        explain = response_json.get(\"explain\", \"\").strip()\n        \n        # Generate the audio URL using the order value\n        audio_url = f\"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/choose_answer.mp3\"\n        \n        # Append the output to the list\n        output_data.append({\n            \"id\": f\"vs_choose_answer_question_{order}\",\n            \"vocabulary_id\": f\"vocab_{order}\",\n            \"title\": \"CHỌN ĐÁP ÁN\",\n            \"order\": \"4\",\n            \"progress\": \"TRẮC NGHIỆM\",\n            \"question\": question,\n            \"answer\": answer,\n            \"audio\": audio_url,\n            \"feedback_1\": explain\n        })\n\n        # Create output directory if it doesn't exist\n        if not os.path.exists(OUTPUT_MEANING_FOLDER):\n            os.makedirs(OUTPUT_MEANING_FOLDER)\n\n        # Save audio file using the new function\n        save_audio_file(question, order)\n\n    except Exception as e:\n        print(f\"Error processing row {index}: {e}\")\n\n# Convert the output list to a DataFrame and save it to an Excel file\noutput_df = pd.DataFrame(output_data)\noutput_df.to_excel(f'{OUTPUT_FOLDER}/output_meaning.xlsx', index=False)\n```\n\nNhững thay đổi chính so với phiên bản trước:\n1. Thêm hàm `save_audio_file()` để xử lý việc lưu file audio theo cấu trúc thư mục mới\n2. Loại bỏ phần curl command cũ\n3. Thêm kiểm tra lỗi và thông báo khi lưu file audio\n4. Cập nhật đường dẫn lưu file để phù hợp với cấu trúc thư mục mới: `output_meaning/{order}/choose_answer.mp3`",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T09:57:40.406Z",
+          "context": [
+            {
+              "context_type": "file",
+              "key": "4c155d3f-5e56-461a-bab4-997d8c30365e",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_meaning.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_meaning.py",
+                "isCurrentFile": true
+              }
+            }
+          ],
+          "kv_store": {
+            "file_paths": [
+              "backend/scripts/generate_meaning.py",
+              "backend/scripts/generate_ipa.py"
+            ],
+            "file_path_dict": {
+              "0": "backend/scripts/generate_ipa.py"
+            }
+          }
+        }
+      ],
+      "kv_store": {}
+    },
+    {
+      "ai_editor": "cursor",
+      "customTitle": "Cách lưu audio output trong dự án",
+      "id": "7cb12159-05a7-4cf5-b6b1-c60778cb7eba",
+      "parent_id": null,
+      "created_on": "2024-11-14T09:58:48.601Z",
+      "messages": [
+        {
+          "id": "63137ee7-1315-4681-b6b1-db58b616d3a5",
+          "messageText": "Audio output đang được lưu như nào",
+          "responseText": "Trong file này, audio output được xử lý và lưu trữ thông qua hàm `save_audio_file`. Đây là cách nó hoạt động:\n\n1. **Cấu trúc thư mục:**\n- Thư mục gốc cho audio output được định nghĩa là:\n```python:backend/scripts/generate_ipa.py\nOUTPUT_FOLDER = Path(__file__).parent.parent / 'output'\nOUTPUT_AUDIO_FOLDER = OUTPUT_FOLDER / 'output_ipa_audio'\n```\n\n2. **Quá trình lưu file:**\n```python:backend/scripts/generate_ipa.py\ndef save_audio_file(text, order):\n    try:\n        # Tạo thư mục con theo số thứ tự bên trong output_ipa_audio\n        order_folder = OUTPUT_AUDIO_FOLDER / str(order)\n        order_folder.mkdir(parents=True, exist_ok=True)\n        \n        # Đường dẫn file output là: output_ipa_audio/{order}/ipa.mp3\n        output_file = order_folder / f'ipa.mp3'\n        \n        # Gọi API text-to-speech và lưu file\n        curl_command = [\n            \"curl\", \"-L\", \"-X\", \"POST\", \n            \"http://103.253.20.13:25010/api/text-to-speech\",\n            \"-H\", \"Content-Type: application/json\",\n            \"-d\", json.dumps({\n                \"text\": text, \n                \"voice\": \"en-CA-ClaraNeural\", \n                \"speed\": 1\n            }),\n            \"--output\", str(output_file)\n        ]\n        subprocess.run(curl_command)\n```\n\nCấu trúc thư mục cuối cùng sẽ như sau:\n```\noutput/\n└── output_ipa_audio/\n    ├── 1/\n    │   └── ipa.mp3\n    ├── 2/\n    │   └── ipa.mp3\n    ├── 3/\n    │   └── ipa.mp3\n    └── ...\n```\n\nSau khi lưu, file audio sẽ được tham chiếu trong URL:\n```python\naudio_url = f\"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/ipa.mp3\"\n```",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T09:58:48.601Z",
+          "context": [
+            {
+              "context_type": "selection",
+              "key": "f41aa024-1a12-4155-8e62-4f2109a93b0f",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_ipa.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_ipa.py",
+                "range": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 112,
+                  "endColumn": 68
+                },
+                "text": "import subprocess\r\nimport os\r\nimport re\r\nimport json\r\nimport time\r\nimport pandas as pd\r\nfrom openai import OpenAI\r\nfrom pathlib import Path\r\nfrom dotenv import load_dotenv\r\nimport sys\r\nimport requests\r\nimport logging\r\n\r\n# Set console output encoding to UTF-8\r\nsys.stdout.reconfigure(encoding='utf-8')\r\n\r\n# Load environment variables from .env file\r\nload_dotenv()\r\n\r\n# Initialize OpenAI client\r\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\r\n\r\nUPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'\r\nOUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder\r\nOUTPUT_AUDIO_FOLDER = OUTPUT_FOLDER / 'output_ipa_audio'  # Define audio output subfolder\r\ndata = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')\r\n\r\n# Create an empty list to store the output data\r\noutput_data = []\r\n\r\n# Update the audio file saving part\r\ndef save_audio_file(text, order):\r\n    try:\r\n        # Create numbered folder inside output_ipa_audio\r\n        order_folder = OUTPUT_AUDIO_FOLDER / str(order)\r\n        order_folder.mkdir(parents=True, exist_ok=True)\r\n        \r\n        # Define output file path\r\n        output_file = order_folder / f'ipa.mp3'\r\n        \r\n        # Execute curl command with updated output path\r\n        curl_command = [\r\n            \"curl\", \"-L\", \"-X\", \"POST\", \r\n            \"http://103.253.20.13:25010/api/text-to-speech\",\r\n            \"-H\", \"Content-Type: application/json\",\r\n            \"-d\", json.dumps({\r\n                \"text\": text, \r\n                \"voice\": \"en-CA-ClaraNeural\", \r\n                \"speed\": 1\r\n            }),\r\n            \"--output\", str(output_file)\r\n        ]\r\n        subprocess.run(curl_command)\r\n        \r\n    except Exception as e:\r\n        print(f\"Error saving audio file for order {order}: {e}\")\r\n\r\n# Loop through each row in the Excel file\r\nfor index, row in data.iterrows():\r\n    prompt = row['prompt_ipa']\r\n    message = row['vocabulary']\r\n    order = row['order']\r\n    start_time = time.time()    \r\n    \r\n    try:\r\n        response = client.chat.completions.create(\r\n            model=\"gpt-4o-mini\",\r\n            temperature=0,\r\n            max_tokens=2500,\r\n            top_p=1,\r\n            frequency_penalty=0.0,\r\n            presence_penalty=1,\r\n            messages=[\r\n                {\"role\": \"system\", \"content\": prompt},\r\n                {\"role\": \"user\", \"content\": message}\r\n            ]\r\n        )\r\n        \r\n        response_content = response.choices[0].message.content\r\n        end_time = time.time()\r\n        \r\n        # Parse the JSON response content\r\n        response_json = json.loads(response_content)\r\n        \r\n        # Extract fields\r\n        vi_meaning = response_json.get(\"meaning\", \"\").strip()\r\n        ipa = response_json.get(\"ipa\", \"\").strip()\r\n        \r\n        # Update audio file saving\r\n        save_audio_file(message, order)\r\n        \r\n        # Update audio URL to match new structure\r\n        audio_url = f\"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/ipa.mp3\"\r\n        \r\n        # Append the output to the list\r\n        output_data.append({\r\n            \"id\": f\"vs_pronounciation_question_{order}\",\r\n            \"vocabulary_id\": f\"vocab_{order}\",\r\n            \"title\": \"HÃY NÓI CỤM SAU\",\r\n            \"order\": \"3\",\r\n            \"progress\": \"PHÁT ÂM\",\r\n            \"text_en\": message,\r\n            \"text_vi\": vi_meaning,\r\n            \"ipa\": ipa,\r\n            \"audio\": audio_url,\r\n        })\r\n    except Exception as e:\r\n        print(f\"Error processing row {index}: {e}\")\r\n\r\n# Convert the output list to a DataFrame and save it to an Excel file\r\noutput_df = pd.DataFrame(output_data)\r\noutput_df.to_excel(f'{OUTPUT_FOLDER}/output_ipa.xlsx', index=False)"
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "526a4096-ef30-4c6f-80b8-293418b44302",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_ipa.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_ipa.py",
+                "isCurrentFile": true
+              }
+            }
+          ],
+          "kv_store": {
+            "file_paths": [
+              "backend/scripts/generate_ipa.py",
+              "backend/scripts/generate_meaning.py"
+            ],
+            "file_path_dict": {
+              "1": "backend/scripts/generate_meaning.py",
+              "3": "backend/scripts/generate_ipa.py"
+            }
+          }
+        },
+        {
+          "id": "da1eaf08-c224-49cf-9f2d-aee95b5b06ed",
+          "messageText": "update kiểu như này \n\nvào file @generate_ipa.py",
+          "responseText": "Tôi sẽ cập nhật hàm `save_audio_file` trong file generate_ipa.py. Đây là phần code được cập nhật:\n\n```python:backend/scripts/generate_ipa.py\n# ... existing code ...\n\ndef save_audio_file(text, order):\n    try:\n        # Tạo thư mục con theo số thứ tự bên trong output_ipa_audio\n        order_folder = OUTPUT_AUDIO_FOLDER / str(order)\n        order_folder.mkdir(parents=True, exist_ok=True)\n        \n        # Đường dẫn file output là: output_ipa_audio/{order}\n        output_file = order_folder\n        \n        # Execute curl command with updated output path\n        curl_command = [\n            \"curl\", \"-L\", \"-X\", \"POST\", \n            \"http://103.253.20.13:25010/api/text-to-speech\",\n            \"-H\", \"Content-Type: application/json\",\n            \"-d\", json.dumps({\n                \"text\": text, \n                \"voice\": \"en-CA-ClaraNeural\", \n                \"speed\": 1\n            }),\n            \"--output\", str(output_file)\n        ]\n        subprocess.run(curl_command)\n        \n    except Exception as e:\n        print(f\"Error saving audio file for order {order}: {e}\")\n\n# ... rest of the code ...\n```\n\nThay đổi chính là bỏ phần `/ipa.mp3` ở đường dẫn output_file. Bây giờ file sẽ được lưu trực tiếp vào thư mục theo số thứ tự thay vì tạo thêm một file ipa.mp3.",
+          "model": "claude-3-5-sonnet-20241022",
+          "timestamp": "2024-11-14T09:59:53.282Z",
+          "context": [
+            {
+              "context_type": "selection",
+              "key": "c55c1e7d-fb0a-4a67-8b83-131686f559ee",
+              "value": {
+                "human_readable": "",
+                "uri": "",
+                "range": {
+                  "startLine": 2,
+                  "startColumn": 1,
+                  "endLine": 8,
+                  "endColumn": 36
+                },
+                "text": "    try:\r\n        # Tạo thư mục con theo số thứ tự bên trong output_ipa_audio\r\n        order_folder = OUTPUT_AUDIO_FOLDER / str(order)\r\n        order_folder.mkdir(parents=True, exist_ok=True)\r\n        \r\n        # Đường dẫn file output là: output_ipa_audio/{order}/ipa.mp3\r\n        output_file = order_folder "
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "817a025a-8e1b-435e-ab23-995c84ac0632",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_meaning.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_meaning.py",
+                "isCurrentFile": true
+              }
+            },
+            {
+              "context_type": "file",
+              "key": "124d3ee2-99f5-4037-9158-d62b89da6880",
+              "value": {
+                "human_readable": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_ipa.py",
+                "uri": "d:\\OneDrive - Hanoi University of Science and Technology\\GIT\\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\\deploy1.1\\backend\\scripts\\generate_ipa.py",
+                "isCurrentFile": false
+              }
+            }
+          ],
+          "kv_store": {
+            "file_paths": [
+              "backend/scripts/generate_ipa.py",
+              "backend/scripts/generate_meaning.py"
+            ],
+            "file_path_dict": {
+              "0": "backend/scripts/generate_meaning.py"
             }
           }
         }
@@ -2863,13 +3089,13 @@
     "deletedPanelChatIDs": []
   },
   "kv_store": {
-    "unique_matched_lines_count": 312,
-    "total_repo_line_count": 4488,
+    "unique_matched_lines_count": 516,
+    "total_repo_line_count": 5910,
     "best_prompt_response": {
-      "prompt": "Viết file @ShowOuput.js call tới API @routes.py liên kết tới @app.py - và @api.js\r\nđể hiển thị các file trong thư mục @output \r\n----------------------\n\n1. Giải thích vai trò của các file được nhắc đến bên trên: @routes.py liên kết tới @app.py - và @api.js",
-      "response": "Let me explain the role of each file in this system:\n\n1. **routes.py**:\n- This is a Flask backend file that defines API endpoints for file operations\n- Key functionalities:\n  - `/upload` - Handles file uploads\n  - `/list/<folder>` - Lists files in uploads/output folders\n  - `/download/<folder>/<filename>` - Handles file downloads\n- References in code:\n\n```1:89:backend/api/files/routes.py\nfrom flask import Blueprint, request, jsonify, send_file\r\nimport os\r\nfrom werkzeug.utils import secure_filename\r\nimport pandas as pd\r\n\r\nbp = Blueprint('files', __name__)\r\n\r\nUPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '../../uploads')\r\nOUTPUT_FOLDER = os.path.join(os.path.dirname(__file__), '../../output')\r\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\r\nos.makedirs(OUTPUT_FOLDER, exist_ok=True)\r\n\r\n@bp.route('/upload', methods=['POST'])\r\ndef upload_file():\r\n    try:\r\n        if 'file' not in request.files:\r\n            return jsonify({'error': 'No file uploaded'}), 400\r\n\r\n        file = request.files['file']\r\n        if not file or file.filename == '':\r\n            return jsonify({'error': 'No file selected'}), 400\r\n\r\n        if not file.filename.endswith(('.xlsx', '.xls')):\r\n            return jsonify({'error': 'Invalid file type. Please upload Excel file'}), 400\r\n\r\n        filename = secure_filename(file.filename)\r\n        file_path = os.path.join(UPLOAD_FOLDER, filename)\r\n        file.save(file_path)\r\n        \r\n        df = pd.read_excel(file_path)\r\n        data = df.to_dict(orient='records')\r\n        \r\n        return jsonify({\r\n            'success': True,\r\n            'data': data, \r\n            'filename': filename\r\n        })\r\n        \r\n    except Exception as e:\r\n        return jsonify({\r\n            'success': False,\r\n            'error': str(e)\r\n        }), 500\r\n\r\n@bp.route('/list/<folder>', methods=['GET'])\r\ndef list_files(folder):\r\n    try:\r\n        if folder not in ['uploads', 'output']:\r\n            return jsonify({'error': 'Invalid folder'}), 400\r\n            \r\n        folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER\r\n        files = []\r\n        \r\n        for filename in os.listdir(folder_path):\r\n            file_path = os.path.join(folder_path, filename)\r\n            if os.path.isfile(file_path):\r\n                file_stats = os.stat(file_path)\r\n                files.append({\r\n                    'name': filename,\r\n                    'size': file_stats.st_size,\r\n                    'modified': file_stats.st_mtime\r\n                })\r\n                \r\n        return jsonify({\r\n            'success': True,\r\n            'files': files\r\n        })\r\n        \r\n    except Exception as e:\r\n        return jsonify({\r\n            'success': False,\r\n            'error': str(e)\r\n        }), 500\r\n\r\n@bp.route('/download/<folder>/<filename>', methods=['GET'])\r\ndef download_folder_file(folder, filename):\r\n    try:\r\n        if folder not in ['uploads', 'output']:\r\n            return jsonify({'error': 'Invalid folder'}), 400\r\n            \r\n        folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER\r\n        file_path = os.path.join(folder_path, secure_filename(filename))\r\n        \r\n        if not os.path.exists(file_path):\r\n            return jsonify({'error': 'File not found'}), 404\r\n            \r\n        return send_file(file_path, as_attachment=True)\r\n        \r\n    except Exception as e:\r\n```\n\n\n2. **app.py**:\n- This is the main Flask application file\n- Key responsibilities:\n  - Initializes Flask app\n  - Enables CORS (Cross-Origin Resource Sharing)\n  - Registers blueprints (routes) with URL prefixes\n  - Example: `files_bp` is registered with `/api/files` prefix\n- References in code:\n\n```1:14:backend/app.py\nfrom flask import Flask\r\nfrom flask_cors import CORS\r\nfrom api.scripts import bp as scripts_bp\r\nfrom api.files import bp as files_bp\r\n\r\napp = Flask(__name__)\r\nCORS(app)\r\n\r\n# Register blueprints\r\napp.register_blueprint(scripts_bp, url_prefix='/api/scripts')\r\napp.register_blueprint(files_bp, url_prefix='/api/files')\r\n\r\nif __name__ == '__main__':\r\n    app.run(debug=True)\r\n```\n\n\n3. **api.js**:\n- Frontend service file that communicates with backend APIs\n- Key functions:\n  - `getOutputFiles()` - Fetches list of files from output folder\n  - `downloadFile()` - Initiates file download\n- References in code:\n\n```32:45:frontend/src/services/api.js\n//  API cho Output\r\n\r\n// Lấy danh sách files từ output folder\r\nexport const getOutputFiles = async () => {\r\n    const response = await fetch(`${API_BASE_URL}/api/list/output`);\r\n    const data = await response.json();\r\n    if (!data.success) throw new Error(data.error);\r\n    return data.files;\r\n};\r\n\r\n// Download file từ output folder\r\nexport const downloadFile = (filename) => {\r\n    window.open(`${API_BASE_URL}/api/download/output/${filename}`, '_blank');\r\n};\n```\n\n\nThe connection flow works like this:\n\n1. Frontend (`api.js`) makes HTTP requests to specific endpoints\n2. `app.py` receives these requests and routes them based on URL prefixes\n3. `routes.py` handles the actual logic for each endpoint\n4. Data flows back to frontend through the same path\n\nFor example, when listing output files:\n1. Frontend calls `getOutputFiles()` from `api.js`\n2. Request goes to `/api/files/list/output`\n3. `app.py` routes it to the files blueprint\n4. `routes.py` handles the request and returns file list\n5. Frontend receives and displays the data\n\nThis separation of concerns allows for:\n- Clean code organization\n- Easy maintenance\n- Clear API structure\n- Secure file operations\n- Proper error handling at each level\n\nWould you like me to proceed with writing the ShowOutput.js component that integrates with these files?",
-      "match_count": 56,
-      "file": "backend/api/files/routes.py"
+      "prompt": "Cho full file đi",
+      "response": "Đây là phiên bản đầy đủ của file `generate_meaning.py` với cấu trúc thư mục đã được cập nhật:\n\n```python:backend/scripts/generate_meaning.py\nimport subprocess\nimport os\nimport re\nimport json\nimport time\nimport pandas as pd\nfrom openai import OpenAI\nfrom pathlib import Path\nfrom dotenv import load_dotenv\nimport sys\n\n# Set console output encoding to UTF-8\nsys.stdout.reconfigure(encoding='utf-8')\n\n# Load environment variables from .env file\nload_dotenv()\n\n# Initialize OpenAI client\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n\nUPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'\nOUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder\nOUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_meaning'  # Define output subfolder for meaning exercises\ndata = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')\n\n# Create an empty list to store the output data\noutput_data = []\n\ndef save_audio_file(text, order):\n    try:\n        # Create numbered folder inside output_meaning\n        order_folder = OUTPUT_MEANING_FOLDER / str(order)\n        order_folder.mkdir(parents=True, exist_ok=True)\n        \n        # Define output file path\n        output_file = order_folder / 'choose_answer.mp3'\n        \n        # Execute curl command with updated output path\n        curl_command = [\n            \"curl\", \"-L\", \"-X\", \"POST\", \n            \"http://103.253.20.13:25010/api/text-to-speech\",\n            \"-H\", \"Content-Type: application/json\",\n            \"-d\", json.dumps({\n                \"text\": text, \n                \"voice\": \"en-CA-ClaraNeural\", \n                \"speed\": 1\n            }),\n            \"--output\", str(output_file)\n        ]\n        result = subprocess.run(curl_command, capture_output=True)\n        \n        # Check for errors in the output\n        if result.returncode != 0:\n            print(f\"Error executing curl command: {result.stderr.decode('utf-8', errors='replace')}\")\n        else:\n            print(f\"Audio file saved successfully: {output_file}\")\n            \n    except Exception as e:\n        print(f\"Error saving audio file for order {order}: {e}\")\n\n# Loop through each row in the Excel file\nfor index, row in data.iterrows():\n    prompt = row['prompt_meaning']\n    message = row['vocabulary']\n    order = row['order']\n    start_time = time.time()    \n    try:\n        response = client.chat.completions.create(\n            model=\"gpt-4o-mini\",\n            temperature=0,\n            max_tokens=2500,\n            top_p=1,\n            frequency_penalty=0.0,\n            presence_penalty=1,\n            messages=[\n                {\"role\": \"system\", \"content\": prompt},\n                {\"role\": \"user\", \"content\": message}\n            ]\n        )\n        \n        response_content = response.choices[0].message.content\n        end_time = time.time()\n        print(response_content)\n        \n        # Parse the JSON response content\n        response_json = json.loads(response_content)\n        \n        # Extract the 'question', 'answer', and 'explain' fields\n        question = response_json.get(\"question\", \"\").strip()\n        answer = response_json.get(\"answer\", \"\").strip()\n        explain = response_json.get(\"explain\", \"\").strip()\n        \n        # Generate the audio URL using the order value\n        audio_url = f\"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/choose_answer.mp3\"\n        \n        # Append the output to the list\n        output_data.append({\n            \"id\": f\"vs_choose_answer_question_{order}\",\n            \"vocabulary_id\": f\"vocab_{order}\",\n            \"title\": \"CHỌN ĐÁP ÁN\",\n            \"order\": \"4\",\n            \"progress\": \"TRẮC NGHIỆM\",\n            \"question\": question,\n            \"answer\": answer,\n            \"audio\": audio_url,\n            \"feedback_1\": explain\n        })\n\n        # Create output directory if it doesn't exist\n        if not os.path.exists(OUTPUT_MEANING_FOLDER):\n            os.makedirs(OUTPUT_MEANING_FOLDER)\n\n        # Save audio file using the new function\n        save_audio_file(question, order)\n\n    except Exception as e:\n        print(f\"Error processing row {index}: {e}\")\n\n# Convert the output list to a DataFrame and save it to an Excel file\noutput_df = pd.DataFrame(output_data)\noutput_df.to_excel(f'{OUTPUT_FOLDER}/output_meaning.xlsx', index=False)\n```\n\nNhững thay đổi chính so với phiên bản trước:\n1. Thêm hàm `save_audio_file()` để xử lý việc lưu file audio theo cấu trúc thư mục mới\n2. Loại bỏ phần curl command cũ\n3. Thêm kiểm tra lỗi và thông báo khi lưu file audio\n4. Cập nhật đường dẫn lưu file để phù hợp với cấu trúc thư mục mới: `output_meaning/{order}/choose_answer.mp3`",
+      "match_count": 89,
+      "file": "backend/scripts/generate_meaning.py"
     },
     "file_statistics": [
       {
@@ -2877,6 +3103,12 @@
         "total_lines": 185,
         "ai_generated_lines": 61,
         "ai_generated_percentage": 32.972972972972975
+      },
+      {
+        "file": "N",
+        "total_lines": 1,
+        "ai_generated_lines": 0,
+        "ai_generated_percentage": 0
       },
       {
         "file": "Note1_CauTruc.ipynb",
@@ -2933,10 +3165,28 @@
         "ai_generated_percentage": 0
       },
       {
+        "file": "backend/Dockerfile",
+        "total_lines": 12,
+        "ai_generated_lines": 6,
+        "ai_generated_percentage": 50
+      },
+      {
         "file": "backend/api.md",
         "total_lines": 219,
         "ai_generated_lines": 32,
         "ai_generated_percentage": 14.61187214611872
+      },
+      {
+        "file": "backend/api/ckp/.md",
+        "total_lines": 1,
+        "ai_generated_lines": 0,
+        "ai_generated_percentage": 0
+      },
+      {
+        "file": "backend/api/ckp/scripts.py",
+        "total_lines": 51,
+        "ai_generated_lines": 12,
+        "ai_generated_percentage": 23.52941176470588
       },
       {
         "file": "backend/api/files/__init__.py",
@@ -2959,8 +3209,8 @@
       {
         "file": "backend/app.py",
         "total_lines": 15,
-        "ai_generated_lines": 11,
-        "ai_generated_percentage": 73.33333333333333
+        "ai_generated_lines": 10,
+        "ai_generated_percentage": 66.66666666666666
       },
       {
         "file": "backend/config.py",
@@ -2976,39 +3226,69 @@
       },
       {
         "file": "backend/requirements.txt",
-        "total_lines": 13,
-        "ai_generated_lines": 11,
-        "ai_generated_percentage": 84.61538461538461
+        "total_lines": 9,
+        "ai_generated_lines": 7,
+        "ai_generated_percentage": 77.77777777777779
       },
       {
         "file": "backend/scripts/debug.log",
-        "total_lines": 991,
+        "total_lines": 1288,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
       },
       {
         "file": "backend/scripts/generate_ipa.py",
         "total_lines": 112,
-        "ai_generated_lines": 27,
-        "ai_generated_percentage": 24.107142857142858
+        "ai_generated_lines": 79,
+        "ai_generated_percentage": 70.53571428571429
       },
       {
         "file": "backend/scripts/generate_meaning.py",
-        "total_lines": 102,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
+        "total_lines": 114,
+        "ai_generated_lines": 90,
+        "ai_generated_percentage": 78.94736842105263
       },
       {
         "file": "backend/scripts/generate_story.py",
         "total_lines": 284,
-        "ai_generated_lines": 33,
-        "ai_generated_percentage": 11.619718309859154
+        "ai_generated_lines": 44,
+        "ai_generated_percentage": 15.492957746478872
       },
       {
         "file": "backend/uploads/data.xlsx",
         "total_lines": 41,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
+      },
+      {
+        "file": "deploy1.1_Note7_BuildShowDownloadOutput.ipynb",
+        "total_lines": 270,
+        "ai_generated_lines": 0,
+        "ai_generated_percentage": 0
+      },
+      {
+        "file": "deploy1.1_Note7_Docker.ipynb",
+        "total_lines": 324,
+        "ai_generated_lines": 0,
+        "ai_generated_percentage": 0
+      },
+      {
+        "file": "deploy1.2_Note8_Update_DownAll_ParallelAPI.ipynb",
+        "total_lines": 394,
+        "ai_generated_lines": 0,
+        "ai_generated_percentage": 0
+      },
+      {
+        "file": "docker-compose.prod.yml",
+        "total_lines": 31,
+        "ai_generated_lines": 17,
+        "ai_generated_percentage": 54.83870967741935
+      },
+      {
+        "file": "docker-compose.yml",
+        "total_lines": 33,
+        "ai_generated_lines": 21,
+        "ai_generated_percentage": 63.63636363636363
       }
     ]
   }

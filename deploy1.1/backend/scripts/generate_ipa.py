@@ -22,7 +22,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 UPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'
 OUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder
-OUTPUT_AUDIO_FOLDER = OUTPUT_FOLDER / 'output_ipa_audio'  # Define audio output subfolder
+OUTPUT_AUDIO_FOLDER = OUTPUT_FOLDER / 'output_audio'  # Define audio output subfolder
 data = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')
 
 # Create an empty list to store the output data

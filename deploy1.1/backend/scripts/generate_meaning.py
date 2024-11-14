@@ -20,11 +20,37 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 UPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'
 OUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder
-OUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_meaning'  # Define output subfolder for meaning exercises
+OUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_audio'  # Define output subfolder for meaning exercises
 data = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')
 
 # Create an empty list to store the output data
 output_data = []
+
+def save_audio_file(text, order):
+    try:
+        # Tạo thư mục con theo số thứ tự
+        order_folder = OUTPUT_MEANING_FOLDER / str(order)
+        order_folder.mkdir(parents=True, exist_ok=True)
+        
+        # Đường dẫn file output
+        output_file = order_folder / 'choose_answer.mp3'
+        
+        # Execute curl command
+        curl_command = [
+            "curl", "-L", "-X", "POST", 
+            "http://103.253.20.13:25010/api/text-to-speech",
+            "-H", "Content-Type: application/json",
+            "-d", json.dumps({
+                "text": text, 
+                "voice": "en-CA-ClaraNeural", 
+                "speed": 1
+            }),
+            "--output", str(output_file)
+        ]
+        subprocess.run(curl_command)
+        
+    except Exception as e:
+        print(f"Error saving audio file for order {order}: {e}")
 
 # Loop through each row in the Excel file
 for index, row in data.iterrows():
@@ -78,22 +104,8 @@ for index, row in data.iterrows():
         if not os.path.exists(OUTPUT_MEANING_FOLDER):
             os.makedirs(OUTPUT_MEANING_FOLDER)
 
-        # Execute the curl command to send the request and save the audio file
-        curl_command = [
-            "curl", "-L", "-X", "POST", "http://103.253.20.13:25010/api/text-to-speech",
-            "-H", "Content-Type: application/json",
-            "-d", json.dumps({"text": question, "voice": "en-CA-ClaraNeural", "speed": 1}),
-            "--output", f"{OUTPUT_MEANING_FOLDER}/choose_answer.mp3"  # Save audio files in the meaning exercise subfolder
-        ]
-
-        # Run the curl command and capture output
-        result = subprocess.run(curl_command, capture_output=True)
-
-        # Check for errors in the output
-        if result.returncode != 0:
-            print(f"Error executing curl command: {result.stderr.decode('utf-8', errors='replace')}")
-        else:
-            print(f"Audio file saved successfully: {OUTPUT_MEANING_FOLDER}/choose_answer_{order}.mp3")
+        # Save the audio file
+        save_audio_file(question, order)
     except Exception as e:
         print(f"Error processing row {index}: {e}")
 

@@ -45,7 +45,7 @@ logger.debug(f"OpenAI API key loaded: {'*' * len(str(openai.api_key))}")
 # Define upload and output folders
 UPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'
 OUTPUT_FOLDER = Path(__file__).parent.parent / 'output'
-OUTPUT_AUDIO_FOLDER = OUTPUT_FOLDER / 'output_story_audio'  # Define audio output subfolder
+OUTPUT_AUDIO_FOLDER = OUTPUT_FOLDER / 'output_audio'  # Define audio output subfolder
 
 logger.debug(f"Upload folder path: {UPLOAD_FOLDER}")
 logger.debug(f"Output folder path: {OUTPUT_FOLDER}")
