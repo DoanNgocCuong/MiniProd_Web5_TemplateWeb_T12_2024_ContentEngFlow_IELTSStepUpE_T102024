@@ -3,27 +3,49 @@ import os
 import pandas as pd
 from werkzeug.utils import secure_filename
 import subprocess
+from flask_cors import CORS
+from api.scripts import bp as scripts_bp
 
 app = Flask(__name__)
-UPLOAD_FOLDER = './backend/uploads'
-OUTPUT_FOLDER = './backend/output'
+CORS(app)
+app.register_blueprint(scripts_bp, url_prefix='/api/scripts')
+UPLOAD_FOLDER = './uploads'
+OUTPUT_FOLDER = './output'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file uploaded'}), 400
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file uploaded'}), 400
 
-    file = request.files['file']
-    filename = secure_filename(file.filename)
-    file_path = os.path.join(UPLOAD_FOLDER, filename)
-    file.save(file_path)
-    
-    # Đọc file Excel và chuyển đổi thành JSON để gửi về frontend
-    df = pd.read_excel(file_path)
-    data = df.to_dict(orient='records')
-    return jsonify({'data': data, 'filename': filename})
+        file = request.files['file']
+        if not file or file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+
+        if not file.filename.endswith(('.xlsx', '.xls')):
+            return jsonify({'error': 'Invalid file type. Please upload Excel file'}), 400
+
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(UPLOAD_FOLDER, filename)
+        file.save(file_path)
+        
+        # Đọc file Excel và chuyển đổi thành JSON để gửi về frontend
+        df = pd.read_excel(file_path)
+        data = df.to_dict(orient='records')
+        
+        return jsonify({
+            'success': True,
+            'data': data, 
+            'filename': filename
+        })
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
 
 @app.route('/update', methods=['POST'])
 def update_file():
