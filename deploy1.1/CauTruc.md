@@ -27,7 +27,7 @@ backend/
     └── ipa_generate.py
 ```
 
----------
+-------------------------
 Update 
 ```bash
 frontend/
@@ -74,5 +74,111 @@ backend/
     --- gen_answer_pic.py
     --- generate_audio_conversation.py
     --- ipa_generate.py
+```
+
+
+-------------------
+Update: 
+```bash
+project/
+backend/
+|   ├── api/
+|   │   ├── __pycache__/
+|   │   ├── files/
+|   │   │   ├── __pycache__/
+|   │   │   ├── __init__.py
+|   │   │   ├── routes.py
+|   │   │   └── scripts.py
+|   │   ├── data/
+|   │   └── output/
+|   ├── scripts/
+|   │   ├── generate_ipa.py
+|   │   ├── generate_meaning.py
+|   │   └── generate_story.py
+|   ├── uploads/
+|   │   ├── data_-_Copy.xlsx
+|   │   └── data.xlsx
+|   ├── .env
+|   ├── .gitignore
+|   ├── api.md
+|   ├── app.py
+|   └── config.py
+└── frontend/
+    ├── public/
+    │   ├── index.html
+    │   └── favicon.ico
+    ├── src/
+    │   ├── components/
+    │   │   ├── FileUploader.js
+    │   │   └── ActionButtons.js
+    │   ├── services/
+    │   │   └── api.js
+    │   ├── utils/
+    │   │   └── dataProcessing.js
+    │   ├── App.js
+    │   ├── Upload.js
+    │   └── index.js
+    └── package.json
+
+```
+
+
+
+project/
+backend/
+|   ├── api/
+|   │   ├── __pycache__/
+|   │   ├── files/
+|   │   │   ├── __pycache__/
+|   │   │   ├── __init__.py
+|   │   │   ├── routes.py
+|   │   │   └── scripts.py
+|   │   ├── data/
+|   │   └── output/
+|   ├── scripts/
+|   │   ├── generate_ipa.py
+|   │   ├── generate_meaning.py
+|   │   └── generate_story.py
+|   ├── uploads/
+|   │   ├── data_-_Copy.xlsx
+|   │   └── data.xlsx
+|   ├── .env
+|   ├── .gitignore
+|   ├── api.md
+|   ├── app.py
+|   └── config.py
+└── frontend/
+    ├── public/
+    │   ├── index.html
+    │   └── favicon.ico
+    ├── src/
+    │   ├── components/
+    │   │   ├── FileUploader.js
+    │   │   └── ActionButtons.js
+    │   ├── services/
+    │   │   └── api.js
+    │   ├── utils/
+    │   │   └── dataProcessing.js
+    │   ├── App.js
+    │   ├── ContentGenerator.js
+    │   ├── FileUpload.js
+    │   └── index.js
+    └── package.json
+```
+
+
+Cấu trúc mới: 
+```
+frontend/
+  ├── src/
+  │   ├── services/
+  │   │   └── api.js
+  │   ├── components/
+  │   │   ├── FileUploader.js
+  │   │   └── UploadMessage.js
+  │   ├── features/
+  │   │   ├── ContentGenerator.js
+  │   │   └── FileUpload.js
+  │   └── App.js
 ```
 

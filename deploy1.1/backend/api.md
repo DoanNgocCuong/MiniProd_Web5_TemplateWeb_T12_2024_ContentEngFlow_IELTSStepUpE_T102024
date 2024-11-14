@@ -117,3 +117,89 @@ Mỗi request sẽ trả về JSON response với format:
 }
 
 ```
+
+I'll provide cURL commands to test each endpoint in routes.py. Let's test all three main routes:
+
+1. **Test Upload File Endpoint**
+```bash
+curl -X POST \
+  http://localhost:5000/api/files/upload \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'file=@/path/to/your/test.xlsx'
+```
+
+2. **Test List Files in Output Folder**
+```bash
+curl -X GET \
+  http://localhost:5000/api/files/list/output
+```
+
+3. **Test List Files in Upload Folder**
+```bash
+curl -X GET \
+  http://localhost:5000/api/files/list/uploads
+```
+Output: 
+```bash
+{
+    "files": [
+        {
+            "modified": 1731551318.7491193,
+            "name": "data.xlsx",
+            "size": 12727
+        },
+        {
+            "modified": 1731568477.227839,
+            "name": "data_-_Copy.xlsx",
+            "size": 25154
+        }
+    ],
+    "success": true
+}
+```
+
+
+
+4. **Test Download File from Output Folder**
+```bash
+curl -X GET \
+  http://localhost:5000/api/files/download/output/example.xlsx \
+  -O -J
+```
+
+5. **Test Download File from Upload Folder**
+```bash
+curl -X GET \
+  http://localhost:5000/api/files/download/uploads/example.xlsx \
+  -O -J
+```
+
+Notes for testing:
+- Replace `/path/to/your/test.xlsx` with actual path to your test Excel file
+- Replace `example.xlsx` with actual filename you want to download
+- The `-O` flag saves the file with its original name
+- The `-J` flag uses the filename from Content-Disposition header
+
+Expected responses:
+1. Upload response:
+```json
+{
+    "success": true,
+    "data": [...],
+    "filename": "test.xlsx"
+}
+```
+
+2. List files response:
+```json
+{
+    "success": true,
+    "files": [
+        {
+            "name": "example.xlsx",
+            "size": 1234,
+            "modified": 1234567890
+        }
+    ]
+}
+```
