@@ -8,28 +8,21 @@ services:
     environment:
       - FLASK_APP=app.py
       - FLASK_ENV=development
-      - FLASK_DEBUG=1
       - FLASK_RUN_HOST=0.0.0.0
     volumes:
       - ./backend:/app
-      - /app/__pycache__
-    command: flask run --host=0.0.0.0
     networks:
       - app-network
 
   frontend:
-    build: 
-      context: ./frontend
-      target: development
+    build: ./frontend
     ports:
       - "25038:3000"
     environment:
       - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    command: npm start
     depends_on:
       - backend
     networks:

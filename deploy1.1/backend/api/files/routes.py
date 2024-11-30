@@ -2,6 +2,9 @@ from flask import Blueprint, request, jsonify, send_file
 import os
 from werkzeug.utils import secure_filename
 import pandas as pd
+import logging
+
+logger = logging.getLogger(__name__)
 
 bp = Blueprint('files', __name__)
 
@@ -55,6 +58,11 @@ def list_files(folder):
         )
         items = []
         
+        # Check if folder exists
+        if not os.path.exists(folder_path):
+            logger.error(f'Folder not found: {folder_path}')
+            return jsonify({'error': 'Folder not found'}), 404
+        
         for item_name in os.listdir(folder_path):
             item_path = os.path.join(folder_path, item_name)
             stats = os.stat(item_path)
@@ -78,6 +86,7 @@ def list_files(folder):
         })
         
     except Exception as e:
+        logger.error(f'Error listing files in {folder}: {str(e)}')
         return jsonify({
             'success': False,
             'error': str(e)

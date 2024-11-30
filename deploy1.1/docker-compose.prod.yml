@@ -17,12 +17,10 @@ services:
       context: ./frontend
       args:
         - NODE_ENV=production
-        - REACT_APP_API_URL=http://103.253.20.13:25037
     ports:
       - "25038:3000"
     environment:
       - NODE_ENV=production
-      - REACT_APP_API_URL=http://103.253.20.13:25037
     depends_on:
       - backend
     networks:
