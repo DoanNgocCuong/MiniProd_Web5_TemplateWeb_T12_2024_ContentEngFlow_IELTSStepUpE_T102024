@@ -3,6 +3,7 @@ import os
 from werkzeug.utils import secure_filename
 import pandas as pd
 import logging
+import shutil
 
 logger = logging.getLogger(__name__)
 
@@ -159,12 +160,25 @@ def download_all(folder):
                     arc_name = os.path.relpath(file_path, folder_path)
                     zipf.write(file_path, arc_name)
         
-        return send_file(
+        response = send_file(
             temp_zip.name,
             mimetype='application/zip',
             as_attachment=True,
             download_name=f"{folder}_all.zip"
         )
+
+        # Xóa tất cả files trong OUTPUT_FOLDER và các thư mục con, giữ nguyên cấu trúc thư mục
+        if folder == 'output':
+            for root, dirs, files in os.walk(folder_path):
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    try:
+                        os.remove(file_path)
+                        logger.info(f"Deleted file: {file_path}")
+                    except Exception as e:
+                        logger.error(f"Error deleting file {file_path}: {str(e)}")
+        
+        return response
             
     except Exception as e:
         return jsonify({
