@@ -15,11 +15,20 @@ services:
       - app-network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        - NODE_ENV=development
+        # Thêm dòng này để GHI ĐÈ lại URL API mặc định trong config.js
+        # - REACT_APP_API_URL=http://localhost:25037
+        # Trong config.js có dòng [REACT_APP_API_URL=http://localhost:25037] cho development rồi 
     ports:
       - "25038:3000"
     environment:
       - NODE_ENV=development
+      # Thêm dòng này để GHI ĐÈ lại URL API mặc định trong config.js
+      # - REACT_APP_API_URL=http://localhost:25037
+      # Trong config.js có dòng [REACT_APP_API_URL=http://localhost:25037] cho development rồi 
     volumes:
       - ./frontend:/app
       - /app/node_modules
