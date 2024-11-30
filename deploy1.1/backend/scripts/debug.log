@@ -2958,3 +2958,691 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
     raise JSONDecodeError("Expecting value", s, err.value) from None
 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2024-11-30 16:47:12,595 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-11-30 16:47:12,596 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-11-30 16:47:12,597 - __main__ - DEBUG - Output folder path: /app/output
+2024-11-30 16:47:12,597 - __main__ - INFO - Starting main process
+2024-11-30 16:47:12,599 - __main__ - INFO - Starting initial data processing
+2024-11-30 16:47:12,870 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:12,882 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:12,883 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-11-30 16:47:12,969 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f9146aabbe0>
+2024-11-30 16:47:12,971 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f91491ef6c0> server_hostname='api.openai.com' timeout=5.0
+2024-11-30 16:47:13,106 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f9146aab970>
+2024-11-30 16:47:13,108 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:13,108 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:13,109 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:13,110 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:13,110 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:13,978 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:19 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_622dd9650be40dfea08df71050c86477'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=D4OxRdg7WyNUpuAv73lQzYEA.LYSmO6tZ1t8Vc6c0LI-1732985239-1.0.1.1-o2..y1ITlT4aNbLcCSGd.7P961CdVXX7PqHQB8MVVTvCFShfyR.9QpIMNacCb.BLIy6WfOyJx3C59Pzq4SR1bA; path=/; expires=Sat, 30-Nov-24 17:17:19 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=bQxuzEEfrbYNPC9jkmuzClrDovY0iAgrT2mw004BZNQ-1732985239058-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac518b29de8617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:13,980 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:13,981 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:13,981 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:13,982 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:13,982 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:13,983 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers([('date', 'Sat, 30 Nov 2024 16:47:19 GMT'), ('content-type', 'application/json; charset=utf-8'), ('content-length', '337'), ('connection', 'keep-alive'), ('vary', 'Origin'), ('x-request-id', 'req_622dd9650be40dfea08df71050c86477'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=D4OxRdg7WyNUpuAv73lQzYEA.LYSmO6tZ1t8Vc6c0LI-1732985239-1.0.1.1-o2..y1ITlT4aNbLcCSGd.7P961CdVXX7PqHQB8MVVTvCFShfyR.9QpIMNacCb.BLIy6WfOyJx3C59Pzq4SR1bA; path=/; expires=Sat, 30-Nov-24 17:17:19 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=bQxuzEEfrbYNPC9jkmuzClrDovY0iAgrT2mw004BZNQ-1732985239058-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8eac518b29de8617-HKG'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-11-30 16:47:13,984 - openai._base_client - DEBUG - request_id: req_622dd9650be40dfea08df71050c86477
+2024-11-30 16:47:13,984 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:13,986 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:13,987 - openai._base_client - DEBUG - 2 retries left
+2024-11-30 16:47:13,987 - openai._base_client - INFO - Retrying request to /chat/completions in 0.499743 seconds
+2024-11-30 16:47:14,488 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:14,490 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:14,491 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:14,492 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:14,492 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:14,493 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:14,494 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:14,904 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:19 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_0f8775f64598589da173713355634488'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac5193cf1f8617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:14,905 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:14,905 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:14,906 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:14,907 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:14,907 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:14,908 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:19 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_0f8775f64598589da173713355634488', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac5193cf1f8617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:14,909 - openai._base_client - DEBUG - request_id: req_0f8775f64598589da173713355634488
+2024-11-30 16:47:14,909 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:14,910 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:14,911 - openai._base_client - DEBUG - 1 retry left
+2024-11-30 16:47:14,911 - openai._base_client - INFO - Retrying request to /chat/completions in 0.859982 seconds
+2024-11-30 16:47:15,773 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:15,775 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:15,776 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:15,777 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:15,778 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:15,778 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:15,779 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:16,232 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:21 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_faffe44a0edeaaf470fd2f984c4b3989'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac519bdb478617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:16,233 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:16,234 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:16,234 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:16,235 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:16,235 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:16,236 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:21 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_faffe44a0edeaaf470fd2f984c4b3989', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac519bdb478617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:16,237 - openai._base_client - DEBUG - request_id: req_faffe44a0edeaaf470fd2f984c4b3989
+2024-11-30 16:47:16,237 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:16,238 - openai._base_client - DEBUG - Re-raising status error
+2024-11-30 16:47:19,250 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:19,252 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:19,253 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:19,254 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:19,255 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:19,256 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:19,256 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:19,717 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:24 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_b38727bd7726529ec5afd6aa66f781ab'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51b18eb58617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:19,718 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:19,719 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:19,720 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:19,720 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:19,721 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:19,721 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:24 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_b38727bd7726529ec5afd6aa66f781ab', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51b18eb58617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:19,722 - openai._base_client - DEBUG - request_id: req_b38727bd7726529ec5afd6aa66f781ab
+2024-11-30 16:47:19,723 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:19,723 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:19,724 - openai._base_client - DEBUG - 2 retries left
+2024-11-30 16:47:19,724 - openai._base_client - INFO - Retrying request to /chat/completions in 0.384326 seconds
+2024-11-30 16:47:20,110 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:20,112 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:20,113 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:20,114 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:20,115 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:20,116 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:20,116 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:20,530 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:25 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_3e9acee2016ce0479ed98b92ab1f4124'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51b70f858617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:20,531 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:20,532 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:20,533 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:20,534 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:20,534 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:20,535 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:25 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_3e9acee2016ce0479ed98b92ab1f4124', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51b70f858617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:20,536 - openai._base_client - DEBUG - request_id: req_3e9acee2016ce0479ed98b92ab1f4124
+2024-11-30 16:47:20,537 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:20,537 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:20,538 - openai._base_client - DEBUG - 1 retry left
+2024-11-30 16:47:20,539 - openai._base_client - INFO - Retrying request to /chat/completions in 0.996211 seconds
+2024-11-30 16:47:21,537 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:21,539 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:21,540 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:21,541 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:21,542 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:21,543 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:21,544 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:21,966 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:26 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_bd30142ff4ee0a2585c4f91eee6800d7'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51bfde9e8617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:21,967 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:21,968 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:21,969 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:21,969 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:21,970 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:21,971 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:26 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_bd30142ff4ee0a2585c4f91eee6800d7', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51bfde9e8617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:21,971 - openai._base_client - DEBUG - request_id: req_bd30142ff4ee0a2585c4f91eee6800d7
+2024-11-30 16:47:21,972 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:21,973 - openai._base_client - DEBUG - Re-raising status error
+2024-11-30 16:47:24,984 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:24,986 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:24,987 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:24,988 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:24,988 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:24,989 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:24,990 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:25,451 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:30 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_5afb3e15d4e538599c52d2df98250568'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51d56a778617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:25,452 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:25,453 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:25,453 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:25,454 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:25,455 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:25,455 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:30 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_5afb3e15d4e538599c52d2df98250568', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51d56a778617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:25,456 - openai._base_client - DEBUG - request_id: req_5afb3e15d4e538599c52d2df98250568
+2024-11-30 16:47:25,457 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:25,458 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:25,458 - openai._base_client - DEBUG - 2 retries left
+2024-11-30 16:47:25,459 - openai._base_client - INFO - Retrying request to /chat/completions in 0.446819 seconds
+2024-11-30 16:47:25,907 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:25,909 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:25,910 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:25,911 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:25,912 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:25,913 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:25,913 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:26,268 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:31 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_179ac3815507c1480cbf006c8434a6a8'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51db2a9a8617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:26,270 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:26,270 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:26,271 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:26,272 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:26,272 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:26,273 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:31 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_179ac3815507c1480cbf006c8434a6a8', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51db2a9a8617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:26,273 - openai._base_client - DEBUG - request_id: req_179ac3815507c1480cbf006c8434a6a8
+2024-11-30 16:47:26,274 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:26,275 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:26,275 - openai._base_client - DEBUG - 1 retry left
+2024-11-30 16:47:26,276 - openai._base_client - INFO - Retrying request to /chat/completions in 0.992186 seconds
+2024-11-30 16:47:27,270 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:27,272 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:27,273 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:27,273 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:27,274 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:27,275 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:27,275 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:27,700 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:32 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_367a0945fb7235fb8236ff1e3d5e3473'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51e3a8658617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:27,701 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:27,702 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:27,703 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:27,703 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:27,704 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:27,704 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:32 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_367a0945fb7235fb8236ff1e3d5e3473', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51e3a8658617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:27,705 - openai._base_client - DEBUG - request_id: req_367a0945fb7235fb8236ff1e3d5e3473
+2024-11-30 16:47:27,706 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:27,706 - openai._base_client - DEBUG - Re-raising status error
+2024-11-30 16:47:27,707 - __main__ - ERROR - Order 999, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response: 'Request failed after 2 retries.'
+2024-11-30 16:47:27,708 - __main__ - DEBUG - Processed row - Order: 999
+2024-11-30 16:47:27,709 - __main__ - DEBUG - Response: Request failed after 2 retries.
+2024-11-30 16:47:27,723 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:27,727 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:27,728 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:27,729 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:27,729 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:27,731 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:27,732 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:28,064 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:33 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_3dad9444362e6399b3ddc9bc61fc7329'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51e67cd38617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:28,065 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:28,066 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:28,066 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:28,067 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:28,067 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:28,068 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:33 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_3dad9444362e6399b3ddc9bc61fc7329', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51e67cd38617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:28,069 - openai._base_client - DEBUG - request_id: req_3dad9444362e6399b3ddc9bc61fc7329
+2024-11-30 16:47:28,069 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:28,070 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:28,071 - openai._base_client - DEBUG - 2 retries left
+2024-11-30 16:47:28,071 - openai._base_client - INFO - Retrying request to /chat/completions in 0.393155 seconds
+2024-11-30 16:47:28,465 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:28,467 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:28,467 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:28,468 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:28,468 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:28,469 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:28,469 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:28,802 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:33 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_f4bcd1d6d7b03aee67850f14d60c3396'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51eb1c5f8617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:28,803 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:28,804 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:28,804 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:28,804 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:28,805 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:28,805 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:33 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_f4bcd1d6d7b03aee67850f14d60c3396', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51eb1c5f8617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:28,806 - openai._base_client - DEBUG - request_id: req_f4bcd1d6d7b03aee67850f14d60c3396
+2024-11-30 16:47:28,806 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:28,807 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:28,807 - openai._base_client - DEBUG - 1 retry left
+2024-11-30 16:47:28,808 - openai._base_client - INFO - Retrying request to /chat/completions in 0.803166 seconds
+2024-11-30 16:47:29,612 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:29,613 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:29,614 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:29,614 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:29,615 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:29,616 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:29,616 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:29,950 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:35 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_9b24eabac5e6f8972a2cf8c00d32d06c'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac51f24ff18617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:29,951 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:29,952 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:29,953 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:29,954 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:29,954 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:29,955 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:35 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_9b24eabac5e6f8972a2cf8c00d32d06c', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac51f24ff18617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:29,955 - openai._base_client - DEBUG - request_id: req_9b24eabac5e6f8972a2cf8c00d32d06c
+2024-11-30 16:47:29,956 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:29,957 - openai._base_client - DEBUG - Re-raising status error
+2024-11-30 16:47:32,963 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:32,964 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:32,964 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:32,965 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:32,965 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:32,966 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:32,966 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:33,331 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:38 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_9caef85a0b7cfd972ee3b62272a6a320'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac52076a018617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:33,332 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:33,332 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:33,333 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:33,333 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:33,334 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:33,334 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:38 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_9caef85a0b7cfd972ee3b62272a6a320', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac52076a018617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:33,335 - openai._base_client - DEBUG - request_id: req_9caef85a0b7cfd972ee3b62272a6a320
+2024-11-30 16:47:33,335 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:33,335 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:33,336 - openai._base_client - DEBUG - 2 retries left
+2024-11-30 16:47:33,336 - openai._base_client - INFO - Retrying request to /chat/completions in 0.463252 seconds
+2024-11-30 16:47:33,800 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:33,801 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:33,802 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:33,802 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:33,803 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:33,804 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:33,804 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:34,172 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:39 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_d9ab693b9510d05905c87b4e89052b40'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac520c79d78617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:34,172 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:34,173 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:34,174 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:34,174 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:34,175 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:34,175 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:39 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_d9ab693b9510d05905c87b4e89052b40', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac520c79d78617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:34,176 - openai._base_client - DEBUG - request_id: req_d9ab693b9510d05905c87b4e89052b40
+2024-11-30 16:47:34,176 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:34,177 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:34,177 - openai._base_client - DEBUG - 1 retry left
+2024-11-30 16:47:34,178 - openai._base_client - INFO - Retrying request to /chat/completions in 0.869761 seconds
+2024-11-30 16:47:35,049 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:35,050 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:35,050 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:35,051 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:35,052 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:35,052 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:35,053 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:35,390 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:40 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_9363828fcb60362bf95677946280af91'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac52144e158617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:35,391 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:35,392 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:35,392 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:35,392 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:35,393 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:35,393 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:40 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_9363828fcb60362bf95677946280af91', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac52144e158617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:35,394 - openai._base_client - DEBUG - request_id: req_9363828fcb60362bf95677946280af91
+2024-11-30 16:47:35,394 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:35,395 - openai._base_client - DEBUG - Re-raising status error
+2024-11-30 16:47:38,403 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:38,405 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:38,406 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:38,407 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:38,407 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:38,408 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:38,409 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:38,783 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:43 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_96f38e37e84d3d9c09b9508671ea9d40'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac52294f1d8617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:38,784 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:38,784 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:38,785 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:38,785 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:38,785 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:38,786 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:43 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_96f38e37e84d3d9c09b9508671ea9d40', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac52294f1d8617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:38,787 - openai._base_client - DEBUG - request_id: req_96f38e37e84d3d9c09b9508671ea9d40
+2024-11-30 16:47:38,787 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:38,788 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:38,788 - openai._base_client - DEBUG - 2 retries left
+2024-11-30 16:47:38,789 - openai._base_client - INFO - Retrying request to /chat/completions in 0.499617 seconds
+2024-11-30 16:47:39,290 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:39,291 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:39,292 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:39,293 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:39,293 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:39,294 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:39,294 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:39,637 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:44 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_bd8d0e8c5504169e7dd4cbcb8875012b'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac522ec8908617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:39,637 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:39,638 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:39,638 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:39,639 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:39,639 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:39,639 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:44 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_bd8d0e8c5504169e7dd4cbcb8875012b', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac522ec8908617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:39,640 - openai._base_client - DEBUG - request_id: req_bd8d0e8c5504169e7dd4cbcb8875012b
+2024-11-30 16:47:39,640 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:39,641 - openai._base_client - DEBUG - Retrying due to status code 429
+2024-11-30 16:47:39,641 - openai._base_client - DEBUG - 1 retry left
+2024-11-30 16:47:39,642 - openai._base_client - INFO - Retrying request to /chat/completions in 0.918127 seconds
+2024-11-30 16:47:40,561 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-11-30 16:47:40,563 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-11-30 16:47:40,563 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:40,564 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-11-30 16:47:40,565 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-11-30 16:47:40,565 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-11-30 16:47:40,566 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-11-30 16:47:40,914 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 429, b'Too Many Requests', [(b'Date', b'Sat, 30 Nov 2024 16:47:46 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'337'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_4f3545d8639901288a182eb0f1d2d32f'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8eac5236bc5b8617-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-11-30 16:47:40,915 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-11-30 16:47:40,915 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-11-30 16:47:40,916 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-11-30 16:47:40,916 - httpcore.http11 - DEBUG - response_closed.started
+2024-11-30 16:47:40,917 - httpcore.http11 - DEBUG - response_closed.complete
+2024-11-30 16:47:40,917 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "429 Too Many Requests" Headers({'date': 'Sat, 30 Nov 2024 16:47:46 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '337', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_4f3545d8639901288a182eb0f1d2d32f', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8eac5236bc5b8617-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-11-30 16:47:40,918 - openai._base_client - DEBUG - request_id: req_4f3545d8639901288a182eb0f1d2d32f
+2024-11-30 16:47:40,918 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/openai/_base_client.py", line 1040, in _request
+    response.raise_for_status()
+  File "/usr/local/lib/python3.9/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2024-11-30 16:47:40,919 - openai._base_client - DEBUG - Re-raising status error
+2024-11-30 16:47:40,919 - __main__ - ERROR - Order 2, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response: 'Request failed after 2 retries.'
+2024-11-30 16:47:40,920 - __main__ - DEBUG - Processed row - Order: 2
+2024-11-30 16:47:40,920 - __main__ - DEBUG - Response: Request failed after 2 retries.
+2024-11-30 16:47:40,944 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-11-30 16:47:40,945 - __main__ - INFO - Starting story data processing
+2024-11-30 16:47:40,960 - __main__ - DEBUG - Processing story data for order 999
+2024-11-30 16:47:40,960 - __main__ - WARNING - Invalid JSON for order 999, skipping
+2024-11-30 16:47:40,961 - __main__ - DEBUG - Processing story data for order 2
+2024-11-30 16:47:40,962 - __main__ - WARNING - Invalid JSON for order 2, skipping
+2024-11-30 16:47:40,985 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-11-30 16:47:40,985 - __main__ - INFO - Starting audio generation
+2024-11-30 16:47:41,003 - __main__ - DEBUG - Generating audio for order 999
+2024-11-30 16:47:41,004 - __main__ - ERROR - Error in generate_audio: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2024-11-30 16:47:41,011 - __main__ - ERROR - Error in main: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 275, in main
+    generate_audio()
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
