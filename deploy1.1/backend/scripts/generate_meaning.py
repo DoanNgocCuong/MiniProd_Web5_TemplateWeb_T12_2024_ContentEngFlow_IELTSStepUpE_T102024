@@ -8,6 +8,8 @@ from openai import OpenAI
 from pathlib import Path
 from dotenv import load_dotenv
 import sys
+import logging
+import requests
 
 # Set console output encoding to UTF-8
 sys.stdout.reconfigure(encoding='utf-8')
@@ -26,31 +28,52 @@ data = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')
 # Create an empty list to store the output data
 output_data = []
 
+# Set up logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 def save_audio_file(text, order):
     try:
+        # Log the input parameters
+        logger.info(f"Attempting to save audio for text: {text}, order: {order}")
+        
         # Tạo thư mục con theo số thứ tự
         order_folder = OUTPUT_MEANING_FOLDER / str(order)
+        logger.info(f"Creating folder at: {order_folder}")
         order_folder.mkdir(parents=True, exist_ok=True)
         
         # Đường dẫn file output
         output_file = order_folder / 'choose_answer.mp3'
+        logger.info(f"Output file will be saved at: {output_file}")
         
-        # Execute curl command
-        curl_command = [
-            "curl", "-L", "-X", "POST", 
-            "http://103.253.20.13:25010/api/text-to-speech",
-            "-H", "Content-Type: application/json",
-            "-d", json.dumps({
-                "text": text, 
-                "voice": "en-CA-ClaraNeural", 
-                "speed": 1
-            }),
-            "--output", str(output_file)
-        ]
-        subprocess.run(curl_command)
+        # Use requests instead of curl
+        url = "http://103.253.20.13:25010/api/text-to-speech"
+        headers = {"Content-Type": "application/json"}
+        data = {
+            "text": text,
+            "voice": "en-CA-ClaraNeural",
+            "speed": 1
+        }
         
+        logger.info(f"Sending request to: {url}")
+        response = requests.post(url, json=data)
+        
+        if response.status_code == 200:
+            # Save the audio content to file
+            with open(output_file, 'wb') as f:
+                f.write(response.content)
+            logger.info(f"Audio file successfully saved at: {output_file}")
+            logger.info(f"File size: {output_file.stat().st_size} bytes")
+        else:
+            logger.error(f"Failed to get audio. Status code: {response.status_code}")
+            logger.error(f"Response: {response.text}")
+            
     except Exception as e:
-        print(f"Error saving audio file for order {order}: {e}")
+        logger.error(f"Error saving audio file for order {order}: {str(e)}", exc_info=True)
+        raise
 
 # Loop through each row in the Excel file
 for index, row in data.iterrows():

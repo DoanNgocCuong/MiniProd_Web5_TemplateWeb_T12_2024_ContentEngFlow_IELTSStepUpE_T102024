@@ -1471,3 +1471,62 @@ Traceback (most recent call last):
 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 2024-12-01 00:12:12,444 - httpcore.connection - DEBUG - close.started
 2024-12-01 00:12:12,444 - httpcore.connection - DEBUG - close.complete
+2024-12-03 01:01:40,813 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 01:01:40,813 - __main__ - DEBUG - Upload folder path: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\uploads
+2024-12-03 01:01:40,813 - __main__ - DEBUG - Output folder path: D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\output
+2024-12-03 01:01:40,821 - __main__ - INFO - Starting main process
+2024-12-03 01:01:40,821 - __main__ - INFO - Starting initial data processing
+2024-12-03 01:01:43,286 - __main__ - ERROR - Error in process_initial_data: 'prompt'
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'prompt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\scripts\generate_story.py", line 111, in process_initial_data
+    prompt = row['prompt']
+             ~~~^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\series.py", line 1121, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'prompt'
+2024-12-03 01:01:43,345 - __main__ - ERROR - Error in main: 'prompt'
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'prompt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\scripts\generate_story.py", line 269, in main
+    process_initial_data()
+  File "D:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy1.1\backend\scripts\generate_story.py", line 111, in process_initial_data
+    prompt = row['prompt']
+             ~~~^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\series.py", line 1121, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'prompt'

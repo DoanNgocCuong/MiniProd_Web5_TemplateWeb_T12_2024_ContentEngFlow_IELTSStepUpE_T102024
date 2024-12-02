@@ -3646,3 +3646,153 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
     raise JSONDecodeError("Expecting value", s, err.value) from None
 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2024-12-02 17:42:51,322 - __main__ - DEBUG - OpenAI API key loaded: ****
+2024-12-02 17:42:51,323 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-02 17:42:51,323 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-02 17:42:51,324 - __main__ - INFO - Starting main process
+2024-12-02 17:42:51,326 - __main__ - INFO - Starting initial data processing
+2024-12-02 17:42:57,555 - __main__ - ERROR - Order 999, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response: 'Request failed after 2 retries.'
+2024-12-02 17:42:57,556 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-02 17:42:57,556 - __main__ - DEBUG - Response: Request failed after 2 retries.
+2024-12-02 17:43:03,562 - __main__ - ERROR - Order 2, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response: 'Request failed after 2 retries.'
+2024-12-02 17:43:03,563 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-02 17:43:03,563 - __main__ - DEBUG - Response: Request failed after 2 retries.
+2024-12-02 17:43:03,593 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-02 17:43:03,594 - __main__ - INFO - Starting story data processing
+2024-12-02 17:43:03,612 - __main__ - DEBUG - Processing story data for order 999
+2024-12-02 17:43:03,613 - __main__ - WARNING - Invalid JSON for order 999, skipping
+2024-12-02 17:43:03,613 - __main__ - DEBUG - Processing story data for order 2
+2024-12-02 17:43:03,614 - __main__ - WARNING - Invalid JSON for order 2, skipping
+2024-12-02 17:43:03,634 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-02 17:43:03,635 - __main__ - INFO - Starting audio generation
+2024-12-02 17:43:03,658 - __main__ - DEBUG - Generating audio for order 999
+2024-12-02 17:43:03,659 - __main__ - ERROR - Error in generate_audio: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2024-12-02 17:43:03,664 - __main__ - ERROR - Error in main: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 275, in main
+    generate_audio()
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2024-12-02 18:02:27,019 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-02 18:02:27,020 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-02 18:02:27,020 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-02 18:02:27,021 - __main__ - INFO - Starting main process
+2024-12-02 18:02:27,023 - __main__ - INFO - Starting initial data processing
+2024-12-02 18:02:27,347 - __main__ - ERROR - Error in process_initial_data: 'prompt'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'prompt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 111, in process_initial_data
+    prompt = row['prompt']
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1121, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'prompt'
+2024-12-02 18:02:27,366 - __main__ - ERROR - Error in main: 'prompt'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'prompt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 269, in main
+    process_initial_data()
+  File "/app/scripts/generate_story.py", line 111, in process_initial_data
+    prompt = row['prompt']
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1121, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'prompt'
+2024-12-02 18:06:32,230 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-02 18:06:32,231 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-02 18:06:32,231 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-02 18:06:32,232 - __main__ - INFO - Starting main process
+2024-12-02 18:06:32,234 - __main__ - INFO - Starting initial data processing
+2024-12-02 18:06:32,469 - __main__ - ERROR - Error in process_initial_data: 'prompt'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'prompt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 111, in process_initial_data
+    prompt = row['prompt']
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1121, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'prompt'
+2024-12-02 18:06:32,481 - __main__ - ERROR - Error in main: 'prompt'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'prompt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 269, in main
+    process_initial_data()
+  File "/app/scripts/generate_story.py", line 111, in process_initial_data
+    prompt = row['prompt']
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1121, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'prompt'
