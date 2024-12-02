@@ -29,7 +29,8 @@ def upload_file():
         if not file.filename.endswith(('.xlsx', '.xls')):
             return jsonify({'error': 'Invalid file type. Please upload Excel file'}), 400
 
-        filename = secure_filename(file.filename)
+        # filename = secure_filename(file.filename)
+        filename = 'data.xlsx'   # mọi file tải lên đều được ghi đè và đổi tên thành như này 
         file_path = os.path.join(UPLOAD_FOLDER, filename)
         file.save(file_path)
         
