@@ -88,6 +88,7 @@ for index, row in data.iterrows():
     prompt = row['prompt_ipa']
     message = row['vocabulary']
     order = row['order']
+    stt_week = row['week']  # Get the week value
     start_time = time.time()    
     
     try:
@@ -117,8 +118,10 @@ for index, row in data.iterrows():
         # Update audio file saving
         save_audio_file(message, order)
         
-        # Update audio URL to match new structure
-        audio_url = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/ipa.mp3"
+        # # Update audio URL to match new structure
+        # audio_url = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/ipa.mp3"
+        # Muốn update thành: 
+        audio_url = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/week_{stt_week}/{order}/ipa.mp3"
         
         # Append the output to the list
         output_data.append({

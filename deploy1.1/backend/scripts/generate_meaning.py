@@ -80,6 +80,7 @@ for index, row in data.iterrows():
     prompt = row['prompt_meaning']
     message = row['vocabulary']
     order = row['order']
+    stt_week = row['week']  # Get the week value
     start_time = time.time()    
     try:
         response = client.chat.completions.create(
@@ -108,7 +109,9 @@ for index, row in data.iterrows():
         explain = response_json.get("explain", "").strip()
         
         # Generate the audio URL using the order value
-        audio_url = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/choose_answer.mp3"
+        # audio_url = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/choose_answer.mp3"
+        # Muốn update thành:
+        audio_url = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/week_{stt_week}/{order}/choose_answer.mp3"
         
         # Append the output to the list
         output_data.append({

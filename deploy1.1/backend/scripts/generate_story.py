@@ -153,6 +153,7 @@ def process_story_data():
 
         for _, row in df_input.iterrows():
             order = row['order']
+            stt_week = row['week']  # Get the week value from the DataFrame
             logger.debug(f"Processing story data for order {order}")
             try:
                 # Thêm kiểm tra và chuyển đổi kiểu dữ liệu
@@ -181,7 +182,9 @@ def process_story_data():
                     role = convo['role']
                     content = convo['content']
                     translation_en = convo['translation_en']
-                    audio_name = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/{role}.wav"
+                    # audio_name = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/{role}.wav"
+                    # Muốn update thành:
+                    audio_name = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/week_{stt_week}/{order}/{role}.wav"
                     story_output_rows.append(["", "", "", "bot-left" if idx % 2 == 0 else "bot-right", translation_en, content, audio_name])
 
                 summary_row = [order, situation_en, situation_vn, '', '', '', '']
