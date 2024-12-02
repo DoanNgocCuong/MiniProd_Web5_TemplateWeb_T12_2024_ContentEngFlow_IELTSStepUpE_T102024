@@ -18,4 +18,8 @@ Development:
 - `git clone https://github.com/DoanNgocCuong/frontend_IELTSContent_StepUpE_2024`
 - Copy toàn bộ sources code trong thư mục đó vào frontend. 
 - Sau đó mới `docker-compose up --build`
+sẽ bug và bạn phải 
 
+```bash
+   npm install --save-dev @babel/plugin-proposal-private-property-in-object
+```
