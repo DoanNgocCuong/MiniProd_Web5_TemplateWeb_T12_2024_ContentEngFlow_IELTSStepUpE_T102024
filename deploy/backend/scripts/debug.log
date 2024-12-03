@@ -3796,3 +3796,467 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
     raise KeyError(key) from err
 KeyError: 'prompt'
+2024-12-02 18:54:55,741 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-02 18:54:55,742 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-02 18:54:55,742 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-02 18:54:55,743 - __main__ - INFO - Starting main process
+2024-12-02 18:54:55,746 - __main__ - INFO - Starting initial data processing
+2024-12-02 18:54:56,017 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-02 18:54:56,019 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-02 18:54:56,019 - __main__ - DEBUG - Response: 
+2024-12-02 18:54:56,020 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-02 18:54:56,021 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-02 18:54:56,021 - __main__ - DEBUG - Response: 
+2024-12-02 18:54:56,064 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-02 18:54:56,064 - __main__ - INFO - Starting story data processing
+2024-12-02 18:54:56,095 - __main__ - ERROR - Error in process_story_data: 'week'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'week'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 156, in process_story_data
+    stt_week = row['week']  # Get the week value from the DataFrame
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1121, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'week'
+2024-12-02 18:54:56,113 - __main__ - ERROR - Error in main: 'week'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'week'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 275, in main
+    output_story_path = process_story_data()
+  File "/app/scripts/generate_story.py", line 156, in process_story_data
+    stt_week = row['week']  # Get the week value from the DataFrame
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1121, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'week'
+2024-12-03 07:33:04,274 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 07:33:04,275 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 07:33:04,275 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 07:33:04,276 - __main__ - INFO - Starting main process
+2024-12-03 07:33:04,277 - __main__ - INFO - Starting initial data processing
+2024-12-03 07:33:04,398 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 07:33:04,398 - __main__ - DEBUG - Processed row - Order: 999, Week: 1
+2024-12-03 07:33:04,398 - __main__ - DEBUG - Response: 
+2024-12-03 07:33:04,399 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 07:33:04,399 - __main__ - DEBUG - Processed row - Order: 2, Week: 25
+2024-12-03 07:33:04,400 - __main__ - DEBUG - Response: 
+2024-12-03 07:33:04,424 - __main__ - INFO - Output saved to /app/output/output_story_draft.xlsx
+2024-12-03 07:33:04,424 - __main__ - INFO - Starting story data processing
+2024-12-03 07:33:04,427 - __main__ - ERROR - Error in process_story_data: [Errno 2] No such file or directory: '/app/output/.xlsx'
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 153, in process_story_data
+    df_input = pd.read_excel(input_path)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 495, in read_excel
+    io = ExcelFile(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1550, in __init__
+    ext = inspect_excel_format(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1402, in inspect_excel_format
+    with get_handle(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/app/output/.xlsx'
+2024-12-03 07:33:04,432 - __main__ - ERROR - Error in main: [Errno 2] No such file or directory: '/app/output/.xlsx'
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 281, in main
+    output_story_path = process_story_data()
+  File "/app/scripts/generate_story.py", line 153, in process_story_data
+    df_input = pd.read_excel(input_path)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 495, in read_excel
+    io = ExcelFile(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1550, in __init__
+    ext = inspect_excel_format(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1402, in inspect_excel_format
+    with get_handle(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/app/output/.xlsx'
+2024-12-03 07:33:44,653 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 07:33:44,653 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 07:33:44,653 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 07:33:44,654 - __main__ - INFO - Starting main process
+2024-12-03 07:33:44,655 - __main__ - INFO - Starting initial data processing
+2024-12-03 07:33:44,770 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 07:33:44,771 - __main__ - DEBUG - Processed row - Order: 999, Week: 1
+2024-12-03 07:33:44,771 - __main__ - DEBUG - Response: 
+2024-12-03 07:33:44,772 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 07:33:44,772 - __main__ - DEBUG - Processed row - Order: 2, Week: 25
+2024-12-03 07:33:44,773 - __main__ - DEBUG - Response: 
+2024-12-03 07:33:44,797 - __main__ - INFO - Output saved to /app/output/output_story_draft.xlsx
+2024-12-03 07:33:44,797 - __main__ - INFO - Starting story data processing
+2024-12-03 07:33:44,799 - __main__ - ERROR - Error in process_story_data: [Errno 2] No such file or directory: '/app/output/.xlsx'
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 153, in process_story_data
+    df_input = pd.read_excel(input_path)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 495, in read_excel
+    io = ExcelFile(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1550, in __init__
+    ext = inspect_excel_format(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1402, in inspect_excel_format
+    with get_handle(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/app/output/.xlsx'
+2024-12-03 07:33:44,804 - __main__ - ERROR - Error in main: [Errno 2] No such file or directory: '/app/output/.xlsx'
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 281, in main
+    output_story_path = process_story_data()
+  File "/app/scripts/generate_story.py", line 153, in process_story_data
+    df_input = pd.read_excel(input_path)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 495, in read_excel
+    io = ExcelFile(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1550, in __init__
+    ext = inspect_excel_format(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1402, in inspect_excel_format
+    with get_handle(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/app/output/.xlsx'
+2024-12-03 07:34:20,560 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 07:34:20,560 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 07:34:20,561 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 07:34:20,561 - __main__ - INFO - Starting main process
+2024-12-03 07:34:20,563 - __main__ - INFO - Starting initial data processing
+2024-12-03 07:34:20,796 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 07:34:20,797 - __main__ - DEBUG - Processed row - Order: 999, Week: 1
+2024-12-03 07:34:20,797 - __main__ - DEBUG - Response: 
+2024-12-03 07:34:20,798 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 07:34:20,798 - __main__ - DEBUG - Processed row - Order: 2, Week: 25
+2024-12-03 07:34:20,799 - __main__ - DEBUG - Response: 
+2024-12-03 07:34:20,830 - __main__ - INFO - Output saved to /app/output/output_story_draft.xlsx
+2024-12-03 07:34:20,830 - __main__ - INFO - Starting story data processing
+2024-12-03 07:34:20,850 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 07:34:20,851 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 07:34:20,851 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 07:34:20,852 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 07:34:20,884 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-03 07:34:20,884 - __main__ - INFO - Starting audio generation
+2024-12-03 07:34:20,907 - __main__ - DEBUG - Generating audio for order 999.0, week 1.0
+2024-12-03 07:34:20,908 - __main__ - ERROR - Error in generate_audio: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 244, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 07:34:20,915 - __main__ - ERROR - Error in main: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 284, in main
+    generate_audio()
+  File "/app/scripts/generate_story.py", line 244, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 07:36:28,805 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 07:36:28,806 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 07:36:28,806 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 07:36:28,807 - __main__ - INFO - Starting main process
+2024-12-03 07:36:28,809 - __main__ - INFO - Starting initial data processing
+2024-12-03 07:36:28,967 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 07:36:28,968 - __main__ - DEBUG - Processed row - Order: 999, Week: 1
+2024-12-03 07:36:28,968 - __main__ - DEBUG - Response: 
+2024-12-03 07:36:28,969 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 07:36:28,970 - __main__ - DEBUG - Processed row - Order: 2, Week: 25
+2024-12-03 07:36:28,970 - __main__ - DEBUG - Response: 
+2024-12-03 07:36:29,009 - __main__ - INFO - Output saved to /app/output/output_story_draft.xlsx
+2024-12-03 07:36:29,009 - __main__ - INFO - Starting story data processing
+2024-12-03 07:36:29,042 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 07:36:29,043 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 07:36:29,043 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 07:36:29,044 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 07:36:29,073 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-03 07:36:29,074 - __main__ - INFO - Starting audio generation
+2024-12-03 07:36:29,098 - __main__ - DEBUG - Generating audio for order 999.0, week 1.0
+2024-12-03 07:36:29,099 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 07:36:29,100 - __main__ - DEBUG - Generating audio for order 2.0, week 25.0
+2024-12-03 07:36:29,100 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 07:36:29,101 - __main__ - INFO - Audio generation complete
+2024-12-03 07:36:29,101 - __main__ - INFO - Processing complete. Final output saved to: /app/output/output_story.xlsx
+2024-12-03 07:54:29,669 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 07:54:29,670 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 07:54:29,670 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 07:54:29,671 - __main__ - INFO - Starting main process
+2024-12-03 07:54:29,672 - __main__ - INFO - Starting initial data processing
+2024-12-03 07:54:29,800 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 07:54:29,801 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-03 07:54:29,801 - __main__ - DEBUG - Response: 
+2024-12-03 07:54:29,802 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 07:54:29,803 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-03 07:54:29,803 - __main__ - DEBUG - Response: 
+2024-12-03 07:54:29,835 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-03 07:54:29,836 - __main__ - INFO - Starting story data processing
+2024-12-03 07:54:29,859 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 07:54:29,860 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 07:54:29,861 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 07:54:29,861 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 07:54:29,899 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-03 07:54:29,899 - __main__ - INFO - Starting audio generation
+2024-12-03 07:54:29,922 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 07:54:29,923 - __main__ - ERROR - Error in generate_audio: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 07:54:29,929 - __main__ - ERROR - Error in main: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 275, in main
+    generate_audio()
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 07:55:37,298 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 07:55:37,298 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 07:55:37,299 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 07:55:37,299 - __main__ - INFO - Starting main process
+2024-12-03 07:55:37,302 - __main__ - INFO - Starting initial data processing
+2024-12-03 07:55:37,422 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 07:55:37,424 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-03 07:55:37,424 - __main__ - DEBUG - Response: 
+2024-12-03 07:55:37,425 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 07:55:37,426 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-03 07:55:37,426 - __main__ - DEBUG - Response: 
+2024-12-03 07:55:37,452 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-03 07:55:37,452 - __main__ - INFO - Starting story data processing
+2024-12-03 07:55:37,472 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 07:55:37,473 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 07:55:37,474 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 07:55:37,474 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 07:55:37,497 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-03 07:55:37,498 - __main__ - INFO - Starting audio generation
+2024-12-03 07:55:37,521 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 07:55:37,521 - __main__ - ERROR - Error in generate_audio: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 07:55:37,526 - __main__ - ERROR - Error in main: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 275, in main
+    generate_audio()
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 07:57:06,217 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 07:57:06,217 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 07:57:06,217 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 07:57:06,218 - __main__ - INFO - Starting main process
+2024-12-03 07:57:06,220 - __main__ - INFO - Starting initial data processing
+2024-12-03 07:57:06,327 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 07:57:06,328 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-03 07:57:06,328 - __main__ - DEBUG - Response: 
+2024-12-03 07:57:06,329 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 07:57:06,329 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-03 07:57:06,329 - __main__ - DEBUG - Response: 
+2024-12-03 07:57:06,351 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-03 07:57:06,351 - __main__ - INFO - Starting story data processing
+2024-12-03 07:57:06,370 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 07:57:06,371 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 07:57:06,371 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 07:57:06,371 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 07:57:06,398 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-03 07:57:06,399 - __main__ - INFO - Starting audio generation
+2024-12-03 07:57:06,422 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 07:57:06,423 - __main__ - ERROR - Error in generate_audio: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 07:57:06,429 - __main__ - ERROR - Error in main: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 275, in main
+    generate_audio()
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 08:18:43,760 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 08:18:43,760 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 08:18:43,761 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 08:18:43,761 - __main__ - INFO - Starting main process
+2024-12-03 08:18:43,762 - __main__ - INFO - ==================================================
+2024-12-03 08:18:43,763 - __main__ - INFO - STARTING INITIAL DATA PROCESSING
+2024-12-03 08:18:43,763 - __main__ - INFO - ==================================================
+2024-12-03 08:18:43,763 - __main__ - INFO - Reading input file from: /app/uploads/data.xlsx
+2024-12-03 08:18:43,893 - __main__ - INFO - Input data loaded successfully:
+2024-12-03 08:18:43,893 - __main__ - INFO - - Total rows: 2
+2024-12-03 08:18:43,894 - __main__ - INFO - - Columns: ['week', 'order', 'prompt', 'first', 'MAIN QUESTION', 'set', 'vocabulary', 'situation', 'prompt_meaning', 'prompt_ipa', 'prompt_image', 'vocabulary1', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15']
+2024-12-03 08:18:43,907 - __main__ - INFO - - First few rows:
+   week  order                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              prompt  first           MAIN QUESTION                   set           vocabulary                                            situation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                prompt_meaning                                                                                                                                                       prompt_ipa                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 prompt_image                                              vocabulary1  Unnamed: 12  Unnamed: 13                                                                                                        Unnamed: 14                                           Unnamed: 15
+0     1    999  You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn't have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly 'male' and 'female'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]    NaN  talk about your family  Family size and type       Nuclear family        Sarah and Tom, neighbors, at a community park  You are now a exercise maker. Your task is to create a yes/no question to check user's ability to understand the phrase.\nOutput must include: exact given vocab and its correct/incorrect meaning/usage, and correct explanation\n"question": correct or incorrect statement about its meaning, easy to understand for new English learners\n"answer" Yes if correct, no if incorrect\n"explain": correctly and briefly tell Vietnamese meaning and explain why it correct.\n\nexample input:\nword: traffic jam\nresponse:\n{"question":"We can drive really fast when there is a traffic jam, is that correct?","answer":"No","explain":"<g>traffic jam</g> là tắc đường, mà tắc đường thì chịu, không phóng nhanh được"}  You are now a English teach, from given english word, you give me Vietnamese meaning and IPA\n{"meaning":"<vietnamese meaning","ipa":<English IPA transcript>"}  You are now a quiz image prompt generator. Base from an input, you will generate image 2 prompts, \n- "prompt" vsualize the exact meaning of given input, so people can guess the word/phrase.\n- "opposite_prompt" will describe the same situation and concept with opposite or contrary meaning to the 'prompt' part.\n- both prompt start with 'an award-winning digital graphic art with depth and oil painting colors,'\n\nformat {"prompt":"image prompt","opposite_prompt":"oppostie image prompt"}       Topic: Family size and type\nVocab: Nuclear family          NaN          NaN  curl -L -X POST 'http://103.253.20.13:25010/api/text-to-speech' -H 'Content-Type: application/json' -d '{"text":   ,"voice": "en-CA-ClaraNeural","speed": 1}' --output 
+1    25      2  You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn't have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly 'male' and 'female'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]    NaN  talk about your family  Family size and type  Generational family  Aubrey and Isaac, engineers, at a construction site  You are now a exercise maker. Your task is to create a yes/no question to check user's ability to understand the phrase.\nOutput must include: exact given vocab and its correct/incorrect meaning/usage, and correct explanation\n"question": correct or incorrect statement about its meaning, easy to understand for new English learners\n"answer" Yes if correct, no if incorrect\n"explain": correctly and briefly tell Vietnamese meaning and explain why it correct.\n\nexample input:\nword: traffic jam\nresponse:\n{"question":"We can drive really fast when there is a traffic jam, is that correct?","answer":"No","explain":"<g>traffic jam</g> là tắc đường, mà tắc đường thì chịu, không phóng nhanh được"}  You are now a English teach, from given english word, you give me Vietnamese meaning and IPA\n{"meaning":"<vietnamese meaning","ipa":<English IPA transcript>"}  You are now a quiz image prompt generator. Base from an input, you will generate image 2 prompts, \n- "prompt" vsualize the exact meaning of given input, so people can guess the word/phrase.\n- "opposite_prompt" will describe the same situation and concept with opposite or contrary meaning to the 'prompt' part.\n- both prompt start with 'an award-winning digital graphic art with depth and oil painting colors,'\n\nformat {"prompt":"image prompt","opposite_prompt":"oppostie image prompt"}  Topic: Family size and type\nVocab: Generational family          NaN          NaN  curl -L -X POST 'http://103.253.20.13:25010/api/text-to-speech' -H 'Content-Type: application/json' -d '{"text":   ,"voice": "en-CA-ClaraNeural","speed": 1}' --output 
+2024-12-03 08:18:43,908 - __main__ - INFO - 
+Processing rows:
+2024-12-03 08:18:43,908 - __main__ - INFO - ------------------------------
+2024-12-03 08:18:43,909 - __main__ - INFO - 
+Processing row 1/2
+2024-12-03 08:18:43,909 - __main__ - DEBUG - Processing row 0:
+2024-12-03 08:18:43,909 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 08:18:43,910 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 08:18:43,910 - __main__ - INFO - Row details:
+2024-12-03 08:18:43,910 - __main__ - INFO - - Order: 999
+2024-12-03 08:18:43,911 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 08:18:43,911 - __main__ - INFO - - First input: 
+2024-12-03 08:18:43,911 - __main__ - INFO - Processing conversation...
+2024-12-03 08:18:43,912 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 08:18:43,912 - __main__ - INFO - Conversation processed:
+2024-12-03 08:18:43,912 - __main__ - INFO - - Response received: Yes
+2024-12-03 08:18:43,913 - __main__ - INFO - - Response time: 
+2024-12-03 08:18:43,913 - __main__ - INFO - Row 1 processed successfully
+2024-12-03 08:18:43,913 - __main__ - INFO - 
+Processing row 2/2
+2024-12-03 08:18:43,914 - __main__ - DEBUG - Processing row 1:
+2024-12-03 08:18:43,914 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 08:18:43,914 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 08:18:43,915 - __main__ - INFO - Row details:
+2024-12-03 08:18:43,915 - __main__ - INFO - - Order: 2
+2024-12-03 08:18:43,915 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 08:18:43,915 - __main__ - INFO - - First input: 
+2024-12-03 08:18:43,916 - __main__ - INFO - Processing conversation...
+2024-12-03 08:18:43,916 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 08:18:43,916 - __main__ - INFO - Conversation processed:
+2024-12-03 08:18:43,916 - __main__ - INFO - - Response received: Yes
+2024-12-03 08:18:43,917 - __main__ - INFO - - Response time: 
+2024-12-03 08:18:43,917 - __main__ - INFO - Row 2 processed successfully
+2024-12-03 08:18:43,918 - __main__ - INFO - 
+==================================================
+2024-12-03 08:18:43,918 - __main__ - INFO - PROCESSING SUMMARY
+2024-12-03 08:18:43,919 - __main__ - INFO - ==================================================
+2024-12-03 08:18:43,919 - __main__ - INFO - Total rows in input: 2
+2024-12-03 08:18:43,920 - __main__ - INFO - Successfully processed: 2
+2024-12-03 08:18:43,920 - __main__ - INFO - Skipped rows: 0
+2024-12-03 08:18:43,921 - __main__ - INFO - Output shape: (2, 4)
+2024-12-03 08:18:43,962 - __main__ - INFO - 
+Output file verification:
+2024-12-03 08:18:43,962 - __main__ - INFO - - File saved at: /app/output/output_draft.xlsx
+2024-12-03 08:18:43,962 - __main__ - INFO - - Output rows: 2
+2024-12-03 08:18:43,963 - __main__ - INFO - - Output columns: ['order', 'User Input', 'json', 'Response Time']
+2024-12-03 08:18:43,963 - __main__ - INFO - ==================================================
+2024-12-03 08:18:43,963 - __main__ - INFO - Starting story data processing
+2024-12-03 08:18:43,980 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 08:18:43,980 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 08:18:43,980 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 08:18:43,981 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 08:18:44,003 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-03 08:18:44,003 - __main__ - INFO - Starting audio generation
+2024-12-03 08:18:44,021 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 08:18:44,022 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 08:18:44,022 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 08:18:44,023 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 08:18:44,023 - __main__ - INFO - Audio generation complete
+2024-12-03 08:18:44,023 - __main__ - INFO - Processing complete. Final output saved to: /app/output/output_story.xlsx
+2024-12-03 08:23:12,085 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 08:23:12,085 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-03 08:23:12,086 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-03 08:23:12,086 - __main__ - INFO - Starting main process
+2024-12-03 08:23:12,088 - __main__ - INFO - ==================================================
+2024-12-03 08:23:12,089 - __main__ - INFO - STARTING INITIAL DATA PROCESSING
+2024-12-03 08:23:12,089 - __main__ - INFO - ==================================================
+2024-12-03 08:23:12,090 - __main__ - INFO - Reading input file from: /app/uploads/data.xlsx
+2024-12-03 08:23:12,203 - __main__ - INFO - Input data loaded successfully:
+2024-12-03 08:23:12,203 - __main__ - INFO - - Total rows: 2
+2024-12-03 08:23:12,204 - __main__ - INFO - - Columns: ['week', 'order', 'prompt', 'first', 'MAIN QUESTION', 'set', 'vocabulary', 'situation', 'prompt_meaning', 'prompt_ipa', 'prompt_image', 'vocabulary1', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15']
+2024-12-03 08:23:12,209 - __main__ - INFO - - First few rows:
+   week  order                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              prompt  first           MAIN QUESTION                   set           vocabulary                                            situation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                prompt_meaning                                                                                                                                                       prompt_ipa                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 prompt_image                                              vocabulary1  Unnamed: 12  Unnamed: 13                                                                                                        Unnamed: 14                                           Unnamed: 15
+0     1    999  You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn't have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly 'male' and 'female'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]    NaN  talk about your family  Family size and type       Nuclear family        Sarah and Tom, neighbors, at a community park  You are now a exercise maker. Your task is to create a yes/no question to check user's ability to understand the phrase.\nOutput must include: exact given vocab and its correct/incorrect meaning/usage, and correct explanation\n"question": correct or incorrect statement about its meaning, easy to understand for new English learners\n"answer" Yes if correct, no if incorrect\n"explain": correctly and briefly tell Vietnamese meaning and explain why it correct.\n\nexample input:\nword: traffic jam\nresponse:\n{"question":"We can drive really fast when there is a traffic jam, is that correct?","answer":"No","explain":"<g>traffic jam</g> là tắc đường, mà tắc đường thì chịu, không phóng nhanh được"}  You are now a English teach, from given english word, you give me Vietnamese meaning and IPA\n{"meaning":"<vietnamese meaning","ipa":<English IPA transcript>"}  You are now a quiz image prompt generator. Base from an input, you will generate image 2 prompts, \n- "prompt" vsualize the exact meaning of given input, so people can guess the word/phrase.\n- "opposite_prompt" will describe the same situation and concept with opposite or contrary meaning to the 'prompt' part.\n- both prompt start with 'an award-winning digital graphic art with depth and oil painting colors,'\n\nformat {"prompt":"image prompt","opposite_prompt":"oppostie image prompt"}       Topic: Family size and type\nVocab: Nuclear family          NaN          NaN  curl -L -X POST 'http://103.253.20.13:25010/api/text-to-speech' -H 'Content-Type: application/json' -d '{"text":   ,"voice": "en-CA-ClaraNeural","speed": 1}' --output 
+1    25      2  You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn't have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly 'male' and 'female'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]    NaN  talk about your family  Family size and type  Generational family  Aubrey and Isaac, engineers, at a construction site  You are now a exercise maker. Your task is to create a yes/no question to check user's ability to understand the phrase.\nOutput must include: exact given vocab and its correct/incorrect meaning/usage, and correct explanation\n"question": correct or incorrect statement about its meaning, easy to understand for new English learners\n"answer" Yes if correct, no if incorrect\n"explain": correctly and briefly tell Vietnamese meaning and explain why it correct.\n\nexample input:\nword: traffic jam\nresponse:\n{"question":"We can drive really fast when there is a traffic jam, is that correct?","answer":"No","explain":"<g>traffic jam</g> là tắc đường, mà tắc đường thì chịu, không phóng nhanh được"}  You are now a English teach, from given english word, you give me Vietnamese meaning and IPA\n{"meaning":"<vietnamese meaning","ipa":<English IPA transcript>"}  You are now a quiz image prompt generator. Base from an input, you will generate image 2 prompts, \n- "prompt" vsualize the exact meaning of given input, so people can guess the word/phrase.\n- "opposite_prompt" will describe the same situation and concept with opposite or contrary meaning to the 'prompt' part.\n- both prompt start with 'an award-winning digital graphic art with depth and oil painting colors,'\n\nformat {"prompt":"image prompt","opposite_prompt":"oppostie image prompt"}  Topic: Family size and type\nVocab: Generational family          NaN          NaN  curl -L -X POST 'http://103.253.20.13:25010/api/text-to-speech' -H 'Content-Type: application/json' -d '{"text":   ,"voice": "en-CA-ClaraNeural","speed": 1}' --output 
+2024-12-03 08:23:12,209 - __main__ - INFO - 
+Processing rows:
+2024-12-03 08:23:12,210 - __main__ - INFO - ------------------------------
+2024-12-03 08:23:12,211 - __main__ - INFO - 
+Processing row 1/2
+2024-12-03 08:23:12,212 - __main__ - DEBUG - Processing row 0:
+2024-12-03 08:23:12,212 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 08:23:12,212 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 08:23:12,213 - __main__ - INFO - Row details:
+2024-12-03 08:23:12,213 - __main__ - INFO - - Order: 999
+2024-12-03 08:23:12,214 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 08:23:12,214 - __main__ - INFO - - First input: 
+2024-12-03 08:23:12,215 - __main__ - INFO - Processing conversation...
+2024-12-03 08:23:12,215 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 08:23:12,215 - __main__ - INFO - Conversation processed:
+2024-12-03 08:23:12,216 - __main__ - INFO - - Response received: Yes
+2024-12-03 08:23:12,216 - __main__ - INFO - - Response time: 
+2024-12-03 08:23:12,217 - __main__ - INFO - Row 1 processed successfully
+2024-12-03 08:23:12,217 - __main__ - INFO - 
+Processing row 2/2
+2024-12-03 08:23:12,218 - __main__ - DEBUG - Processing row 1:
+2024-12-03 08:23:12,218 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 08:23:12,219 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 08:23:12,219 - __main__ - INFO - Row details:
+2024-12-03 08:23:12,220 - __main__ - INFO - - Order: 2
+2024-12-03 08:23:12,220 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 08:23:12,220 - __main__ - INFO - - First input: 
+2024-12-03 08:23:12,221 - __main__ - INFO - Processing conversation...
+2024-12-03 08:23:12,221 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 08:23:12,222 - __main__ - INFO - Conversation processed:
+2024-12-03 08:23:12,222 - __main__ - INFO - - Response received: Yes
+2024-12-03 08:23:12,223 - __main__ - INFO - - Response time: 
+2024-12-03 08:23:12,223 - __main__ - INFO - Row 2 processed successfully
+2024-12-03 08:23:12,224 - __main__ - INFO - 
+==================================================
+2024-12-03 08:23:12,224 - __main__ - INFO - PROCESSING SUMMARY
+2024-12-03 08:23:12,224 - __main__ - INFO - ==================================================
+2024-12-03 08:23:12,225 - __main__ - INFO - Total rows in input: 2
+2024-12-03 08:23:12,225 - __main__ - INFO - Successfully processed: 2
+2024-12-03 08:23:12,225 - __main__ - INFO - Skipped rows: 0
+2024-12-03 08:23:12,226 - __main__ - INFO - Output shape: (2, 4)
+2024-12-03 08:23:12,264 - __main__ - INFO - 
+Output file verification:
+2024-12-03 08:23:12,265 - __main__ - INFO - - File saved at: /app/output/output_draft.xlsx
+2024-12-03 08:23:12,265 - __main__ - INFO - - Output rows: 2
+2024-12-03 08:23:12,265 - __main__ - INFO - - Output columns: ['order', 'User Input', 'json', 'Response Time']
+2024-12-03 08:23:12,266 - __main__ - INFO - ==================================================
+2024-12-03 08:23:12,266 - __main__ - INFO - Starting story data processing
+2024-12-03 08:23:12,281 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 08:23:12,281 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 08:23:12,282 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 08:23:12,282 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 08:23:12,311 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-03 08:23:12,312 - __main__ - INFO - Starting audio generation
+2024-12-03 08:23:12,333 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 08:23:12,333 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 08:23:12,334 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 08:23:12,334 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 08:23:12,335 - __main__ - INFO - Audio generation complete
+2024-12-03 08:23:12,335 - __main__ - INFO - Processing complete. Final output saved to: /app/output/output_story.xlsx

@@ -1530,3 +1530,593 @@ Traceback (most recent call last):
   File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
     raise KeyError(key) from err
 KeyError: 'prompt'
+2024-12-03 14:57:43,457 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 14:57:43,458 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 14:57:43,458 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 14:57:43,458 - __main__ - INFO - Starting main process
+2024-12-03 14:57:43,459 - __main__ - INFO - Starting initial data processing
+2024-12-03 14:57:43,871 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 14:57:43,871 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-03 14:57:43,871 - __main__ - DEBUG - Response: 
+2024-12-03 14:57:43,871 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 14:57:43,871 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-03 14:57:43,871 - __main__ - DEBUG - Response: 
+2024-12-03 14:57:43,916 - __main__ - INFO - Output saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 14:57:43,916 - __main__ - INFO - Starting story data processing
+2024-12-03 14:57:43,922 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 14:57:43,924 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 14:57:43,924 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 14:57:43,924 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 14:57:43,941 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 14:57:43,941 - __main__ - INFO - Starting audio generation
+2024-12-03 14:57:43,952 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 14:57:43,953 - __main__ - ERROR - Error in generate_audio: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2032.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 14:57:43,956 - __main__ - ERROR - Error in main: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 275, in main
+    generate_audio()
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2032.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 14:58:59,447 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 14:58:59,447 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 14:58:59,447 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 14:58:59,447 - __main__ - INFO - Starting main process
+2024-12-03 14:58:59,447 - __main__ - INFO - Starting initial data processing
+2024-12-03 14:58:59,755 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 14:58:59,756 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-03 14:58:59,756 - __main__ - DEBUG - Response: 
+2024-12-03 14:58:59,757 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 14:58:59,757 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-03 14:58:59,757 - __main__ - DEBUG - Response: 
+2024-12-03 14:58:59,773 - __main__ - INFO - Output saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 14:58:59,774 - __main__ - INFO - Starting story data processing
+2024-12-03 14:58:59,780 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 14:58:59,781 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 14:58:59,782 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 14:58:59,782 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 14:58:59,793 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 14:58:59,793 - __main__ - INFO - Starting audio generation
+2024-12-03 14:58:59,801 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 14:58:59,802 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 14:58:59,802 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 14:58:59,803 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 14:58:59,803 - __main__ - INFO - Audio generation complete
+2024-12-03 14:58:59,804 - __main__ - INFO - Processing complete. Final output saved to: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:01:38,684 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:01:38,684 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:01:38,687 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:01:38,688 - __main__ - INFO - Starting main process
+2024-12-03 15:01:38,688 - __main__ - INFO - Starting initial data processing
+2024-12-03 15:01:38,954 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:01:38,954 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-03 15:01:38,954 - __main__ - DEBUG - Response: 
+2024-12-03 15:01:38,954 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:01:38,954 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-03 15:01:38,954 - __main__ - DEBUG - Response: 
+2024-12-03 15:01:38,979 - __main__ - INFO - Output saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:01:38,980 - __main__ - INFO - Starting story data processing
+2024-12-03 15:01:38,987 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:01:38,988 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:01:38,988 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:01:38,988 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:01:39,001 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:01:39,001 - __main__ - INFO - Starting audio generation
+2024-12-03 15:01:39,005 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:01:39,005 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:01:39,005 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 15:01:39,005 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:01:39,005 - __main__ - INFO - Audio generation complete
+2024-12-03 15:01:39,005 - __main__ - INFO - Processing complete. Final output saved to: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:04:18,692 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:04:18,692 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:04:18,692 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:04:18,692 - __main__ - INFO - Starting main process
+2024-12-03 15:04:18,692 - __main__ - INFO - ==================================================
+2024-12-03 15:04:18,692 - __main__ - INFO - STARTING INITIAL DATA PROCESSING
+2024-12-03 15:04:18,692 - __main__ - INFO - ==================================================
+2024-12-03 15:04:18,692 - __main__ - INFO - Reading input file from: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads\data.xlsx
+2024-12-03 15:04:18,969 - __main__ - INFO - Input data loaded successfully:
+2024-12-03 15:04:18,969 - __main__ - INFO - - Total rows: 2
+2024-12-03 15:04:18,969 - __main__ - INFO - - Columns: ['week', 'order', 'prompt', 'first', 'MAIN QUESTION', 'set', 'vocabulary', 'situation', 'prompt_meaning', 'prompt_ipa', 'prompt_image', 'vocabulary1', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15']
+2024-12-03 15:04:19,001 - __main__ - INFO - 
+Processing rows:
+2024-12-03 15:04:19,001 - __main__ - INFO - ------------------------------
+2024-12-03 15:04:19,001 - __main__ - INFO - 
+Processing row 1/2
+2024-12-03 15:04:19,001 - __main__ - INFO - Row details:
+2024-12-03 15:04:19,001 - __main__ - INFO - - Order: 999
+2024-12-03 15:04:19,001 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:04:19,001 - __main__ - INFO - - First input: nan
+2024-12-03 15:04:19,001 - __main__ - WARNING - Empty first_input for order 999, using empty string
+2024-12-03 15:04:19,001 - __main__ - INFO - Processing conversation...
+2024-12-03 15:04:19,001 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:04:19,001 - __main__ - INFO - Conversation processed:
+2024-12-03 15:04:19,001 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:04:19,001 - __main__ - INFO - - Response time: 
+2024-12-03 15:04:19,009 - __main__ - INFO - Row 1 processed successfully
+2024-12-03 15:04:19,009 - __main__ - INFO - 
+Processing row 2/2
+2024-12-03 15:04:19,009 - __main__ - INFO - Row details:
+2024-12-03 15:04:19,010 - __main__ - INFO - - Order: 2
+2024-12-03 15:04:19,010 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:04:19,011 - __main__ - INFO - - First input: nan
+2024-12-03 15:04:19,011 - __main__ - WARNING - Empty first_input for order 2, using empty string
+2024-12-03 15:04:19,011 - __main__ - INFO - Processing conversation...
+2024-12-03 15:04:19,012 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:04:19,012 - __main__ - INFO - Conversation processed:
+2024-12-03 15:04:19,012 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:04:19,013 - __main__ - INFO - - Response time: 
+2024-12-03 15:04:19,013 - __main__ - INFO - Row 2 processed successfully
+2024-12-03 15:04:19,014 - __main__ - INFO - 
+==================================================
+2024-12-03 15:04:19,014 - __main__ - INFO - PROCESSING SUMMARY
+2024-12-03 15:04:19,014 - __main__ - INFO - ==================================================
+2024-12-03 15:04:19,015 - __main__ - INFO - Total rows in input: 2
+2024-12-03 15:04:19,015 - __main__ - INFO - Successfully processed: 2
+2024-12-03 15:04:19,015 - __main__ - INFO - Skipped rows: 0
+2024-12-03 15:04:19,016 - __main__ - INFO - Output shape: (2, 4)
+2024-12-03 15:04:19,028 - __main__ - INFO - 
+Output file verification:
+2024-12-03 15:04:19,028 - __main__ - INFO - - File saved at: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:04:19,028 - __main__ - INFO - - Output rows: 2
+2024-12-03 15:04:19,040 - __main__ - INFO - - Output columns: ['order', 'User Input', 'json', 'Response Time']
+2024-12-03 15:04:19,040 - __main__ - INFO - ==================================================
+2024-12-03 15:04:19,041 - __main__ - INFO - Starting story data processing
+2024-12-03 15:04:19,045 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:04:19,045 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:04:19,045 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:04:19,049 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:04:19,060 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:04:19,061 - __main__ - INFO - Starting audio generation
+2024-12-03 15:04:19,068 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:04:19,068 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:04:19,068 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 15:04:19,069 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:04:19,069 - __main__ - INFO - Audio generation complete
+2024-12-03 15:04:19,070 - __main__ - INFO - Processing complete. Final output saved to: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:05:00,682 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:05:00,682 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:05:00,682 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:05:00,682 - __main__ - INFO - Starting main process
+2024-12-03 15:05:00,682 - __main__ - INFO - ==================================================
+2024-12-03 15:05:00,682 - __main__ - INFO - STARTING INITIAL DATA PROCESSING
+2024-12-03 15:05:00,682 - __main__ - INFO - ==================================================
+2024-12-03 15:05:00,682 - __main__ - INFO - Reading input file from: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads\data.xlsx
+2024-12-03 15:05:01,010 - __main__ - INFO - Input data loaded successfully:
+2024-12-03 15:05:01,010 - __main__ - INFO - - Total rows: 2
+2024-12-03 15:05:01,010 - __main__ - INFO - - Columns: ['week', 'order', 'prompt', 'first', 'MAIN QUESTION', 'set', 'vocabulary', 'situation', 'prompt_meaning', 'prompt_ipa', 'prompt_image', 'vocabulary1', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15']
+2024-12-03 15:05:01,037 - __main__ - INFO - 
+Processing rows:
+2024-12-03 15:05:01,037 - __main__ - INFO - ------------------------------
+2024-12-03 15:05:01,038 - __main__ - INFO - 
+Processing row 1/2
+2024-12-03 15:05:01,038 - __main__ - INFO - Row details:
+2024-12-03 15:05:01,038 - __main__ - INFO - - Order: 999
+2024-12-03 15:05:01,039 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:05:01,039 - __main__ - INFO - - First input: nan
+2024-12-03 15:05:01,040 - __main__ - WARNING - Empty first_input for order 999, using empty string
+2024-12-03 15:05:01,040 - __main__ - INFO - Processing conversation...
+2024-12-03 15:05:01,040 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:05:01,041 - __main__ - INFO - Conversation processed:
+2024-12-03 15:05:01,041 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:05:01,041 - __main__ - INFO - - Response time: 
+2024-12-03 15:05:01,042 - __main__ - INFO - Row 1 processed successfully
+2024-12-03 15:05:01,042 - __main__ - INFO - 
+Processing row 2/2
+2024-12-03 15:05:01,042 - __main__ - INFO - Row details:
+2024-12-03 15:05:01,042 - __main__ - INFO - - Order: 2
+2024-12-03 15:05:01,042 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:05:01,042 - __main__ - INFO - - First input: nan
+2024-12-03 15:05:01,042 - __main__ - WARNING - Empty first_input for order 2, using empty string
+2024-12-03 15:05:01,042 - __main__ - INFO - Processing conversation...
+2024-12-03 15:05:01,042 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:05:01,042 - __main__ - INFO - Conversation processed:
+2024-12-03 15:05:01,042 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:05:01,042 - __main__ - INFO - - Response time: 
+2024-12-03 15:05:01,042 - __main__ - INFO - Row 2 processed successfully
+2024-12-03 15:05:01,042 - __main__ - INFO - 
+==================================================
+2024-12-03 15:05:01,042 - __main__ - INFO - PROCESSING SUMMARY
+2024-12-03 15:05:01,042 - __main__ - INFO - ==================================================
+2024-12-03 15:05:01,042 - __main__ - INFO - Total rows in input: 2
+2024-12-03 15:05:01,042 - __main__ - INFO - Successfully processed: 2
+2024-12-03 15:05:01,042 - __main__ - INFO - Skipped rows: 0
+2024-12-03 15:05:01,042 - __main__ - INFO - Output shape: (2, 4)
+2024-12-03 15:05:01,075 - __main__ - INFO - 
+Output file verification:
+2024-12-03 15:05:01,075 - __main__ - INFO - - File saved at: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:05:01,075 - __main__ - INFO - - Output rows: 2
+2024-12-03 15:05:01,075 - __main__ - INFO - - Output columns: ['order', 'User Input', 'json', 'Response Time']
+2024-12-03 15:05:01,075 - __main__ - INFO - ==================================================
+2024-12-03 15:05:01,075 - __main__ - INFO - Starting story data processing
+2024-12-03 15:05:01,075 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:05:01,075 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:05:01,075 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:05:01,087 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:05:01,099 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:05:01,100 - __main__ - INFO - Starting audio generation
+2024-12-03 15:05:01,108 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:05:01,108 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:05:01,108 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 15:05:01,108 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:05:01,108 - __main__ - INFO - Audio generation complete
+2024-12-03 15:05:01,108 - __main__ - INFO - Processing complete. Final output saved to: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:20:40,692 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:20:40,697 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:20:40,698 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:20:40,699 - __main__ - INFO - Starting main process
+2024-12-03 15:20:40,699 - __main__ - INFO - ==================================================
+2024-12-03 15:20:40,700 - __main__ - INFO - STARTING INITIAL DATA PROCESSING
+2024-12-03 15:20:40,700 - __main__ - INFO - ==================================================
+2024-12-03 15:20:40,701 - __main__ - INFO - Reading input file from: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads\data.xlsx
+2024-12-03 15:20:41,080 - __main__ - INFO - Input data loaded successfully:
+2024-12-03 15:20:41,080 - __main__ - INFO - - Total rows: 2
+2024-12-03 15:20:41,080 - __main__ - INFO - - Columns: ['week', 'order', 'prompt', 'first', 'MAIN QUESTION', 'set', 'vocabulary', 'situation', 'prompt_meaning', 'prompt_ipa', 'prompt_image', 'vocabulary1', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15']
+2024-12-03 15:20:41,103 - __main__ - INFO - 
+Processing rows:
+2024-12-03 15:20:41,104 - __main__ - INFO - ------------------------------
+2024-12-03 15:20:41,104 - __main__ - INFO - 
+Processing row 1/2
+2024-12-03 15:20:41,104 - __main__ - DEBUG - Processing row 0:
+2024-12-03 15:20:41,104 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 15:20:41,105 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 15:20:41,105 - __main__ - INFO - Row details:
+2024-12-03 15:20:41,105 - __main__ - INFO - - Order: 999
+2024-12-03 15:20:41,105 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:20:41,105 - __main__ - INFO - - First input: 
+2024-12-03 15:20:41,105 - __main__ - INFO - Processing conversation...
+2024-12-03 15:20:41,105 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:20:41,105 - __main__ - INFO - Conversation processed:
+2024-12-03 15:20:41,105 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:20:41,105 - __main__ - INFO - - Response time: 
+2024-12-03 15:20:41,106 - __main__ - INFO - Row 1 processed successfully
+2024-12-03 15:20:41,106 - __main__ - INFO - 
+Processing row 2/2
+2024-12-03 15:20:41,106 - __main__ - DEBUG - Processing row 1:
+2024-12-03 15:20:41,106 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 15:20:41,106 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 15:20:41,107 - __main__ - INFO - Row details:
+2024-12-03 15:20:41,107 - __main__ - INFO - - Order: 2
+2024-12-03 15:20:41,107 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:20:41,107 - __main__ - INFO - - First input: 
+2024-12-03 15:20:41,107 - __main__ - INFO - Processing conversation...
+2024-12-03 15:20:41,108 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:20:41,108 - __main__ - INFO - Conversation processed:
+2024-12-03 15:20:41,108 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:20:41,108 - __main__ - INFO - - Response time: 
+2024-12-03 15:20:41,108 - __main__ - INFO - Row 2 processed successfully
+2024-12-03 15:20:41,110 - __main__ - INFO - 
+==================================================
+2024-12-03 15:20:41,110 - __main__ - INFO - PROCESSING SUMMARY
+2024-12-03 15:20:41,110 - __main__ - INFO - ==================================================
+2024-12-03 15:20:41,110 - __main__ - INFO - Total rows in input: 2
+2024-12-03 15:20:41,110 - __main__ - INFO - Successfully processed: 2
+2024-12-03 15:20:41,110 - __main__ - INFO - Skipped rows: 0
+2024-12-03 15:20:41,110 - __main__ - INFO - Output shape: (2, 4)
+2024-12-03 15:20:41,138 - __main__ - INFO - 
+Output file verification:
+2024-12-03 15:20:41,138 - __main__ - INFO - - File saved at: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:20:41,139 - __main__ - INFO - - Output rows: 2
+2024-12-03 15:20:41,139 - __main__ - INFO - - Output columns: ['order', 'User Input', 'json', 'Response Time']
+2024-12-03 15:20:41,140 - __main__ - INFO - ==================================================
+2024-12-03 15:20:41,140 - __main__ - INFO - Starting story data processing
+2024-12-03 15:20:41,147 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:20:41,148 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:20:41,149 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:20:41,149 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:20:41,164 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:20:41,165 - __main__ - INFO - Starting audio generation
+2024-12-03 15:20:41,170 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:20:41,170 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:20:41,170 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 15:20:41,173 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:20:41,173 - __main__ - INFO - Audio generation complete
+2024-12-03 15:20:41,173 - __main__ - INFO - Processing complete. Final output saved to: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:21:00,171 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:21:00,171 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:21:00,171 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:21:00,171 - __main__ - INFO - Starting main process
+2024-12-03 15:21:00,171 - __main__ - INFO - ==================================================
+2024-12-03 15:21:00,171 - __main__ - INFO - STARTING INITIAL DATA PROCESSING
+2024-12-03 15:21:00,171 - __main__ - INFO - ==================================================
+2024-12-03 15:21:00,171 - __main__ - INFO - Reading input file from: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads\data.xlsx
+2024-12-03 15:21:00,437 - __main__ - INFO - Input data loaded successfully:
+2024-12-03 15:21:00,437 - __main__ - INFO - - Total rows: 2
+2024-12-03 15:21:00,437 - __main__ - INFO - - Columns: ['week', 'order', 'prompt', 'first', 'MAIN QUESTION', 'set', 'vocabulary', 'situation', 'prompt_meaning', 'prompt_ipa', 'prompt_image', 'vocabulary1', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15']
+2024-12-03 15:21:00,461 - __main__ - INFO - 
+Processing rows:
+2024-12-03 15:21:00,461 - __main__ - INFO - ------------------------------
+2024-12-03 15:21:00,462 - __main__ - INFO - 
+Processing row 1/2
+2024-12-03 15:21:00,462 - __main__ - DEBUG - Processing row 0:
+2024-12-03 15:21:00,462 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 15:21:00,462 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 15:21:00,463 - __main__ - INFO - Row details:
+2024-12-03 15:21:00,463 - __main__ - INFO - - Order: 999
+2024-12-03 15:21:00,463 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:21:00,464 - __main__ - INFO - - First input: 
+2024-12-03 15:21:00,464 - __main__ - INFO - Processing conversation...
+2024-12-03 15:21:00,464 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:21:00,464 - __main__ - INFO - Conversation processed:
+2024-12-03 15:21:00,464 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:21:00,465 - __main__ - INFO - - Response time: 
+2024-12-03 15:21:00,465 - __main__ - INFO - Row 1 processed successfully
+2024-12-03 15:21:00,466 - __main__ - INFO - 
+Processing row 2/2
+2024-12-03 15:21:00,466 - __main__ - DEBUG - Processing row 1:
+2024-12-03 15:21:00,466 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 15:21:00,467 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 15:21:00,467 - __main__ - INFO - Row details:
+2024-12-03 15:21:00,467 - __main__ - INFO - - Order: 2
+2024-12-03 15:21:00,467 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:21:00,467 - __main__ - INFO - - First input: 
+2024-12-03 15:21:00,468 - __main__ - INFO - Processing conversation...
+2024-12-03 15:21:00,468 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:21:00,468 - __main__ - INFO - Conversation processed:
+2024-12-03 15:21:00,468 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:21:00,468 - __main__ - INFO - - Response time: 
+2024-12-03 15:21:00,469 - __main__ - INFO - Row 2 processed successfully
+2024-12-03 15:21:00,469 - __main__ - INFO - 
+==================================================
+2024-12-03 15:21:00,470 - __main__ - INFO - PROCESSING SUMMARY
+2024-12-03 15:21:00,470 - __main__ - INFO - ==================================================
+2024-12-03 15:21:00,470 - __main__ - INFO - Total rows in input: 2
+2024-12-03 15:21:00,470 - __main__ - INFO - Successfully processed: 2
+2024-12-03 15:21:00,470 - __main__ - INFO - Skipped rows: 0
+2024-12-03 15:21:00,470 - __main__ - INFO - Output shape: (2, 4)
+2024-12-03 15:21:00,492 - __main__ - INFO - 
+Output file verification:
+2024-12-03 15:21:00,493 - __main__ - INFO - - File saved at: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:21:00,493 - __main__ - INFO - - Output rows: 2
+2024-12-03 15:21:00,493 - __main__ - INFO - - Output columns: ['order', 'User Input', 'json', 'Response Time']
+2024-12-03 15:21:00,494 - __main__ - INFO - ==================================================
+2024-12-03 15:21:00,494 - __main__ - INFO - Starting story data processing
+2024-12-03 15:21:00,496 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:21:00,496 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:21:00,496 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:21:00,502 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:21:00,513 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:21:00,513 - __main__ - INFO - Starting audio generation
+2024-12-03 15:21:00,521 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:21:00,521 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:21:00,521 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 15:21:00,522 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:21:00,522 - __main__ - INFO - Audio generation complete
+2024-12-03 15:21:00,522 - __main__ - INFO - Processing complete. Final output saved to: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:23:18,427 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:23:18,428 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:23:18,429 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:23:18,429 - __main__ - INFO - Starting main process
+2024-12-03 15:23:18,430 - __main__ - INFO - ==================================================
+2024-12-03 15:23:18,430 - __main__ - INFO - STARTING INITIAL DATA PROCESSING
+2024-12-03 15:23:18,431 - __main__ - INFO - ==================================================
+2024-12-03 15:23:18,431 - __main__ - INFO - Reading input file from: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads\data.xlsx
+2024-12-03 15:23:18,743 - __main__ - INFO - Input data loaded successfully:
+2024-12-03 15:23:18,744 - __main__ - INFO - - Total rows: 2
+2024-12-03 15:23:18,744 - __main__ - INFO - - Columns: ['week', 'order', 'prompt', 'first', 'MAIN QUESTION', 'set', 'vocabulary', 'situation', 'prompt_meaning', 'prompt_ipa', 'prompt_image', 'vocabulary1', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15']
+2024-12-03 15:23:18,765 - __main__ - INFO - 
+Processing rows:
+2024-12-03 15:23:18,765 - __main__ - INFO - ------------------------------
+2024-12-03 15:23:18,765 - __main__ - INFO - 
+Processing row 1/2
+2024-12-03 15:23:18,766 - __main__ - DEBUG - Processing row 0:
+2024-12-03 15:23:18,766 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 15:23:18,766 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 15:23:18,767 - __main__ - INFO - Row details:
+2024-12-03 15:23:18,767 - __main__ - INFO - - Order: 999
+2024-12-03 15:23:18,767 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:23:18,767 - __main__ - INFO - - First input: 
+2024-12-03 15:23:18,768 - __main__ - INFO - Processing conversation...
+2024-12-03 15:23:18,768 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:23:18,768 - __main__ - INFO - Conversation processed:
+2024-12-03 15:23:18,768 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:23:18,769 - __main__ - INFO - - Response time: 
+2024-12-03 15:23:18,769 - __main__ - INFO - Row 1 processed successfully
+2024-12-03 15:23:18,769 - __main__ - INFO - 
+Processing row 2/2
+2024-12-03 15:23:18,770 - __main__ - DEBUG - Processing row 1:
+2024-12-03 15:23:18,770 - __main__ - DEBUG - - First input (raw): nan
+2024-12-03 15:23:18,770 - __main__ - DEBUG - - First input is NaN, using empty string
+2024-12-03 15:23:18,771 - __main__ - INFO - Row details:
+2024-12-03 15:23:18,771 - __main__ - INFO - - Order: 2
+2024-12-03 15:23:18,771 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:23:18,771 - __main__ - INFO - - First input: 
+2024-12-03 15:23:18,771 - __main__ - INFO - Processing conversation...
+2024-12-03 15:23:18,772 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:23:18,772 - __main__ - INFO - Conversation processed:
+2024-12-03 15:23:18,772 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:23:18,772 - __main__ - INFO - - Response time: 
+2024-12-03 15:23:18,772 - __main__ - INFO - Row 2 processed successfully
+2024-12-03 15:23:18,773 - __main__ - INFO - 
+==================================================
+2024-12-03 15:23:18,773 - __main__ - INFO - PROCESSING SUMMARY
+2024-12-03 15:23:18,774 - __main__ - INFO - ==================================================
+2024-12-03 15:23:18,774 - __main__ - INFO - Total rows in input: 2
+2024-12-03 15:23:18,774 - __main__ - INFO - Successfully processed: 2
+2024-12-03 15:23:18,774 - __main__ - INFO - Skipped rows: 0
+2024-12-03 15:23:18,774 - __main__ - INFO - Output shape: (2, 4)
+2024-12-03 15:23:18,798 - __main__ - INFO - 
+Output file verification:
+2024-12-03 15:23:18,799 - __main__ - INFO - - File saved at: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:23:18,799 - __main__ - INFO - - Output rows: 2
+2024-12-03 15:23:18,800 - __main__ - INFO - - Output columns: ['order', 'User Input', 'json', 'Response Time']
+2024-12-03 15:23:18,800 - __main__ - INFO - ==================================================
+2024-12-03 15:23:18,801 - __main__ - INFO - Starting story data processing
+2024-12-03 15:23:18,811 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:23:18,811 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:23:18,812 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:23:18,813 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:23:18,829 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:23:18,830 - __main__ - INFO - Starting audio generation
+2024-12-03 15:23:18,837 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:23:18,837 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:23:18,837 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 15:23:18,838 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:23:18,838 - __main__ - INFO - Audio generation complete
+2024-12-03 15:23:18,838 - __main__ - INFO - Processing complete. Final output saved to: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:23:59,499 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:23:59,500 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:23:59,500 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:23:59,501 - __main__ - INFO - Starting main process
+2024-12-03 15:23:59,501 - __main__ - INFO - ==================================================
+2024-12-03 15:23:59,501 - __main__ - INFO - STARTING INITIAL DATA PROCESSING
+2024-12-03 15:23:59,502 - __main__ - INFO - ==================================================
+2024-12-03 15:23:59,502 - __main__ - INFO - Reading input file from: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads\data.xlsx
+2024-12-03 15:23:59,836 - __main__ - INFO - Input data loaded successfully:
+2024-12-03 15:23:59,837 - __main__ - INFO - - Total rows: 2
+2024-12-03 15:23:59,837 - __main__ - INFO - - Columns: ['week', 'order', 'prompt', 'first', 'MAIN QUESTION', 'set', 'vocabulary', 'situation', 'prompt_meaning', 'prompt_ipa', 'prompt_image', 'vocabulary1', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15']
+2024-12-03 15:23:59,862 - __main__ - INFO - 
+Processing rows:
+2024-12-03 15:23:59,862 - __main__ - INFO - ------------------------------
+2024-12-03 15:23:59,863 - __main__ - INFO - 
+Processing row 1/2
+2024-12-03 15:23:59,863 - __main__ - INFO - Row details:
+2024-12-03 15:23:59,863 - __main__ - INFO - - Order: 999
+2024-12-03 15:23:59,863 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:23:59,864 - __main__ - INFO - - First input: nan
+2024-12-03 15:23:59,864 - __main__ - WARNING - Empty first_input for order 999, using empty string
+2024-12-03 15:23:59,864 - __main__ - INFO - Processing conversation...
+2024-12-03 15:23:59,865 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:23:59,865 - __main__ - INFO - Conversation processed:
+2024-12-03 15:23:59,865 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:23:59,865 - __main__ - INFO - - Response time: 
+2024-12-03 15:23:59,865 - __main__ - INFO - Row 1 processed successfully
+2024-12-03 15:23:59,866 - __main__ - INFO - 
+Processing row 2/2
+2024-12-03 15:23:59,866 - __main__ - INFO - Row details:
+2024-12-03 15:23:59,866 - __main__ - INFO - - Order: 2
+2024-12-03 15:23:59,866 - __main__ - INFO - - Prompt: You are now a award-winning writer. You write  conversations between a man an a woman.
+- Language: V...
+2024-12-03 15:23:59,867 - __main__ - INFO - - First input: nan
+2024-12-03 15:23:59,867 - __main__ - WARNING - Empty first_input for order 2, using empty string
+2024-12-03 15:23:59,867 - __main__ - INFO - Processing conversation...
+2024-12-03 15:23:59,867 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:23:59,868 - __main__ - INFO - Conversation processed:
+2024-12-03 15:23:59,868 - __main__ - INFO - - Response received: Yes
+2024-12-03 15:23:59,868 - __main__ - INFO - - Response time: 
+2024-12-03 15:23:59,868 - __main__ - INFO - Row 2 processed successfully
+2024-12-03 15:23:59,869 - __main__ - INFO - 
+==================================================
+2024-12-03 15:23:59,869 - __main__ - INFO - PROCESSING SUMMARY
+2024-12-03 15:23:59,869 - __main__ - INFO - ==================================================
+2024-12-03 15:23:59,870 - __main__ - INFO - Total rows in input: 2
+2024-12-03 15:23:59,870 - __main__ - INFO - Successfully processed: 2
+2024-12-03 15:23:59,870 - __main__ - INFO - Skipped rows: 0
+2024-12-03 15:23:59,870 - __main__ - INFO - Output shape: (2, 4)
+2024-12-03 15:23:59,894 - __main__ - INFO - 
+Output file verification:
+2024-12-03 15:23:59,894 - __main__ - INFO - - File saved at: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:23:59,895 - __main__ - INFO - - Output rows: 2
+2024-12-03 15:23:59,895 - __main__ - INFO - - Output columns: ['order', 'User Input', 'json', 'Response Time']
+2024-12-03 15:23:59,896 - __main__ - INFO - ==================================================
+2024-12-03 15:23:59,896 - __main__ - INFO - Starting story data processing
+2024-12-03 15:23:59,904 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:23:59,904 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:23:59,905 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:23:59,905 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:23:59,917 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:23:59,918 - __main__ - INFO - Starting audio generation
+2024-12-03 15:23:59,925 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:23:59,926 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:23:59,926 - __main__ - DEBUG - Generating audio for order 2.0
+2024-12-03 15:23:59,926 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:23:59,927 - __main__ - INFO - Audio generation complete
+2024-12-03 15:23:59,927 - __main__ - INFO - Processing complete. Final output saved to: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:27:47,157 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:27:47,158 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:27:47,158 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:27:47,158 - __main__ - INFO - Starting main process
+2024-12-03 15:27:47,159 - __main__ - INFO - Starting initial data processing
+2024-12-03 15:27:47,453 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:27:47,453 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-03 15:27:47,453 - __main__ - DEBUG - Response: 
+2024-12-03 15:27:47,454 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:27:47,454 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-03 15:27:47,454 - __main__ - DEBUG - Response: 
+2024-12-03 15:27:47,473 - __main__ - INFO - Output saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:27:47,474 - __main__ - INFO - Starting story data processing
+2024-12-03 15:27:47,480 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:27:47,480 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:27:47,481 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:27:47,481 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:27:47,492 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:27:47,492 - __main__ - INFO - Starting audio generation
+2024-12-03 15:27:47,498 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:27:47,499 - __main__ - ERROR - Error in generate_audio: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2032.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 15:27:47,502 - __main__ - ERROR - Error in main: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 275, in main
+    generate_audio()
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2032.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 15:28:10,367 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-03 15:28:10,369 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-03 15:28:10,369 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-03 15:28:10,370 - __main__ - INFO - Starting main process
+2024-12-03 15:28:10,370 - __main__ - INFO - Starting initial data processing
+2024-12-03 15:28:10,629 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-03 15:28:10,629 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-03 15:28:10,629 - __main__ - DEBUG - Response: 
+2024-12-03 15:28:10,629 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-03 15:28:10,629 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-03 15:28:10,629 - __main__ - DEBUG - Response: 
+2024-12-03 15:28:10,651 - __main__ - INFO - Output saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-03 15:28:10,652 - __main__ - INFO - Starting story data processing
+2024-12-03 15:28:10,658 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-03 15:28:10,659 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-03 15:28:10,660 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-03 15:28:10,660 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-03 15:28:10,671 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-03 15:28:10,671 - __main__ - INFO - Starting audio generation
+2024-12-03 15:28:10,678 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-03 15:28:10,679 - __main__ - ERROR - Error in generate_audio: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2032.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-03 15:28:10,681 - __main__ - ERROR - Error in main: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 275, in main
+    generate_audio()
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2032.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
