@@ -4,7 +4,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "25045:5000"
+      - "25037:5000"
     environment:
       - FLASK_APP=app.py
       - FLASK_ENV=production
