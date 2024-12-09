@@ -69,7 +69,7 @@ def process_conversation(order, base_prompt, inputs):
         while try_count < 3:
             try:
                 completion = openai.chat.completions.create(
-                    model="gpt-4o-mini",  # hoặc model phù hợp khác
+                    model="gpt-4-turbo-preview",  # hoặc model phù hợp khác
                     messages=message_history,
                     temperature=0,
                     max_tokens=1500,
@@ -110,13 +110,15 @@ def process_initial_data():
             order = row['order']
             prompt = row['prompt']
             first_input = row.get('first', '')
+            week = row['week']
             
             # Process conversation
             responses, response_times, _ = process_conversation(order, prompt, [first_input])
             
-            # Create output row
+            # Create output row with week included
             output_row = {
                 'order': order,
+                'week': week,
                 'User Input': first_input,
                 'json': responses[0] if responses else '',
                 'Response Time': response_times[0] if response_times else ''
@@ -153,7 +155,8 @@ def process_story_data():
 
         for _, row in df_input.iterrows():
             order = row['order']
-            logger.debug(f"Processing story data for order {order}")
+            week = row['week']
+            logger.debug(f"Processing story data for order {order}, week {week}")
             try:
                 # Thêm kiểm tra và chuyển đổi kiểu dữ liệu
                 json_data = row['json']
@@ -181,7 +184,7 @@ def process_story_data():
                     role = convo['role']
                     content = convo['content']
                     translation_en = convo['translation_en']
-                    audio_name = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/{role}.wav"
+                    audio_name = f"https://smedia.stepup.edu.vn/ielts/chunking/listening/week_{week}/{order}/{role}.wav"
                     story_output_rows.append(["", "", "", "bot-left" if idx % 2 == 0 else "bot-right", translation_en, content, audio_name])
 
                 summary_row = [order, situation_en, situation_vn, '', '', '', '']
@@ -199,9 +202,9 @@ def process_story_data():
 def remove_tags(text):
     return re.sub(r'<\/?r>', '', text)
 
-def send_request(text, voice, order, role):
+def send_request(text, voice, order, week, role):
     try:
-        logger.debug(f"Sending TTS request for order {order}, role {role}")
+        logger.debug(f"Sending TTS request for order {order}, week {week}, role {role}")
         url = 'http://103.253.20.13:25006/tts_to_audio'
         headers = {'Content-Type': 'application/json'}
         data = {
@@ -211,8 +214,8 @@ def send_request(text, voice, order, role):
         }
         response = requests.post(url, headers=headers, json=data)
         
-        # Save to output_story_audio folder only
-        audio_dir = OUTPUT_AUDIO_FOLDER / str(order)
+        # Update save path to include week
+        audio_dir = OUTPUT_AUDIO_FOLDER / f"week_{week}" / str(order)
         audio_dir.mkdir(parents=True, exist_ok=True)
         output_file = audio_dir / f'{role}.wav'
         
@@ -231,7 +234,8 @@ def generate_audio():
         
         for index, row in df_input.iterrows():
             order = row['order']
-            logger.debug(f"Generating audio for order {order}")
+            week = row['week']
+            logger.debug(f"Generating audio for order {order}, week {week}")
             data = json.loads(row['json'])
             selected_voices = {}
             
@@ -253,7 +257,7 @@ def generate_audio():
                     role = convo["role"]
                     text = remove_tags(convo["translation_en"])
                     voice = selected_voices["female"] if "female" in role else selected_voices["male"]
-                    send_request(text, voice, order, role)
+                    send_request(text, voice, order, week, role)
         logger.info("Audio generation complete")
     except Exception as e:
         logger.error(f"Error in generate_audio: {str(e)}", exc_info=True)

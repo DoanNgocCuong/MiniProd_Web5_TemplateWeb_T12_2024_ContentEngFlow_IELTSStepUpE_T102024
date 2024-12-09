@@ -4260,3 +4260,336 @@ Output file verification:
 2024-12-03 08:23:12,334 - __main__ - WARNING - Empty JSON for order 2.0, skipping
 2024-12-03 08:23:12,335 - __main__ - INFO - Audio generation complete
 2024-12-03 08:23:12,335 - __main__ - INFO - Processing complete. Final output saved to: /app/output/output_story.xlsx
+2024-12-09 10:52:12,069 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-09 10:52:12,070 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-09 10:52:12,070 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-09 10:52:12,070 - __main__ - INFO - Starting main process
+2024-12-09 10:52:12,072 - __main__ - INFO - Starting initial data processing
+2024-12-09 10:52:12,352 - __main__ - WARNING - Empty input for order 999, skipping
+2024-12-09 10:52:12,352 - __main__ - DEBUG - Processed row - Order: 999
+2024-12-09 10:52:12,352 - __main__ - DEBUG - Response: 
+2024-12-09 10:52:12,353 - __main__ - WARNING - Empty input for order 2, skipping
+2024-12-09 10:52:12,353 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-09 10:52:12,354 - __main__ - DEBUG - Response: 
+2024-12-09 10:52:12,381 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-09 10:52:12,382 - __main__ - INFO - Starting story data processing
+2024-12-09 10:52:12,398 - __main__ - DEBUG - Processing story data for order 999.0
+2024-12-09 10:52:12,399 - __main__ - WARNING - Empty JSON for order 999.0, skipping
+2024-12-09 10:52:12,399 - __main__ - DEBUG - Processing story data for order 2.0
+2024-12-09 10:52:12,400 - __main__ - WARNING - Empty JSON for order 2.0, skipping
+2024-12-09 10:52:12,421 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-09 10:52:12,421 - __main__ - INFO - Starting audio generation
+2024-12-09 10:52:12,441 - __main__ - DEBUG - Generating audio for order 999.0
+2024-12-09 10:52:12,441 - __main__ - ERROR - Error in generate_audio: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-09 10:52:12,448 - __main__ - ERROR - Error in main: the JSON object must be str, bytes or bytearray, not float64
+Traceback (most recent call last):
+  File "/app/scripts/generate_story.py", line 275, in main
+    generate_audio()
+  File "/app/scripts/generate_story.py", line 235, in generate_audio
+    data = json.loads(row['json'])
+  File "/usr/local/lib/python3.9/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not float64
+2024-12-09 11:17:53,386 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-09 11:17:53,387 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-09 11:17:53,387 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-09 11:17:53,387 - __main__ - INFO - Starting main process
+2024-12-09 11:17:53,389 - __main__ - INFO - Starting initial data processing
+2024-12-09 11:17:53,603 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-12-09 11:17:53,612 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-09 11:17:53,613 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-12-09 11:17:54,046 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7d32dc82e0>
+2024-12-09 11:17:54,046 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f7d08b24bc0> server_hostname='api.openai.com' timeout=5.0
+2024-12-09 11:17:54,116 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7d32dc8070>
+2024-12-09 11:17:54,116 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-09 11:17:54,117 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-09 11:17:54,117 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-09 11:17:54,118 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-09 11:17:54,118 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-09 11:18:04,711 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 09 Dec 2024 11:18:14 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'10240'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'5000'), (b'x-ratelimit-limit-tokens', b'600000'), (b'x-ratelimit-remaining-requests', b'4999'), (b'x-ratelimit-remaining-tokens', b'598148'), (b'x-ratelimit-reset-requests', b'12ms'), (b'x-ratelimit-reset-tokens', b'185ms'), (b'x-request-id', b'req_4d848aac5fe686b61bf3b904aaed8cbc'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=8p1trZHpOXTDIk7eDrOevXEyZe7GD3B6sznNSzWZ_UI-1733743094-1.0.1.1-PwlOndue9aYYdOoX2SjiD2NBCJEy8vs1Sl7OUXcbWoKqB5N0tBIILR1hAciElFLhyyDS8lrFInNDBoheFYx6nA; path=/; expires=Mon, 09-Dec-24 11:48:14 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=h8A2a3Zu3OFsrrPt5Nm_KV9IXokPJNhRurN324DLzYg-1733743094946-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8ef497a59e68797e-SIN'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-09 11:18:04,712 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-09 11:18:04,713 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-09 11:18:04,714 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-09 11:18:04,714 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-09 11:18:04,714 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-09 11:18:04,715 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Mon, 09 Dec 2024 11:18:14 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'step-up-ognepk'), ('openai-processing-ms', '10240'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '5000'), ('x-ratelimit-limit-tokens', '600000'), ('x-ratelimit-remaining-requests', '4999'), ('x-ratelimit-remaining-tokens', '598148'), ('x-ratelimit-reset-requests', '12ms'), ('x-ratelimit-reset-tokens', '185ms'), ('x-request-id', 'req_4d848aac5fe686b61bf3b904aaed8cbc'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=8p1trZHpOXTDIk7eDrOevXEyZe7GD3B6sznNSzWZ_UI-1733743094-1.0.1.1-PwlOndue9aYYdOoX2SjiD2NBCJEy8vs1Sl7OUXcbWoKqB5N0tBIILR1hAciElFLhyyDS8lrFInNDBoheFYx6nA; path=/; expires=Mon, 09-Dec-24 11:48:14 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=h8A2a3Zu3OFsrrPt5Nm_KV9IXokPJNhRurN324DLzYg-1733743094946-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8ef497a59e68797e-SIN'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-12-09 11:18:04,715 - openai._base_client - DEBUG - request_id: req_4d848aac5fe686b61bf3b904aaed8cbc
+2024-12-09 11:18:04,720 - __main__ - DEBUG - Order 1000, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response received in 11.19s
+2024-12-09 11:18:04,721 - __main__ - DEBUG - Processed row - Order: 1000
+2024-12-09 11:18:04,721 - __main__ - DEBUG - Response: [{"situation":"Sarah và Tom, hàng xóm, tại một công viên cộng đồng","situation_en":"Sarah and Tom, neighbors, at a community park","conversation":[{"role":"female_1","content":"Cậu biết không, tớ thực sự thích không khí ở đây. Gia đình tớ chỉ có bốn người, một gia đình hạt nhân điển hình thôi.","translation_en":"You know, I really like the atmosphere here. My family is just four people, a typical <r>nuclear family</r>."},{"role":"male_1","content":"Thật à? Gia đình tớ hơi khác, bố mẹ tớ ly hôn từ khi tớ còn nhỏ. Nhưng mỗi bên giờ đều có gia đình mới của mình.","translation_en":"Really? My family is a bit different, my parents divorced when I was young. But each of them now has their own new family."},{"role":"female_2","content":"Vậy à? Tớ cảm thấy mỗi gia đình đều có câu chuyện riêng của mình. Quan trọng là mình cảm thấy hạnh phúc và được yêu thương.","translation_en":"Is that so? I feel like every family has its own story. What matters is feeling happy and loved."},{"role":"male_2","content":"Đúng vậy! Dù là gia đình hạt nhân hay mở rộng, miễn là có tình thương, mọi thứ đều tốt đẹp cả.","translation_en":"Exactly! Whether it's a nuclear or extended family, as long as there is love, everything is good."}]}]
+2024-12-09 11:18:04,727 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-12-09 11:18:04,729 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-09 11:18:04,729 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-09 11:18:04,730 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-09 11:18:04,730 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-09 11:18:04,731 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-09 11:18:04,731 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-09 11:18:13,211 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 09 Dec 2024 11:18:23 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'8124'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'5000'), (b'x-ratelimit-limit-tokens', b'600000'), (b'x-ratelimit-remaining-requests', b'4999'), (b'x-ratelimit-remaining-tokens', b'598146'), (b'x-ratelimit-reset-requests', b'12ms'), (b'x-ratelimit-reset-tokens', b'185ms'), (b'x-request-id', b'req_d4e391ab5ca33f0454eb1a1615045213'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8ef497e7ea5a797e-SIN'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-09 11:18:13,211 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-09 11:18:13,212 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-09 11:18:13,217 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-09 11:18:13,217 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-09 11:18:13,218 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-09 11:18:13,218 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 09 Dec 2024 11:18:23 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'step-up-ognepk', 'openai-processing-ms': '8124', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '5000', 'x-ratelimit-limit-tokens': '600000', 'x-ratelimit-remaining-requests': '4999', 'x-ratelimit-remaining-tokens': '598146', 'x-ratelimit-reset-requests': '12ms', 'x-ratelimit-reset-tokens': '185ms', 'x-request-id': 'req_d4e391ab5ca33f0454eb1a1615045213', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8ef497e7ea5a797e-SIN', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-12-09 11:18:13,227 - openai._base_client - DEBUG - request_id: req_d4e391ab5ca33f0454eb1a1615045213
+2024-12-09 11:18:13,229 - __main__ - DEBUG - Order 2, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response received in 8.51s
+2024-12-09 11:18:13,229 - __main__ - DEBUG - Processed row - Order: 2
+2024-12-09 11:18:13,229 - __main__ - DEBUG - Response: [{"situation":"Aubrey và Isaac, hai kỹ sư, đang ở công trường","situation_en":"Aubrey and Isaac, engineers, at a construction site","conversation":[{"role":"female_1","content":"Cậu có biết ở nhà tớ có bao nhiêu người không?","translation_en":"Do you know how many people are in my house?"},{"role":"male_1","content":"Không, tớ chưa bao giờ nghe cậu kể về gia đình cả.","translation_en":"No, I've never heard you talk about your family."},{"role":"female_2","content":"Nhà tớ là một gia đình đa thế hệ đấy. Từ ông bà, bố mẹ, cho đến chúng tớ và cả đám trẻ con nữa.","translation_en":"My house is a <r>Generational family</r>. From grandparents, parents, to us and even the kids."},{"role":"male_2","content":"Thật ấm áp và vui vẻ nhỉ! Nhà tớ chỉ có bố mẹ và hai anh em thôi.","translation_en":"That sounds warm and fun! My house just has my parents and the two of us siblings."}]}]
+2024-12-09 11:18:13,289 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-09 11:18:13,289 - __main__ - INFO - Starting story data processing
+2024-12-09 11:18:13,309 - __main__ - DEBUG - Processing story data for order 1000, week 10
+2024-12-09 11:18:13,310 - __main__ - DEBUG - Processing story data for order 2, week 20
+2024-12-09 11:18:13,341 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-09 11:18:13,341 - __main__ - INFO - Starting audio generation
+2024-12-09 11:18:13,360 - __main__ - DEBUG - Generating audio for order 1000, week 10
+2024-12-09 11:18:13,361 - __main__ - DEBUG - Sending TTS request for order 1000, week 10, role female_1
+2024-12-09 11:18:13,364 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:13,381 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:15,117 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 285262
+2024-12-09 11:18:15,173 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/1000/female_1.wav
+2024-12-09 11:18:15,174 - __main__ - DEBUG - Sending TTS request for order 1000, week 10, role male_1
+2024-12-09 11:18:15,176 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:15,192 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:17,262 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 349774
+2024-12-09 11:18:17,301 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/1000/male_1.wav
+2024-12-09 11:18:17,301 - __main__ - DEBUG - Sending TTS request for order 1000, week 10, role female_2
+2024-12-09 11:18:17,303 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:17,315 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:19,242 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 320590
+2024-12-09 11:18:19,291 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/1000/female_2.wav
+2024-12-09 11:18:19,292 - __main__ - DEBUG - Sending TTS request for order 1000, week 10, role male_2
+2024-12-09 11:18:19,293 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:19,308 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:21,049 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 291918
+2024-12-09 11:18:21,084 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/1000/male_2.wav
+2024-12-09 11:18:21,086 - __main__ - DEBUG - Generating audio for order 2, week 20
+2024-12-09 11:18:21,087 - __main__ - DEBUG - Sending TTS request for order 2, week 20, role female_1
+2024-12-09 11:18:21,089 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:21,105 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:21,961 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 124494
+2024-12-09 11:18:21,988 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2/female_1.wav
+2024-12-09 11:18:21,988 - __main__ - DEBUG - Sending TTS request for order 2, week 20, role male_1
+2024-12-09 11:18:21,990 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:22,019 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:22,995 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 149070
+2024-12-09 11:18:23,019 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2/male_1.wav
+2024-12-09 11:18:23,020 - __main__ - DEBUG - Sending TTS request for order 2, week 20, role female_2
+2024-12-09 11:18:23,022 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:23,038 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:24,704 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 276046
+2024-12-09 11:18:24,743 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2/female_2.wav
+2024-12-09 11:18:24,743 - __main__ - DEBUG - Sending TTS request for order 2, week 20, role male_2
+2024-12-09 11:18:24,744 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:24,769 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:26,443 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 258638
+2024-12-09 11:18:26,474 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2/male_2.wav
+2024-12-09 11:18:26,474 - __main__ - INFO - Audio generation complete
+2024-12-09 11:18:26,475 - __main__ - INFO - Processing complete. Final output saved to: /app/output/output_story.xlsx
+2024-12-09 11:18:37,869 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-09 11:18:37,869 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-09 11:18:37,869 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-09 11:18:37,870 - __main__ - INFO - Starting main process
+2024-12-09 11:18:37,871 - __main__ - INFO - Starting initial data processing
+2024-12-09 11:18:38,067 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-12-09 11:18:38,074 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-09 11:18:38,075 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-12-09 11:18:38,508 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f96457c82e0>
+2024-12-09 11:18:38,509 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f961b550bc0> server_hostname='api.openai.com' timeout=5.0
+2024-12-09 11:18:38,581 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f96457c8070>
+2024-12-09 11:18:38,582 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-09 11:18:38,582 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-09 11:18:38,583 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-09 11:18:38,583 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-09 11:18:38,583 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-09 11:18:48,801 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 09 Dec 2024 11:18:59 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'9836'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'5000'), (b'x-ratelimit-limit-tokens', b'600000'), (b'x-ratelimit-remaining-requests', b'4999'), (b'x-ratelimit-remaining-tokens', b'598148'), (b'x-ratelimit-reset-requests', b'12ms'), (b'x-ratelimit-reset-tokens', b'185ms'), (b'x-request-id', b'req_6fe88fecb72d3de6c3654ff2b9c69738'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=_SPmkl7OfHg.atJKptA6Fh8rkoLMPayqVvsMEpft39Q-1733743139-1.0.1.1-tv.cAQNplOODFfg9m2erdvelLKbDJyZyjnODtnsuIhlMezL9RCQ4Su9yv4Ppo34cHMGnQdjIEYM.9fGDwTyKPQ; path=/; expires=Mon, 09-Dec-24 11:48:59 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=UXtYq6HWL1Cl.kOCiuPKjHaXJ0WMjBO8wMVhve8bgk8-1733743139035-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8ef498bb8fb0a135-SIN'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-09 11:18:48,803 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-09 11:18:48,803 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-09 11:18:48,812 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-09 11:18:48,812 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-09 11:18:48,812 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-09 11:18:48,813 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Mon, 09 Dec 2024 11:18:59 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'step-up-ognepk'), ('openai-processing-ms', '9836'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '5000'), ('x-ratelimit-limit-tokens', '600000'), ('x-ratelimit-remaining-requests', '4999'), ('x-ratelimit-remaining-tokens', '598148'), ('x-ratelimit-reset-requests', '12ms'), ('x-ratelimit-reset-tokens', '185ms'), ('x-request-id', 'req_6fe88fecb72d3de6c3654ff2b9c69738'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=_SPmkl7OfHg.atJKptA6Fh8rkoLMPayqVvsMEpft39Q-1733743139-1.0.1.1-tv.cAQNplOODFfg9m2erdvelLKbDJyZyjnODtnsuIhlMezL9RCQ4Su9yv4Ppo34cHMGnQdjIEYM.9fGDwTyKPQ; path=/; expires=Mon, 09-Dec-24 11:48:59 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=UXtYq6HWL1Cl.kOCiuPKjHaXJ0WMjBO8wMVhve8bgk8-1733743139035-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8ef498bb8fb0a135-SIN'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-12-09 11:18:48,813 - openai._base_client - DEBUG - request_id: req_6fe88fecb72d3de6c3654ff2b9c69738
+2024-12-09 11:18:48,818 - __main__ - DEBUG - Order 1000, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response received in 10.82s
+2024-12-09 11:18:48,819 - __main__ - DEBUG - Processed row - Order: 1000
+2024-12-09 11:18:48,819 - __main__ - DEBUG - Response: [{"situation":"Sarah và Tom, hàng xóm, tại công viên cộng đồng","situation_en":"Sarah and Tom, neighbors, at a community park","conversation":[{"role":"female_1","content":"Cậu biết không, gia đình tớ là một gia đình hạt nhân đấy.","translation_en":"You know, my family is a <r>nuclear family</r>."},{"role":"male_1","content":"Thật à? Gia đình tớ cũng vậy. Chỉ có bố mẹ và hai đứa trẻ.","translation_en":"Really? My family is the same. Just parents and two kids."},{"role":"female_2","content":"Thú vị nhỉ? Tớ luôn nghĩ rằng gia đình nhỏ gọn giúp mọi người gần gũi nhau hơn.","translation_en":"Interesting, isn't it? I always think that a small family helps everyone be closer to each other."},{"role":"male_2","content":"Đúng vậy. Dễ dàng hơn trong việc quản lý và dành thời gian cho nhau. Cậu thích điều đó chứ?","translation_en":"Exactly. It's easier to manage and spend time with each other. You like that, right?"}]}]
+2024-12-09 11:18:48,825 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-12-09 11:18:48,826 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-09 11:18:48,826 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-09 11:18:48,827 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-09 11:18:48,827 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-09 11:18:48,828 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-09 11:18:48,828 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-09 11:18:57,232 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 09 Dec 2024 11:19:07 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'8046'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'5000'), (b'x-ratelimit-limit-tokens', b'600000'), (b'x-ratelimit-remaining-requests', b'4999'), (b'x-ratelimit-remaining-tokens', b'598146'), (b'x-ratelimit-reset-requests', b'12ms'), (b'x-ratelimit-reset-tokens', b'185ms'), (b'x-request-id', b'req_36d9e7eddc41d5ddd468065e07472e46'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8ef498fb8cbca135-SIN'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-09 11:18:57,233 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-09 11:18:57,233 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-09 11:18:57,240 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-09 11:18:57,240 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-09 11:18:57,241 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-09 11:18:57,241 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 09 Dec 2024 11:19:07 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'step-up-ognepk', 'openai-processing-ms': '8046', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '5000', 'x-ratelimit-limit-tokens': '600000', 'x-ratelimit-remaining-requests': '4999', 'x-ratelimit-remaining-tokens': '598146', 'x-ratelimit-reset-requests': '12ms', 'x-ratelimit-reset-tokens': '185ms', 'x-request-id': 'req_36d9e7eddc41d5ddd468065e07472e46', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8ef498fb8cbca135-SIN', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-12-09 11:18:57,242 - openai._base_client - DEBUG - request_id: req_36d9e7eddc41d5ddd468065e07472e46
+2024-12-09 11:18:57,242 - __main__ - DEBUG - Order 2000, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response received in 8.42s
+2024-12-09 11:18:57,243 - __main__ - DEBUG - Processed row - Order: 2000
+2024-12-09 11:18:57,243 - __main__ - DEBUG - Response: [{"situation":"Aubrey và Isaac, hai kỹ sư, đang ở tại công trường","situation_en":"Aubrey and Isaac, engineers, at a construction site","conversation":[{"role":"female_1","content":"Cậu có biết ở nhà tớ có bao nhiêu người không?","translation_en":"Do you know how many people are in my family?"},{"role":"male_1","content":"Không, tớ chưa bao giờ nghe cậu kể cả. Gia đình cậu thế nào?","translation_en":"No, I've never heard you talk about it. What's your family like?"},{"role":"female_2","content":"Tớ sống trong một gia đình đa thế hệ. Từ ông bà, bố mẹ, cho đến chúng tớ.","translation_en":"I live in a <r>Generational family</r>. From grandparents, parents, to us."},{"role":"male_2","content":"Thật ấm áp và vui vẻ nhỉ! Gia đình tớ chỉ có bố mẹ và hai anh em thôi.","translation_en":"That sounds warm and fun! My family just has parents and two siblings."}]}]
+2024-12-09 11:18:57,264 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-09 11:18:57,264 - __main__ - INFO - Starting story data processing
+2024-12-09 11:18:57,280 - __main__ - DEBUG - Processing story data for order 1000, week 10
+2024-12-09 11:18:57,281 - __main__ - DEBUG - Processing story data for order 2000, week 20
+2024-12-09 11:18:57,298 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-09 11:18:57,299 - __main__ - INFO - Starting audio generation
+2024-12-09 11:18:57,313 - __main__ - DEBUG - Generating audio for order 1000, week 10
+2024-12-09 11:18:57,314 - __main__ - DEBUG - Sending TTS request for order 1000, week 10, role female_1
+2024-12-09 11:18:57,316 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:57,333 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:58,241 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 129102
+2024-12-09 11:18:58,272 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/1000/female_1.wav
+2024-12-09 11:18:58,273 - __main__ - DEBUG - Sending TTS request for order 1000, week 10, role male_1
+2024-12-09 11:18:58,274 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:58,287 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:18:59,789 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 204878
+2024-12-09 11:18:59,816 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/1000/male_1.wav
+2024-12-09 11:18:59,816 - __main__ - DEBUG - Sending TTS request for order 1000, week 10, role female_2
+2024-12-09 11:18:59,818 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:18:59,830 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:19:01,641 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 254030
+2024-12-09 11:19:01,712 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/1000/female_2.wav
+2024-12-09 11:19:01,712 - __main__ - DEBUG - Sending TTS request for order 1000, week 10, role male_2
+2024-12-09 11:19:01,714 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:19:01,770 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:19:03,145 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 222798
+2024-12-09 11:19:03,213 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/1000/male_2.wav
+2024-12-09 11:19:03,214 - __main__ - DEBUG - Generating audio for order 2000, week 20
+2024-12-09 11:19:03,214 - __main__ - DEBUG - Sending TTS request for order 2000, week 20, role female_1
+2024-12-09 11:19:03,216 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:19:03,274 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:19:04,335 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 160334
+2024-12-09 11:19:04,360 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2000/female_1.wav
+2024-12-09 11:19:04,361 - __main__ - DEBUG - Sending TTS request for order 2000, week 20, role male_1
+2024-12-09 11:19:04,362 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:19:04,422 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:19:05,708 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 200270
+2024-12-09 11:19:05,737 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2000/male_1.wav
+2024-12-09 11:19:05,738 - __main__ - DEBUG - Sending TTS request for order 2000, week 20, role female_2
+2024-12-09 11:19:05,739 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:19:05,754 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:19:07,406 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 265294
+2024-12-09 11:19:07,448 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2000/female_2.wav
+2024-12-09 11:19:07,449 - __main__ - DEBUG - Sending TTS request for order 2000, week 20, role male_2
+2024-12-09 11:19:07,450 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:19:07,464 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:19:09,292 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 262734
+2024-12-09 11:19:09,333 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2000/male_2.wav
+2024-12-09 11:19:09,334 - __main__ - INFO - Audio generation complete
+2024-12-09 11:19:09,334 - __main__ - INFO - Processing complete. Final output saved to: /app/output/output_story.xlsx
+2024-12-09 11:24:03,014 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-09 11:24:03,015 - __main__ - DEBUG - Upload folder path: /app/uploads
+2024-12-09 11:24:03,015 - __main__ - DEBUG - Output folder path: /app/output
+2024-12-09 11:24:03,015 - __main__ - INFO - Starting main process
+2024-12-09 11:24:03,017 - __main__ - INFO - Starting initial data processing
+2024-12-09 11:24:03,198 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Nuclear family\nSituation: Sarah and Tom, neighbors, at a community park'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-12-09 11:24:03,205 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-09 11:24:03,207 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-12-09 11:24:03,479 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f6eaadc82e0>
+2024-12-09 11:24:03,479 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f6e80b29bc0> server_hostname='api.openai.com' timeout=5.0
+2024-12-09 11:24:03,567 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f6eaadc8070>
+2024-12-09 11:24:03,568 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-09 11:24:03,569 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-09 11:24:03,569 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-09 11:24:03,570 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-09 11:24:03,570 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-09 11:24:14,171 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 09 Dec 2024 11:24:24 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'10244'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'5000'), (b'x-ratelimit-limit-tokens', b'600000'), (b'x-ratelimit-remaining-requests', b'4999'), (b'x-ratelimit-remaining-tokens', b'598149'), (b'x-ratelimit-reset-requests', b'12ms'), (b'x-ratelimit-reset-tokens', b'185ms'), (b'x-request-id', b'req_6c348498a710db32351a945960090f12'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=t4kgLPKAQeIojenFa7O_33MtFaUFlak49sUDdKy1p44-1733743464-1.0.1.1-I1HGwEeoKlLo9Tsen4gYu4_LXGlPskdQgy9qTfMwwoSB5FSG_bfZU6FntTAZSB6dIYFWv_vfCXE9EMgvu4uWLg; path=/; expires=Mon, 09-Dec-24 11:54:24 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=0i8cdV6uviDzU7xBrjwdFU_xmFQDaVmpBqwTcxbNnSA-1733743464406-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8ef4a0aaa9443d93-SIN'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-09 11:24:14,174 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-09 11:24:14,175 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-09 11:24:14,175 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-09 11:24:14,176 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-09 11:24:14,176 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-09 11:24:14,176 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Mon, 09 Dec 2024 11:24:24 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'step-up-ognepk'), ('openai-processing-ms', '10244'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '5000'), ('x-ratelimit-limit-tokens', '600000'), ('x-ratelimit-remaining-requests', '4999'), ('x-ratelimit-remaining-tokens', '598149'), ('x-ratelimit-reset-requests', '12ms'), ('x-ratelimit-reset-tokens', '185ms'), ('x-request-id', 'req_6c348498a710db32351a945960090f12'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=t4kgLPKAQeIojenFa7O_33MtFaUFlak49sUDdKy1p44-1733743464-1.0.1.1-I1HGwEeoKlLo9Tsen4gYu4_LXGlPskdQgy9qTfMwwoSB5FSG_bfZU6FntTAZSB6dIYFWv_vfCXE9EMgvu4uWLg; path=/; expires=Mon, 09-Dec-24 11:54:24 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=0i8cdV6uviDzU7xBrjwdFU_xmFQDaVmpBqwTcxbNnSA-1733743464406-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8ef4a0aaa9443d93-SIN'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-12-09 11:24:14,177 - openai._base_client - DEBUG - request_id: req_6c348498a710db32351a945960090f12
+2024-12-09 11:24:14,182 - __main__ - DEBUG - Order 3000, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response received in 11.06s
+2024-12-09 11:24:14,182 - __main__ - DEBUG - Processed row - Order: 3000
+2024-12-09 11:24:14,183 - __main__ - DEBUG - Response: [{"situation":"Sarah và Tom, hàng xóm, tại một công viên cộng đồng","situation_en":"Sarah and Tom, neighbors, at a community park","conversation":[{"role":"female_1","content":"Cậu biết không, gia đình tớ là một gia đình hạt nhân đấy.","translation_en":"You know, my family is a <r>nuclear family</r>."},{"role":"male_1","content":"Thật à? Gia đình tớ cũng vậy. Chỉ có bố mẹ và hai đứa trẻ.","translation_en":"Really? My family is the same. Just parents and two kids."},{"role":"female_2","content":"Thú vị nhỉ? Tớ luôn nghĩ rằng sống trong gia đình hạt nhân giúp mọi người gần gũi nhau hơn.","translation_en":"Interesting, isn't it? I always think that living in a nuclear family brings everyone closer together."},{"role":"male_2","content":"Đúng vậy. Mà cậu thấy không, công viên này cũng giống như một gia đình lớn vậy.","translation_en":"Exactly. And you know, this park feels like one big family too."}]}]
+2024-12-09 11:24:14,189 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are now a award-winning writer. You write  conversations between a man an a woman.\n- Language: Vietnamese. Setting: in the western countries.\n- use American names for 2 people.\n- Anh/chị - em, cậu - tớ, bố/mẹ - con correspoding relationship between them.\n- The conversation will have 2 turns, each person talk twice\n- The conversation is intersting, dramatic, witty, humourous, and natural. \n- the content doesn\'t have <r> tag\n- The translation_en contain the given vocab in  <r> vocab </r>\n- The given word appear only once in translation_en.\n- <gender> are exactly \'male\' and \'female\'\n\nEXAMPLE:\ngo to school - đi học:\n"content":"Tớ muốn đi học cơ" \n"translation_en":"I really want to <r>go to school</r>!"\n\noutput format:\n[{"situation":"brief desctiption of 2 people name, their relation, where they are","situation_en":"translate situation to English","conversation":[{"role":"<gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_1","content":"their dialog","translation_en":"English translation"},{"role":"<gender>_2","content":"their dialog","translation_en":"English translation"},{"role":"<other_gender>_2","content":"their dialog","translation_en":"English translation"}]}]'}, {'role': 'user', 'content': 'Topic: talk about your family - Family size and type\nGiven vocabulary: Generational family\nSituation: Aubrey and Isaac, engineers, at a construction site'}], 'model': 'gpt-4-turbo-preview', 'frequency_penalty': 0.0, 'max_tokens': 1500, 'presence_penalty': 0.0, 'temperature': 0, 'top_p': 1}}
+2024-12-09 11:24:14,190 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-09 11:24:14,191 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-09 11:24:14,191 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-09 11:24:14,192 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-09 11:24:14,192 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-09 11:24:14,193 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-09 11:24:25,770 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 09 Dec 2024 11:24:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'step-up-ognepk'), (b'openai-processing-ms', b'11212'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'5000'), (b'x-ratelimit-limit-tokens', b'600000'), (b'x-ratelimit-remaining-requests', b'4999'), (b'x-ratelimit-remaining-tokens', b'598146'), (b'x-ratelimit-reset-requests', b'12ms'), (b'x-ratelimit-reset-tokens', b'185ms'), (b'x-request-id', b'req_f2395d25db71f2a83e9c415a269df3bf'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8ef4a0ed0e503d93-SIN'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-09 11:24:25,771 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-09 11:24:25,771 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-09 11:24:25,772 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-09 11:24:25,772 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-09 11:24:25,772 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-09 11:24:25,773 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 09 Dec 2024 11:24:36 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'step-up-ognepk', 'openai-processing-ms': '11212', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '5000', 'x-ratelimit-limit-tokens': '600000', 'x-ratelimit-remaining-requests': '4999', 'x-ratelimit-remaining-tokens': '598146', 'x-ratelimit-reset-requests': '12ms', 'x-ratelimit-reset-tokens': '185ms', 'x-request-id': 'req_f2395d25db71f2a83e9c415a269df3bf', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8ef4a0ed0e503d93-SIN', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-12-09 11:24:25,773 - openai._base_client - DEBUG - request_id: req_f2395d25db71f2a83e9c415a269df3bf
+2024-12-09 11:24:25,774 - __main__ - DEBUG - Order 2000, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response received in 11.59s
+2024-12-09 11:24:25,775 - __main__ - DEBUG - Processed row - Order: 2000
+2024-12-09 11:24:25,775 - __main__ - DEBUG - Response: [{"situation":"Aubrey và Isaac, hai kỹ sư, đang ở tại công trường","situation_en":"Aubrey and Isaac, engineers, at a construction site","conversation":[{"role":"female_1","content":"Cậu biết không, gia đình tớ là một gia đình đa thế hệ đấy.","translation_en":"You know, my family is a <r>Generational family</r>."},{"role":"male_1","content":"Thật à? Gia đình tớ chỉ có bố mẹ và hai anh em thôi.","translation_en":"Really? My family just consists of my parents and my sibling."},{"role":"female_2","content":"Ừ, ở nhà tớ có từ ông bà cho đến cháu chắt. Mỗi bữa cơm như một bữa tiệc vậy.","translation_en":"Yeah, at my house, we have everyone from grandparents to grandchildren. Every meal is like a feast."},{"role":"male_2","content":"Nghe thú vị đấy! Gia đình tớ thì yên tĩnh lắm, đôi khi tớ cũng muốn thử cảm giác ồn ào như vậy.","translation_en":"That sounds interesting! My family is very quiet, sometimes I also want to experience that kind of noise."}]}]
+2024-12-09 11:24:25,795 - __main__ - INFO - Output saved to /app/output/output_draft.xlsx
+2024-12-09 11:24:25,796 - __main__ - INFO - Starting story data processing
+2024-12-09 11:24:25,810 - __main__ - DEBUG - Processing story data for order 3000, week 10
+2024-12-09 11:24:25,810 - __main__ - DEBUG - Processing story data for order 2000, week 20
+2024-12-09 11:24:25,828 - __main__ - INFO - Story data processing complete, saved to /app/output/output_story.xlsx
+2024-12-09 11:24:25,828 - __main__ - INFO - Starting audio generation
+2024-12-09 11:24:25,842 - __main__ - DEBUG - Generating audio for order 3000, week 10
+2024-12-09 11:24:25,843 - __main__ - DEBUG - Sending TTS request for order 3000, week 10, role female_1
+2024-12-09 11:24:25,845 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:24:25,861 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:24:26,897 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 147022
+2024-12-09 11:24:26,920 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/3000/female_1.wav
+2024-12-09 11:24:26,920 - __main__ - DEBUG - Sending TTS request for order 3000, week 10, role male_1
+2024-12-09 11:24:26,921 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:24:26,935 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:24:28,526 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 256078
+2024-12-09 11:24:28,563 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/3000/male_1.wav
+2024-12-09 11:24:28,564 - __main__ - DEBUG - Sending TTS request for order 3000, week 10, role female_2
+2024-12-09 11:24:28,566 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:24:28,581 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:24:30,495 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 316494
+2024-12-09 11:24:30,538 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/3000/female_2.wav
+2024-12-09 11:24:30,539 - __main__ - DEBUG - Sending TTS request for order 3000, week 10, role male_2
+2024-12-09 11:24:30,540 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:24:30,554 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:24:32,117 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 251470
+2024-12-09 11:24:32,152 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_10/3000/male_2.wav
+2024-12-09 11:24:32,153 - __main__ - DEBUG - Generating audio for order 2000, week 20
+2024-12-09 11:24:32,154 - __main__ - DEBUG - Sending TTS request for order 2000, week 20, role female_1
+2024-12-09 11:24:32,155 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:24:32,178 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:24:33,208 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 155726
+2024-12-09 11:24:33,242 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2000/female_1.wav
+2024-12-09 11:24:33,242 - __main__ - DEBUG - Sending TTS request for order 2000, week 20, role male_1
+2024-12-09 11:24:33,244 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:24:33,271 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:24:34,776 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 242766
+2024-12-09 11:24:34,847 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2000/male_1.wav
+2024-12-09 11:24:34,847 - __main__ - DEBUG - Sending TTS request for order 2000, week 20, role female_2
+2024-12-09 11:24:34,849 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:24:34,871 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:24:36,733 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 309838
+2024-12-09 11:24:36,777 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2000/female_2.wav
+2024-12-09 11:24:36,777 - __main__ - DEBUG - Sending TTS request for order 2000, week 20, role male_2
+2024-12-09 11:24:36,779 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 103.253.20.13:25006
+2024-12-09 11:24:36,793 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio HTTP/11" 307 0
+2024-12-09 11:24:38,979 - urllib3.connectionpool - DEBUG - http://103.253.20.13:25006 "POST /tts_to_audio/ HTTP/11" 200 372302
+2024-12-09 11:24:39,046 - __main__ - DEBUG - Audio file saved: /app/output/output_audio/week_20/2000/male_2.wav
+2024-12-09 11:24:39,046 - __main__ - INFO - Audio generation complete
+2024-12-09 11:24:39,047 - __main__ - INFO - Processing complete. Final output saved to: /app/output/output_story.xlsx
