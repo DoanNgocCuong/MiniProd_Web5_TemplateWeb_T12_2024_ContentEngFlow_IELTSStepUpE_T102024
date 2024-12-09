@@ -93,9 +93,18 @@ def list_files(folder):
             'success': False,
             'error': str(e)
         }), 500
-
 @bp.route('/download/<folder>/<path:filename>', methods=['GET'])
 def download_folder_file(folder, filename):
+    """Tải xuống một file hoặc thư mục từ thư mục được chỉ định
+
+    Args:
+        folder (str): Tên thư mục chứa file/folder cần tải xuống. Có thể là 'uploads', 'output' hoặc 'example'
+        filename (str): Tên file hoặc thư mục cần tải xuống
+
+    Returns:
+        flask.Response: Response chứa file hoặc zip folder để tải xuống
+        hoặc jsonify response với thông báo lỗi nếu có
+    """
     try:
         if folder not in ['uploads', 'output', 'example']:
             return jsonify({'error': 'Invalid folder'}), 400
@@ -142,25 +151,41 @@ def download_folder_file(folder, filename):
 
 @bp.route('/download/<folder>/all', methods=['GET'])
 def download_all(folder):
+    """
+    Download all files in a specified folder as a zip file.
+
+    Parameters:
+    folder (str): The name of the folder to download. It can be 'uploads', 'output', or 'example'.
+
+    Returns:
+    flask.Response: A Flask response object containing the zip file as a downloadable attachment.
+    
+    Detai: 
+    1. Thay vì chỉ xóa files, giờ sẽ xóa cả files và folders
+    2. Dùng `os.listdir()` để lấy danh sách tất cả items trong OUTPUT_FOLDER
+    3. Nếu item là file thì dùng `os.remove()`, nếu là folder thì dùng `shutil.rmtree()`
+    4. Giữ nguyên folder gốc OUTPUT_FOLDER
+    5. Log lại kết quả việc dọn dẹp
+    """
     try:
         if folder not in ['uploads', 'output', 'example']:
             return jsonify({'error': 'Invalid folder'}), 400
-            
+
         folder_path = UPLOAD_FOLDER if folder == 'uploads' else OUTPUT_FOLDER
-        
+
         # Create temporary zip file
         import tempfile
         import zipfile
-        
+
         temp_zip = tempfile.NamedTemporaryFile(delete=False, suffix='.zip')
-        
+
         with zipfile.ZipFile(temp_zip.name, 'w', zipfile.ZIP_DEFLATED) as zipf:
             for root, dirs, files in os.walk(folder_path):
                 for file in files:
                     file_path = os.path.join(root, file)
                     arc_name = os.path.relpath(file_path, folder_path)
                     zipf.write(file_path, arc_name)
-        
+
         response = send_file(
             temp_zip.name,
             mimetype='application/zip',
@@ -168,21 +193,24 @@ def download_all(folder):
             download_name=f"{folder}_all.zip"
         )
 
-        # Xóa tất cả files trong OUTPUT_FOLDER và các thư mục con, giữ nguyên cấu trúc thư mục
+        # Delete all files in OUTPUT_FOLDER and its subdirectories, keeping the directory structure intact
         if folder == 'output':
-            for root, dirs, files in os.walk(folder_path):
-                for file in files:
-                    file_path = os.path.join(root, file)
-                    try:
-                        os.remove(file_path)
-                        logger.info(f"Deleted file: {file_path}")
-                    except Exception as e:
-                        logger.error(f"Error deleting file {file_path}: {str(e)}")
-        
+            try:
+                # Xóa tất cả nội dung trong OUTPUT_FOLDER
+                for item in os.listdir(folder_path):
+                    item_path = os.path.join(folder_path, item)
+                    if os.path.isfile(item_path):
+                        os.remove(item_path)
+                    else:
+                        shutil.rmtree(item_path)
+                logger.info(f"Cleaned output folder: {folder_path}")
+            except Exception as e:
+                logger.error(f"Error cleaning output folder: {str(e)}")
+
         return response
-            
+
     except Exception as e:
         return jsonify({
             'success': False,
             'error': str(e)
-        }), 500 
+        }), 500
