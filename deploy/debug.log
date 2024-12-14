@@ -1,0 +1,206 @@
+2024-12-12 21:18:03,805 - __main__ - DEBUG - OpenAI API key loaded: ********************************************************************************************************************************************************************
+2024-12-12 21:18:03,805 - __main__ - DEBUG - Upload folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\uploads
+2024-12-12 21:18:03,805 - __main__ - DEBUG - Output folder path: d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output
+2024-12-12 21:18:03,805 - __main__ - INFO - Starting main process
+2024-12-12 21:18:03,805 - __main__ - INFO - Starting initial data processing
+2024-12-12 21:18:04,289 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-12-12 21:18:04,292 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\User\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\certifi\\cacert.pem'
+2024-12-12 21:18:05,046 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-12 21:18:05,046 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-12-12 21:18:05,193 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001DC2F4B60F0>
+2024-12-12 21:18:05,193 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001DC2F783F50> server_hostname='api.openai.com' timeout=5.0
+2024-12-12 21:18:05,362 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001DC2E036BA0>
+2024-12-12 21:18:05,370 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:05,370 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-12 21:18:05,370 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-12 21:18:05,370 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-12 21:18:05,370 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:05,723 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Thu, 12 Dec 2024 14:18:16 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'414'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_30609631df54545e8f8832369f1ddf43'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=qN3bhEQw7H1VuAQamUi5_M39WP_bNsNeAwPkJISZaJ4-1734013096-1.0.1.1-QxKx5FEbD5QKA_f1GI648.nlu9anAFVDcX7DsE11A.4f..mzBE6dUjFhbJFPJOAD5s9R.Kf21NDI1pCFtupqEA; path=/; expires=Thu, 12-Dec-24 14:48:16 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=4n9F1edpWtDLy1iOpXqQRmjOexW5xCQR1kBkG9wF7qk-1734013096587-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8f0e57bbfeefdd57-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-12 21:18:05,728 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-12-12 21:18:05,729 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-12 21:18:05,729 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-12 21:18:05,729 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-12 21:18:05,729 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-12 21:18:05,729 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers([('date', 'Thu, 12 Dec 2024 14:18:16 GMT'), ('content-type', 'application/json; charset=utf-8'), ('content-length', '414'), ('connection', 'keep-alive'), ('vary', 'Origin'), ('x-request-id', 'req_30609631df54545e8f8832369f1ddf43'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=qN3bhEQw7H1VuAQamUi5_M39WP_bNsNeAwPkJISZaJ4-1734013096-1.0.1.1-QxKx5FEbD5QKA_f1GI648.nlu9anAFVDcX7DsE11A.4f..mzBE6dUjFhbJFPJOAD5s9R.Kf21NDI1pCFtupqEA; path=/; expires=Thu, 12-Dec-24 14:48:16 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=4n9F1edpWtDLy1iOpXqQRmjOexW5xCQR1kBkG9wF7qk-1734013096587-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8f0e57bbfeefdd57-HKG'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-12-12 21:18:05,733 - openai._base_client - DEBUG - request_id: req_30609631df54545e8f8832369f1ddf43
+2024-12-12 21:18:05,733 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\openai\_base_client.py", line 1038, in _request
+    response.raise_for_status()
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\httpx\_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2024-12-12 21:18:05,737 - openai._base_client - DEBUG - Not retrying
+2024-12-12 21:18:05,737 - openai._base_client - DEBUG - Re-raising status error
+2024-12-12 21:18:08,758 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-12 21:18:08,761 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:08,761 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-12 21:18:08,761 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-12 21:18:08,761 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-12 21:18:08,761 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:09,101 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Thu, 12 Dec 2024 14:18:19 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'414'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_d0da238bb2b3f0e36a30c6b93c47cf69'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8f0e57d12b84dd57-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-12 21:18:09,101 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-12-12 21:18:09,101 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-12 21:18:09,101 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-12 21:18:09,101 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-12 21:18:09,101 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-12 21:18:09,101 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers({'date': 'Thu, 12 Dec 2024 14:18:19 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '414', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_d0da238bb2b3f0e36a30c6b93c47cf69', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8f0e57d12b84dd57-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-12-12 21:18:09,101 - openai._base_client - DEBUG - request_id: req_d0da238bb2b3f0e36a30c6b93c47cf69
+2024-12-12 21:18:09,115 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\openai\_base_client.py", line 1038, in _request
+    response.raise_for_status()
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\httpx\_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2024-12-12 21:18:09,117 - openai._base_client - DEBUG - Not retrying
+2024-12-12 21:18:09,117 - openai._base_client - DEBUG - Re-raising status error
+2024-12-12 21:18:12,136 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-12 21:18:12,136 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:12,136 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-12 21:18:12,136 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-12 21:18:12,136 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-12 21:18:12,136 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:12,484 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Thu, 12 Dec 2024 14:18:23 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'414'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_c12edde3314a8383042c5ecd60becf19'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8f0e57e6492add57-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-12 21:18:12,484 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-12-12 21:18:12,484 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-12 21:18:12,484 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-12 21:18:12,494 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-12 21:18:12,494 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-12 21:18:12,494 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers({'date': 'Thu, 12 Dec 2024 14:18:23 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '414', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_c12edde3314a8383042c5ecd60becf19', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8f0e57e6492add57-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-12-12 21:18:12,496 - openai._base_client - DEBUG - request_id: req_c12edde3314a8383042c5ecd60becf19
+2024-12-12 21:18:12,496 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\openai\_base_client.py", line 1038, in _request
+    response.raise_for_status()
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\httpx\_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2024-12-12 21:18:12,501 - openai._base_client - DEBUG - Not retrying
+2024-12-12 21:18:12,501 - openai._base_client - DEBUG - Re-raising status error
+2024-12-12 21:18:12,504 - __main__ - ERROR - Order 3000, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Nuclear family
+Situation: Sarah and Tom, neighbors, at a community park', Response: 'Request failed after 2 retries.'
+2024-12-12 21:18:12,504 - __main__ - DEBUG - Processed row - Order: 3000
+2024-12-12 21:18:12,504 - __main__ - DEBUG - Response: Request failed after 2 retries.
+2024-12-12 21:18:12,540 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-12 21:18:12,540 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:12,540 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-12 21:18:12,540 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-12 21:18:12,540 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-12 21:18:12,540 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:12,893 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Thu, 12 Dec 2024 14:18:23 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'414'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_eb819d31eae3f35429d0f5a7f849f842'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8f0e57e8ca40dd57-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-12 21:18:12,894 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-12-12 21:18:12,894 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-12 21:18:12,895 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-12 21:18:12,895 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-12 21:18:12,896 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-12 21:18:12,896 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers({'date': 'Thu, 12 Dec 2024 14:18:23 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '414', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_eb819d31eae3f35429d0f5a7f849f842', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8f0e57e8ca40dd57-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-12-12 21:18:12,897 - openai._base_client - DEBUG - request_id: req_eb819d31eae3f35429d0f5a7f849f842
+2024-12-12 21:18:12,898 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\openai\_base_client.py", line 1038, in _request
+    response.raise_for_status()
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\httpx\_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2024-12-12 21:18:12,900 - openai._base_client - DEBUG - Not retrying
+2024-12-12 21:18:12,900 - openai._base_client - DEBUG - Re-raising status error
+2024-12-12 21:18:15,917 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-12 21:18:15,923 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:15,923 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-12 21:18:15,923 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-12 21:18:15,923 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-12 21:18:15,923 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:16,270 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Thu, 12 Dec 2024 14:18:27 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'414'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_c9b8b3e2ccffbf946866ce197c3bbf90'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8f0e57fdedf0dd57-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-12 21:18:16,270 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-12-12 21:18:16,273 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-12 21:18:16,274 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-12 21:18:16,274 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-12 21:18:16,274 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-12 21:18:16,274 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers({'date': 'Thu, 12 Dec 2024 14:18:27 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '414', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_c9b8b3e2ccffbf946866ce197c3bbf90', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8f0e57fdedf0dd57-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-12-12 21:18:16,276 - openai._base_client - DEBUG - request_id: req_c9b8b3e2ccffbf946866ce197c3bbf90
+2024-12-12 21:18:16,277 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\openai\_base_client.py", line 1038, in _request
+    response.raise_for_status()
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\httpx\_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2024-12-12 21:18:16,277 - openai._base_client - DEBUG - Not retrying
+2024-12-12 21:18:16,277 - openai._base_client - DEBUG - Re-raising status error
+2024-12-12 21:18:19,300 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-12-12 21:18:19,301 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:19,301 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-12-12 21:18:19,302 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-12-12 21:18:19,302 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-12-12 21:18:19,302 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-12-12 21:18:19,650 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Thu, 12 Dec 2024 14:18:30 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'414'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_7624f4db88eb96cefa0ffb9cac3aaa1b'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8f0e58130946dd57-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-12 21:18:19,650 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2024-12-12 21:18:19,650 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-12-12 21:18:19,657 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-12-12 21:18:19,657 - httpcore.http11 - DEBUG - response_closed.started
+2024-12-12 21:18:19,658 - httpcore.http11 - DEBUG - response_closed.complete
+2024-12-12 21:18:19,658 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers({'date': 'Thu, 12 Dec 2024 14:18:30 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '414', 'connection': 'keep-alive', 'vary': 'Origin', 'x-request-id': 'req_7624f4db88eb96cefa0ffb9cac3aaa1b', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8f0e58130946dd57-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-12-12 21:18:19,658 - openai._base_client - DEBUG - request_id: req_7624f4db88eb96cefa0ffb9cac3aaa1b
+2024-12-12 21:18:19,658 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\openai\_base_client.py", line 1038, in _request
+    response.raise_for_status()
+  File "C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\httpx\_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2024-12-12 21:18:19,661 - openai._base_client - DEBUG - Not retrying
+2024-12-12 21:18:19,661 - openai._base_client - DEBUG - Re-raising status error
+2024-12-12 21:18:19,661 - __main__ - ERROR - Order 2000, Input: 'Topic: talk about your family - Family size and type
+Given vocabulary: Generational family
+Situation: Aubrey and Isaac, engineers, at a construction site', Response: 'Request failed after 2 retries.'
+2024-12-12 21:18:19,661 - __main__ - DEBUG - Processed row - Order: 2000
+2024-12-12 21:18:19,661 - __main__ - DEBUG - Response: Request failed after 2 retries.
+2024-12-12 21:18:19,813 - __main__ - INFO - Output saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_draft.xlsx
+2024-12-12 21:18:19,829 - __main__ - INFO - Starting story data processing
+2024-12-12 21:18:19,829 - __main__ - DEBUG - Processing story data for order 3000, week 10
+2024-12-12 21:18:19,829 - __main__ - WARNING - Invalid JSON for order 3000, skipping
+2024-12-12 21:18:19,829 - __main__ - DEBUG - Processing story data for order 2000, week 20
+2024-12-12 21:18:19,829 - __main__ - WARNING - Invalid JSON for order 2000, skipping
+2024-12-12 21:18:19,869 - __main__ - INFO - Story data processing complete, saved to d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\output\output_story.xlsx
+2024-12-12 21:18:19,869 - __main__ - INFO - Starting audio generation
+2024-12-12 21:18:19,888 - __main__ - DEBUG - Generating audio for order 3000, week 10
+2024-12-12 21:18:19,888 - __main__ - ERROR - Error in generate_audio: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 239, in generate_audio
+    data = json.loads(row['json'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2288.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2288.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2288.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2024-12-12 21:18:19,889 - __main__ - ERROR - Error in main: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 279, in main
+    generate_audio()
+  File "d:\OneDrive - Hanoi University of Science and Technology\GIT\MiniProd_ContentEngFlow_IELTSStepUpE_T102024\deploy\backend\scripts\generate_story.py", line 239, in generate_audio
+    data = json.loads(row['json'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2288.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2288.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2288.0_x64__qbz5n2kfra8p0\Lib\json\decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2024-12-12 21:18:19,987 - httpcore.connection - DEBUG - close.started
+2024-12-12 21:18:20,051 - httpcore.connection - DEBUG - close.complete

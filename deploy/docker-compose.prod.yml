@@ -18,14 +18,14 @@ services:
       args:
         - NODE_ENV=production
         # Thêm dòng này để GHI ĐÈ lại URL API mặc định trong config.js
-        # - REACT_APP_API_URL=http://103.253.20.13:25037 
+        - REACT_APP_API_URL=http://103.253.20.13:25037 
         # Trong config.js có dòng [REACT_APP_API_URL=http://103.253.20.13:25037] cho production rồi 
     ports:
       - "25038:3000"
     environment:
       - NODE_ENV=production
       # Thêm dòng này để GHI ĐÈ lại URL API mặc định trong config.js
-      # - REACT_APP_API_URL=http://103.253.20.13:25037  
+      - REACT_APP_API_URL=http://103.253.20.13:25037  
     depends_on:
       - backend
     networks:

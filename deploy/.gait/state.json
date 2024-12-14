@@ -3374,12 +3374,12 @@
     "deletedPanelChatIDs": []
   },
   "kv_store": {
-    "unique_matched_lines_count": 548,
-    "total_repo_line_count": 6770,
+    "unique_matched_lines_count": 581,
+    "total_repo_line_count": 6436,
     "best_prompt_response": {
       "prompt": "Cho full file đi",
       "response": "Đây là phiên bản đầy đủ của file `generate_meaning.py` với cấu trúc thư mục đã được cập nhật:\n\n```python:backend/scripts/generate_meaning.py\nimport subprocess\nimport os\nimport re\nimport json\nimport time\nimport pandas as pd\nfrom openai import OpenAI\nfrom pathlib import Path\nfrom dotenv import load_dotenv\nimport sys\n\n# Set console output encoding to UTF-8\nsys.stdout.reconfigure(encoding='utf-8')\n\n# Load environment variables from .env file\nload_dotenv()\n\n# Initialize OpenAI client\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n\nUPLOAD_FOLDER = Path(__file__).parent.parent / 'uploads'\nOUTPUT_FOLDER = Path(__file__).parent.parent / 'output'  # Define output folder\nOUTPUT_MEANING_FOLDER = OUTPUT_FOLDER / 'output_meaning'  # Define output subfolder for meaning exercises\ndata = pd.read_excel(UPLOAD_FOLDER / 'data.xlsx')\n\n# Create an empty list to store the output data\noutput_data = []\n\ndef save_audio_file(text, order):\n    try:\n        # Create numbered folder inside output_meaning\n        order_folder = OUTPUT_MEANING_FOLDER / str(order)\n        order_folder.mkdir(parents=True, exist_ok=True)\n        \n        # Define output file path\n        output_file = order_folder / 'choose_answer.mp3'\n        \n        # Execute curl command with updated output path\n        curl_command = [\n            \"curl\", \"-L\", \"-X\", \"POST\", \n            \"http://103.253.20.13:25010/api/text-to-speech\",\n            \"-H\", \"Content-Type: application/json\",\n            \"-d\", json.dumps({\n                \"text\": text, \n                \"voice\": \"en-CA-ClaraNeural\", \n                \"speed\": 1\n            }),\n            \"--output\", str(output_file)\n        ]\n        result = subprocess.run(curl_command, capture_output=True)\n        \n        # Check for errors in the output\n        if result.returncode != 0:\n            print(f\"Error executing curl command: {result.stderr.decode('utf-8', errors='replace')}\")\n        else:\n            print(f\"Audio file saved successfully: {output_file}\")\n            \n    except Exception as e:\n        print(f\"Error saving audio file for order {order}: {e}\")\n\n# Loop through each row in the Excel file\nfor index, row in data.iterrows():\n    prompt = row['prompt_meaning']\n    message = row['vocabulary']\n    order = row['order']\n    start_time = time.time()    \n    try:\n        response = client.chat.completions.create(\n            model=\"gpt-4o-mini\",\n            temperature=0,\n            max_tokens=2500,\n            top_p=1,\n            frequency_penalty=0.0,\n            presence_penalty=1,\n            messages=[\n                {\"role\": \"system\", \"content\": prompt},\n                {\"role\": \"user\", \"content\": message}\n            ]\n        )\n        \n        response_content = response.choices[0].message.content\n        end_time = time.time()\n        print(response_content)\n        \n        # Parse the JSON response content\n        response_json = json.loads(response_content)\n        \n        # Extract the 'question', 'answer', and 'explain' fields\n        question = response_json.get(\"question\", \"\").strip()\n        answer = response_json.get(\"answer\", \"\").strip()\n        explain = response_json.get(\"explain\", \"\").strip()\n        \n        # Generate the audio URL using the order value\n        audio_url = f\"https://smedia.stepup.edu.vn/ielts/chunking/listening/{order}/choose_answer.mp3\"\n        \n        # Append the output to the list\n        output_data.append({\n            \"id\": f\"vs_choose_answer_question_{order}\",\n            \"vocabulary_id\": f\"vocab_{order}\",\n            \"title\": \"CHỌN ĐÁP ÁN\",\n            \"order\": \"4\",\n            \"progress\": \"TRẮC NGHIỆM\",\n            \"question\": question,\n            \"answer\": answer,\n            \"audio\": audio_url,\n            \"feedback_1\": explain\n        })\n\n        # Create output directory if it doesn't exist\n        if not os.path.exists(OUTPUT_MEANING_FOLDER):\n            os.makedirs(OUTPUT_MEANING_FOLDER)\n\n        # Save audio file using the new function\n        save_audio_file(question, order)\n\n    except Exception as e:\n        print(f\"Error processing row {index}: {e}\")\n\n# Convert the output list to a DataFrame and save it to an Excel file\noutput_df = pd.DataFrame(output_data)\noutput_df.to_excel(f'{OUTPUT_FOLDER}/output_meaning.xlsx', index=False)\n```\n\nNhững thay đổi chính so với phiên bản trước:\n1. Thêm hàm `save_audio_file()` để xử lý việc lưu file audio theo cấu trúc thư mục mới\n2. Loại bỏ phần curl command cũ\n3. Thêm kiểm tra lỗi và thông báo khi lưu file audio\n4. Cập nhật đường dẫn lưu file để phù hợp với cấu trúc thư mục mới: `output_meaning/{order}/choose_answer.mp3`",
-      "match_count": 89,
+      "match_count": 74,
       "file": "backend/scripts/generate_meaning.py"
     },
     "file_statistics": [
@@ -3391,75 +3391,21 @@
       },
       {
         "file": "HowRun.md",
-        "total_lines": 12,
+        "total_lines": 26,
         "ai_generated_lines": 1,
-        "ai_generated_percentage": 8.333333333333332
+        "ai_generated_percentage": 3.8461538461538463
       },
       {
-        "file": "N",
+        "file": "backend/.env.example",
         "total_lines": 1,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note1_CauTruc.ipynb",
-        "total_lines": 570,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note1_NeedDo.ipynb",
-        "total_lines": 1,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note2_setUpReAct_UploadFile.ipynb",
-        "total_lines": 334,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note3_connectBackend_testUploadFile.ipynb",
-        "total_lines": 106,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note4_API.ipynb",
-        "total_lines": 392,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note4_env.ipynb",
-        "total_lines": 112,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note5_BuildAPI.ipynb",
-        "total_lines": 39,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note6_2LoaiCauTruc_CachLuuCSSJS.ipynb",
-        "total_lines": 262,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "Note6_Refactor_Optimize_UploadJS.ipynb",
-        "total_lines": 422,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
       },
       {
         "file": "backend/Dockerfile",
-        "total_lines": 12,
+        "total_lines": 19,
         "ai_generated_lines": 6,
-        "ai_generated_percentage": 50
+        "ai_generated_percentage": 31.57894736842105
       },
       {
         "file": "backend/api.md",
@@ -3487,21 +3433,39 @@
       },
       {
         "file": "backend/api/files/routes.py",
-        "total_lines": 164,
-        "ai_generated_lines": 126,
-        "ai_generated_percentage": 76.82926829268293
+        "total_lines": 217,
+        "ai_generated_lines": 124,
+        "ai_generated_percentage": 57.14285714285714
       },
       {
         "file": "backend/api/scripts.py",
-        "total_lines": 51,
-        "ai_generated_lines": 12,
-        "ai_generated_percentage": 23.52941176470588
+        "total_lines": 94,
+        "ai_generated_lines": 9,
+        "ai_generated_percentage": 9.574468085106384
+      },
+      {
+        "file": "backend/api_Audio.md",
+        "total_lines": 36,
+        "ai_generated_lines": 1,
+        "ai_generated_percentage": 2.7777777777777777
       },
       {
         "file": "backend/app.py",
         "total_lines": 15,
-        "ai_generated_lines": 10,
-        "ai_generated_percentage": 66.66666666666666
+        "ai_generated_lines": 9,
+        "ai_generated_percentage": 60
+      },
+      {
+        "file": "backend/app_basic.py",
+        "total_lines": 15,
+        "ai_generated_lines": 9,
+        "ai_generated_percentage": 60
+      },
+      {
+        "file": "backend/app_secret.py",
+        "total_lines": 59,
+        "ai_generated_lines": 8,
+        "ai_generated_percentage": 13.559322033898304
       },
       {
         "file": "backend/config.py",
@@ -3510,8 +3474,14 @@
         "ai_generated_percentage": 0
       },
       {
-        "file": "backend/data/data - Copy.xlsx",
-        "total_lines": 65,
+        "file": "backend/example/data.xlsx",
+        "total_lines": 40,
+        "ai_generated_lines": 0,
+        "ai_generated_percentage": 0
+      },
+      {
+        "file": "backend/example/data_new.xlsx",
+        "total_lines": 60,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
       },
@@ -3523,69 +3493,57 @@
       },
       {
         "file": "backend/scripts/debug.log",
-        "total_lines": 1585,
+        "total_lines": 4596,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
       },
       {
         "file": "backend/scripts/generate_ipa.py",
-        "total_lines": 112,
-        "ai_generated_lines": 79,
-        "ai_generated_percentage": 70.53571428571429
+        "total_lines": 148,
+        "ai_generated_lines": 65,
+        "ai_generated_percentage": 43.91891891891892
       },
       {
         "file": "backend/scripts/generate_meaning.py",
-        "total_lines": 114,
-        "ai_generated_lines": 90,
-        "ai_generated_percentage": 78.94736842105263
+        "total_lines": 142,
+        "ai_generated_lines": 79,
+        "ai_generated_percentage": 55.633802816901415
       },
       {
         "file": "backend/scripts/generate_story.py",
-        "total_lines": 284,
-        "ai_generated_lines": 44,
-        "ai_generated_percentage": 15.492957746478872
+        "total_lines": 288,
+        "ai_generated_lines": 39,
+        "ai_generated_percentage": 13.541666666666666
       },
       {
         "file": "backend/uploads/data.xlsx",
-        "total_lines": 31,
+        "total_lines": 39,
         "ai_generated_lines": 0,
         "ai_generated_percentage": 0
       },
       {
-        "file": "deploy1.1_BugDocker.ipynb",
-        "total_lines": 208,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
+        "file": "docker-compose.build.yml",
+        "total_lines": 42,
+        "ai_generated_lines": 32,
+        "ai_generated_percentage": 76.19047619047619
       },
       {
-        "file": "deploy1.1_Note7_BuildShowDownloadOutput.ipynb",
-        "total_lines": 270,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "deploy1.1_Note7_Docker.ipynb",
-        "total_lines": 666,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
-      },
-      {
-        "file": "deploy1.2_Note8_Update_DownAll_ParallelAPI.ipynb",
-        "total_lines": 394,
-        "ai_generated_lines": 0,
-        "ai_generated_percentage": 0
+        "file": "docker-compose.prod.bug.yml",
+        "total_lines": 44,
+        "ai_generated_lines": 28,
+        "ai_generated_percentage": 63.63636363636363
       },
       {
         "file": "docker-compose.prod.yml",
-        "total_lines": 33,
-        "ai_generated_lines": 30,
-        "ai_generated_percentage": 90.9090909090909
+        "total_lines": 36,
+        "ai_generated_lines": 29,
+        "ai_generated_percentage": 80.55555555555556
       },
       {
         "file": "docker-compose.yml",
-        "total_lines": 40,
-        "ai_generated_lines": 37,
-        "ai_generated_percentage": 92.5
+        "total_lines": 44,
+        "ai_generated_lines": 29,
+        "ai_generated_percentage": 65.9090909090909
       }
     ]
   }
