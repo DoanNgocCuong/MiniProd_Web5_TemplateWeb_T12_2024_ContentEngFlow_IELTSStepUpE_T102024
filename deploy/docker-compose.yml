@@ -2,7 +2,11 @@ version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      cache_from:
+        - deploy-backend:latest
     ports:
       - "25037:5000"
     environment:
@@ -15,6 +19,9 @@ services:
   frontend:
     build:
       context: ./frontend
+      dockerfile: Dockerfile
+      cache_from:
+        - deploy-frontend:latest
       args:
         - NODE_ENV=production
         # Thêm dòng này để GHI ĐÈ lại URL API mặc định trong config.js
