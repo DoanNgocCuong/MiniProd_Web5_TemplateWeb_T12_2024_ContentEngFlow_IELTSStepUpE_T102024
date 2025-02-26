@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "25037:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - FLASK_RUN_HOST=0.0.0.0
+    volumes:
+      - ./backend:/app
+    networks:
+      - app-network
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     args:
+  #       - NODE_ENV=development
+        # Thêm dòng này để GHI ĐÈ lại URL API mặc định trong config.js
+        # - REACT_APP_API_URL=http://localhost:25037
+        # Trong config.js có dòng [REACT_APP_API_URL=http://localhost:25037] cho development rồi 
+  frontend:
+    image: doanngoccuong/content_ieltsstepupeducation:latest        
+    ports:
+      - "25038:3000"
+    environment:
+      - NODE_ENV=development
+      # Thêm dòng này để GHI ĐÈ lại URL API mặc định trong config.js
+      # - REACT_APP_API_URL=http://localhost:25037
+      # Trong config.js có dòng [REACT_APP_API_URL=http://localhost:25037] cho development rồi 
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge 
