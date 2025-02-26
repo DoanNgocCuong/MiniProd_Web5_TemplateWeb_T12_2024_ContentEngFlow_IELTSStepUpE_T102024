@@ -1,0 +1,20 @@
+.script-buttons {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.script-buttons button {
+    margin: 5px;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.script-buttons button:hover {
+    background-color: #45a049;
+} 

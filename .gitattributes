@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Explicitly declare text files you want to always be normalized
+*.js text
+*.jsx text
+*.css text
+*.md text
+*.json text
+*.html text 
